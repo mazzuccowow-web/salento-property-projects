@@ -7,9 +7,9 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'motion/react';
 import { ArrowRight, CheckCircle2, Calculator, Map, Hammer } from 'lucide-react';
 
-import minister from "./photo/minister.png";
-import company from "./photo/compani.png";
-import homeph from "./photo/homeph.jpg";
+import minister from "../photo/minister.png";
+import company from "../photo/compani.png";
+import homeph from "../photo/homeph.jpg";
 
 export default function Home() {
   const { t } = useTranslation();
