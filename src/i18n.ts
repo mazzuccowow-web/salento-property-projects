@@ -47,7 +47,7 @@ const resources = {
         mission: 'Our Mission',
 
         missionDesc1:
-          'Salento Property Projects was founded on a simple realization: international property owners in Southern Italy needed more than just a builder or an agent. They needed a bridge.',
+          'Salento Property Projects was founded on a simple realization: international property owners in Southern Italy needed operational support capable of more effectively structuring and coordinating professionals, contractors, and all stages of the project.',
 
         missionDesc2:
           'With 25 years of experience in the UK operations and finance sectors, we are native Italian speakers who offer the perfect blend of British organizational standards and local expertise. We are well-connected with trained local professionals to ensure every project achieves international-level results.',
