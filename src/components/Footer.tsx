@@ -33,7 +33,6 @@ export default function Footer() {
             <li>{t('home.services.budgeting')}</li>
             <li>{t('home.services.planning')}</li>
             <li>{t('home.services.renovation')}</li>
-            <li>Property Inspection</li>
           </ul>
         </div>
 
@@ -54,20 +53,11 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-
-        <div>
-          <h4 className="text-brand-gold font-serif text-lg mb-6">Contact</h4>
-          <p className="text-sm opacity-80 leading-relaxed font-light">
-            Our team is available for consultations in Nardò and London. Reach out to start your project.
-          </p>
-        </div>
       </div>
       
       <div className="max-w-7xl mx-auto border-t border-brand-beige/10 mt-16 pt-8 text-[10px] uppercase font-medium tracking-widest opacity-40 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-center">
         <span>© 2026 Salento Property Projects. All Rights Reserved.</span>
         <div className="flex space-x-6">
-          <Link to="#">Privacy Policy</Link>
-          <Link to="#">Terms of Service</Link>
         </div>
       </div>
     </footer>
