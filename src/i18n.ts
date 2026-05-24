@@ -167,7 +167,7 @@ const resources = {
           'Con un background influenzato dagli standard britannici di coordinamento operativo e gestione progetti, Andrea aiuta clienti internazionali ad affrontare le complessità delle ristrutturazioni nel Sud Italia con maggiore chiarezza, struttura e sicurezza.',
 
         mirellaName: 'Mirella Lefter',
-        mirellaRole: 'Quantity Surveyor',
+        mirellaRole: 'Responsabile controllo costi', // Modificato qui
         mirellaDesc:
           'Mirella si occupa della gestione economica e del controllo costi dei progetti, aiutando i clienti a comprendere meglio budget, lavorazioni e pianificazione delle ristrutturazioni attraverso un approccio più organizzato e trasparente.',
 
