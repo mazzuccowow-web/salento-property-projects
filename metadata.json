@@ -1,0 +1,8 @@
+{
+  "name": "Salento Property Projects",
+  "description": "International Property Project Management specializing in renovations and property management in Salento, Southern Italy.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
