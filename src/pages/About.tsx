@@ -16,7 +16,6 @@ export default function About() {
   return (
     <div className="pt-32 pb-24" id="about-page">
       <div className="max-w-7xl mx-auto px-6">
-
         {/* TITLE */}
         <header className="mb-20 text-center">
           <motion.h1
@@ -32,7 +31,7 @@ export default function About() {
 
         {/* MISSION */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-32">
-
+          {/* TEXT */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -42,16 +41,15 @@ export default function About() {
             <h2 className="text-3xl font-serif text-brand-black">
               {t('about.mission')}
             </h2>
-
             <p className="text-lg text-brand-taupe leading-relaxed font-light">
               {t('about.missionDesc1')}
             </p>
-
             <p className="text-lg text-brand-taupe leading-relaxed font-light">
               {t('about.missionDesc2')}
             </p>
           </motion.div>
 
+          {/* IMAGE 1 - MISSION */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -66,9 +64,9 @@ export default function About() {
           </motion.div>
         </div>
 
-        {/* WHO WE ARE */}
+        {/* TEAM SECTION */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center flex-row-reverse mb-32">
-
+          {/* IMAGE 2 - TEAM */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -82,17 +80,17 @@ export default function About() {
             />
           </motion.div>
 
+          {/* TEXT */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="space-y-8 md:order-2"
           >
-
+            {/* Chiave di traduzione corretta: about.teamTitle */}
             <h2 className="text-3xl font-serif text-brand-black">
-              {t('about.whoWeAre')}
+              {t('about.teamTitle')}
             </h2>
-
             <p className="text-lg text-brand-taupe leading-relaxed font-light">
               {t('about.whoWeAreDesc')}
             </p>
@@ -124,10 +122,8 @@ export default function About() {
             <p className="text-lg text-brand-taupe leading-relaxed font-light">
               {t('about.teamDesc')}
             </p>
-
           </motion.div>
         </div>
-
       </div>
     </div>
   );
