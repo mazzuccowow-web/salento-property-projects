@@ -22,7 +22,7 @@ export default function Footer() {
               Property Projects
             </span>
           </Link>
-          <p className="text-sm text-brand-taupe leading-relaxed font-light">
+          <p className="text-sm text-brand-white opacity-80 leading-relaxed font-light">
             {t('hero.description')}
           </p>
         </div>
