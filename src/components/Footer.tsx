@@ -22,7 +22,7 @@ export default function Footer() {
               Property Projects
             </span>
           </Link>
-          <p className="text-sm text-red-500 leading-relaxed font-light">
+          <p className="text-sm text-brand-taupe leading-relaxed font-light">
             {t('hero.description')}
           </p>
         </div>
@@ -51,6 +51,17 @@ export default function Footer() {
               <MapPin className="w-4 h-4 text-brand-gold" />
               <span>Nardò, Salento (Italy) | London (UK)</span>
             </li>
+            <li className="flex items-center space-x-3">
+              <Facebook className="w-4 h-4 text-brand-gold" />
+              <a 
+                href="https://www.facebook.com/salentopropertyprojects?locale=en_GB" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-brand-gold transition-colors"
+              >
+                Facebook
+              </a>
+          </li>
           </ul>
         </div>
       </div>
