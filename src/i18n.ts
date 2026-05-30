@@ -20,7 +20,8 @@ const resources = {
       hero: {
         title: 'Managing Property Projects in Salento, Italy',
         subtitle: 'UK-standard project management for international property owners.',
-        description: 'Avoiding Costly Renovation Mistakes and Delays for International Buyers in Salento.',
+        description: 'We support international clients through every stage of renovation and property management in Salento.',
+        description2: 'Avoiding Costly Renovation Mistakes and Delays for International Buyers in Salento.',
         cta: 'Book Consultation'
       },
 
@@ -124,6 +125,7 @@ const resources = {
         title: 'Gestione Progetti Immobiliari nel Salento',
         subtitle: 'Project management di standard UK per proprietari internazionali.',
         description: 'Supportiamo clienti internazionali in ogni fase della ristrutturazione e della gestione immobiliare nel Salento.',
+        description2: 'Evitiamo Costosi Errori e Ritardi nelle Ristrutturazioni per gli Acquirenti Internazionali nel Salento.', 
         cta: 'Prenota Consulenza'
       },
 
