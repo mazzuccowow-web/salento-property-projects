@@ -92,8 +92,8 @@ export default function Home() {
     </div>
 
     {/* CENTER TEXT */}
-    <div className="flex-1 italic font-serif text-xl md:text-3xl opacity-90 leading-relaxed max-w-3xl px-2">
-      "We transform the complexity of Italian property renovation into a seamless, prestigious journey for our international clients."
+    <div className="flex-1 italic font-serif text-xl md:text-3xl text-orange-600 opacity-90 leading-relaxed max-w-3xl px-2">
+      "Avoiding Costly Renovation Mistakes and Delays for International Buyers in Salento."
     </div>
 
     {/* RIGHT IMAGE */}
