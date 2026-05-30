@@ -54,7 +54,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg md:text-xl text-orange-500 font-light mb-12 max-w-2xl mx-auto leading-relaxed"
           >
-            {t('hero.description')}
+            {t('hero.description2')}
           </motion.p>
 
           <motion.div
