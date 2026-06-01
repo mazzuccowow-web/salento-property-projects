@@ -22,6 +22,7 @@ const resources = {
         subtitle: 'UK-standard project management for international property owners.',
         description: 'We support international clients through every stage of renovation and property management in Salento.',
         description2: 'Avoiding Costly Renovation Mistakes and Delays for International Buyers in Salento.',
+        word: 'We transform the complexity of Italian property renovation into a seamless, prestigious journey for our international clients.',
         cta: 'Book Consultation'
       },
 
@@ -81,15 +82,15 @@ const resources = {
       howItWorks: {
         title: 'How It Works',
         step1: 'Consultation',
-        step1Desc: 'We start with a deep dive into your goals, vision, and budget.',
+        step1Desc: 'We begin with a detailed consultation to understand your goals, budget and vision. Whether you are purchasing, renovating or investing in property in Salento, we take the time to identify the most effective strategy for your project.',
         step2: 'Property Assessment',
-        step2Desc: 'A professional technical evaluation of the property or potential sites.',
+        step2Desc: 'Our team conducts a comprehensive assessment of the property, evaluating its condition, renovation potential, structural requirements and investment opportunities. This allows us to provide clear recommendations before any work begins.',
         step3: 'Planning & Budgeting',
-        step3Desc: 'We assemble the team and produce a detailed timeline and budget.',
-        step4: 'Execution',
-        step4Desc: 'On-site supervision begins with weekly reports and progress updates.',
-        step5: 'Completion',
-        step5Desc: 'Final quality inspections and handover of all certifications.'
+        step3Desc: 'We take care of the financial aspects of the project, helping to protect our clients from costly mistakes, unexpected expenses and unnecessary risks. Through careful planning, transparent budgeting and continuous oversight, we ensure that every decision supports the project\'s objectives while safeguarding our clients\' investment. A detailed timeline and cost structure are prepared from the outset to provide clarity, control and peace of mind throughout the entire process.',
+        step4: 'Project Execution',
+        step4Desc: 'Our experienced professionals manage and coordinate every aspect of the renovation or construction process on your behalf. We specialise in working with overseas property owners and investors, providing a seamless remote project management experience. Through regular email updates, scheduled video calls, live site walkthroughs and detailed progress reports, we ensure you remain fully informed and involved at every stage of the project. Our goal is to give you complete visibility, confidence and peace of mind, wherever you are in the world.',
+        step5: 'Completion & Handover',
+        step5Desc: 'Once the work is completed, we carry out final inspections to ensure the highest standards have been met. The property is then handed over ready for use, rental or resale, together with all relevant documentation and certifications.'
       },
 
       servicesPage: {
@@ -125,7 +126,8 @@ const resources = {
         title: 'Gestione Progetti Immobiliari nel Salento',
         subtitle: 'Project management di standard UK per proprietari internazionali.',
         description: 'Supportiamo clienti internazionali in ogni fase della ristrutturazione e della gestione immobiliare nel Salento.',
-        description2: 'Evitiamo Costosi Errori e Ritardi nelle Ristrutturazioni per gli Acquirenti Internazionali nel Salento.', 
+        description2: 'Evitiamo Costosi Errori e Ritardi nelle Ristrutturazioni per gli Acquirenti Internazionali nel Salento.',
+        word: 'Trasformiamo la complessità delle ristrutturazioni immobiliari in Italia in un percorso lineare e di prestigio per i nostri clienti internazionali.',
         cta: 'Prenota Consulenza'
       },
 
@@ -185,15 +187,15 @@ const resources = {
       howItWorks: {
         title: 'Come Funziona',
         step1: 'Consulenza',
-        step1Desc: 'Iniziamo con un approfondimento dei vostri obiettivi, visione e budget.',
-        step2: 'Valutazione Immobile',
-        step2Desc: 'Una valutazione tecnica professionale dell\'immobile o dei siti potenziali.',
+        step1Desc: 'Iniziamo con una consulenza dettagliata per comprendere i vostri obiettivi, il budget e la visione. Che stiate acquistando, ristrutturando o investendo in un immobile nel Salento, ci prendiamo il tempo necessario per identificare la strategia più efficace per il vostro progetto.',
+        step2: 'Valutazione dell\'Immobile',
+        step2Desc: 'Il nostro team esegue una valutazione completa dell\'immobile, analizzandone lo stato, il potenziale di ristrutturazione, i requisiti strutturali e le opportunità di investimento. Questo ci consente di fornire raccomandazioni chiare prima dell\'inizio di qualsiasi lavoro.',
         step3: 'Pianificazione e Budgeting',
-        step3Desc: 'Assembliamo il team e produciamo un cronogramma e un budget dettagliato.',
-        step4: 'Esecuzione',
-        step4Desc: 'Inizia la supervisione in loco con rapporti settimanali e aggiornamenti.',
-        step5: 'Completamento',
-        step5Desc: 'Ispezioni finali di qualità e consegna di tutte le certificazioni.'
+        step3Desc: 'Ci occupiamo degli aspetti finanziari del progetto, aiutando a proteggere i nostri clienti da errori costosi, spese impreviste e rischi non necessari. Attraverso una pianificazione attenta, un budgeting trasparente e una supervisione continua, garantiamo che ogni decisione supporti gli obiettivi del progetto salvaguardando l\'investimento del cliente. Un cronoprogramma dettagliato e una struttura dei costi vengono preparati fin dall\'inizio per offrire chiarezza, controllo e tranquillità durante l\'intero processo.',
+        step4: 'Esecuzione del Progetto',
+        step4Desc: 'I nostri professionisti qualificati gestiscono e coordinano ogni aspetto del processo di ristrutturazione o costruzione per vostro conto. Siamo specializzati nel lavorare con proprietari e investitori stranieri, offrendo un\'esperienza fluida di project management da remoto. Tramite aggiornamenti regolari via email, videochiamate programmate, sopralluoghi in diretta dal cantiere e rapporti dettagliati sullo stato di avanzamento, ci assicuriamo che rimaniate pienamente informati e coinvolti in ogni fase. Il nostro obiettivo è darvi completa visibilità, sicurezza e tranquillità, ovunque vi troviate nel mondo.',
+        step5: 'Completamento e Consegna',
+        step5Desc: 'Una volta completati i lavori, eseguiamo le ispezioni finali per garantire il rispetto dei più alti standard qualitativi. L\'immobile viene quindi consegnato pronto per l\'uso, l\'affitto o la rivendita, insieme a tutta la documentazione e alle certificazioni pertinenti.'
       },
 
       servicesPage: {
