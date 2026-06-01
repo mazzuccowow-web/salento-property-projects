@@ -9,34 +9,6 @@ import { motion } from 'motion/react';
 export default function HowItWorks() {
   const { t } = useTranslation();
 
-  const steps = [
-    {
-      number: '01',
-      title: 'Consultation',
-      desc: 'We start with a deep dive into your goals, vision, and budget. This can be done via video call or in person in London or Salento.'
-    },
-    {
-      number: '02',
-      title: 'Property Assessment',
-      desc: 'A professional technical evaluation of the property or potential sites. We analyze structural integrity, planning permissions, and development potential.'
-    },
-    {
-      number: '03',
-      title: 'Planning & Budgeting',
-      desc: 'We assemble the professional team (architects, engineers) and produce a detailed project timeline and fixed-fee budget breakdown.'
-    },
-    {
-      number: '04',
-      title: 'Execution & Management',
-      desc: 'On-site supervision begins. You receive weekly reports with high-resolution photos and progress updates. We handle all contractor communications.'
-    },
-    {
-      number: '05',
-      title: 'Completion & Handover',
-      desc: 'Final quality inspections, snagging lists, and handover of all technical certifications. Your property is ready for use or rental.'
-    }
-  ];
-
   return (
     <div className="pt-32 pb-24 bg-brand-beige" id="how-it-works-page">
       <div className="max-w-7xl mx-auto px-6">
@@ -52,7 +24,7 @@ export default function HowItWorks() {
         </header>
 
         <div className="relative">
-          {/* Vertical line for desktop */}
+          {/* Linea verticale per schermi desktop */}
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-brand-gold/30 -translate-x-1/2"></div>
 
           <div className="space-y-24">
@@ -71,7 +43,7 @@ export default function HowItWorks() {
                 className={`relative flex flex-col md:flex-row items-center ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
                 id={`step-${index}`}
               >
-                {/* Number bullet */}
+                {/* Indicatore numerico */}
                 <div className="absolute left-1/2 -translate-x-1/2 w-12 h-12 bg-brand-gold text-brand-black rounded-full flex items-center justify-center font-bold font-serif text-xl z-10 shadow-lg hidden md:flex">
                   {step.number}
                 </div>
