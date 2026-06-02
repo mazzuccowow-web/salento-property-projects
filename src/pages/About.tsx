@@ -49,17 +49,17 @@ export default function About() {
             </p>
           </motion.div>
 
-          {/* IMAGE 1 - MISSION */}
+          {/* IMAGE 1 - MISSION (Corretta per il mobile) */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative h-[350px] max-w-md mx-auto w-full"
+            className="relative h-auto md:h-[350px] max-w-md mx-auto w-full"
           >
             <img
               src={missionImg}
               alt="Mission"
-              className="w-full h-full object-cover rounded-lg shadow-xl"
+              className="w-full h-auto md:h-full object-contain md:object-cover rounded-lg shadow-xl"
             />
           </motion.div>
         </div>
@@ -87,7 +87,6 @@ export default function About() {
             viewport={{ once: true }}
             className="space-y-8 md:order-2"
           >
-            {/* Chiave di traduzione corretta: about.teamTitle */}
             <h2 className="text-3xl font-serif text-brand-black">
               {t('about.teamTitle')}
             </h2>
