@@ -49,17 +49,17 @@ export default function About() {
             </p>
           </motion.div>
 
-          {/* IMAGE 1 - MISSION (Corretta per il mobile) */}
+          {/* IMAGE 1 - MISSION (Risolto l'effetto ritaglio su mobile) */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative h-auto md:h-[350px] max-w-md mx-auto w-full"
+            className="w-full max-w-md mx-auto md:h-[350px] relative"
           >
             <img
               src={missionImg}
               alt="Mission"
-              className="w-full h-auto md:h-full object-contain md:object-cover rounded-lg shadow-xl"
+              className="w-full h-auto md:h-full object-contain md:object-cover rounded-lg shadow-xl block"
             />
           </motion.div>
         </div>
