@@ -6,7 +6,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X } from 'lucide-react'; // Rimossa l'icona Globe da qui
 import { motion, AnimatePresence } from 'motion/react';
 
 export default function Navbar() {
@@ -83,13 +83,18 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* LANGUAGE BUTTON */}
+          {/* LANGUAGE BUTTON (DESKTOP) */}
           <button
             onClick={toggleLanguage}
             className="flex items-center space-x-2 text-sm font-medium border border-brand-taupe/30 px-3 py-1.5 rounded-full hover:bg-brand-taupe/10 transition-colors"
             id="lang-toggle-desktop"
           >
-            <Globe className="w-4 h-4" />
+            {/* La bandierina cambia dinamicamente in base alla lingua */}
+            <img 
+              src={i18n.language === 'en' ? "https://flagcdn.com/w20/gb.png" : "https://flagcdn.com/w20/it.png"} 
+              alt={i18n.language === 'en' ? "English" : "Italiano"} 
+              className="w-4 h-auto rounded-sm shadow-sm"
+            />
             <span>{i18n.language.toUpperCase()}</span>
           </button>
         </div>
@@ -97,12 +102,19 @@ export default function Navbar() {
         {/* MOBILE */}
         <div className="flex md:hidden items-center space-x-4">
 
+          {/* LANGUAGE BUTTON (MOBILE) */}
           <button
             onClick={toggleLanguage}
-            className="flex items-center space-x-1 text-xs font-bold border border-brand-taupe/30 px-2 py-1 rounded-full"
+            className="flex items-center space-x-1.5 text-xs font-bold border border-brand-taupe/30 px-2.5 py-1 rounded-full"
             id="lang-toggle-mobile-icon"
           >
-            {i18n.language.toUpperCase()}
+            {/* Aggiunta la bandierina anche su mobile */}
+            <img 
+              src={i18n.language === 'en' ? "https://flagcdn.com/w20/gb.png" : "https://flagcdn.com/w20/it.png"} 
+              alt={i18n.language === 'en' ? "English" : "Italiano"} 
+              className="w-4 h-auto rounded-sm"
+            />
+            <span>{i18n.language.toUpperCase()}</span>
           </button>
 
           <button
