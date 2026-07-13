@@ -6,7 +6,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Menu, X } from 'lucide-react'; // Rimossa l'icona Globe da qui
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 export default function Navbar() {
@@ -36,6 +36,7 @@ export default function Navbar() {
     { name: t('nav.about'), path: '/about' },
     { name: t('nav.services'), path: '/services' },
     { name: t('nav.howItWorks'), path: '/how-it-works' },
+    { name: t('nav.buyersGuide'), path: '/buyers-guide' }, // Inserito esattamente qui
     { name: t('nav.contact'), path: '/contact' },
   ];
 
@@ -89,7 +90,6 @@ export default function Navbar() {
             className="flex items-center space-x-2 text-sm font-medium border border-brand-taupe/30 px-3 py-1.5 rounded-full hover:bg-brand-taupe/10 transition-colors"
             id="lang-toggle-desktop"
           >
-            {/* La bandierina cambia dinamicamente in base alla lingua */}
             <img 
               src={i18n.language === 'en' ? "https://flagcdn.com/w20/gb.png" : "https://flagcdn.com/w20/it.png"} 
               alt={i18n.language === 'en' ? "English" : "Italiano"} 
@@ -108,7 +108,6 @@ export default function Navbar() {
             className="flex items-center space-x-1.5 text-xs font-bold border border-brand-taupe/30 px-2.5 py-1 rounded-full"
             id="lang-toggle-mobile-icon"
           >
-            {/* Aggiunta la bandierina anche su mobile */}
             <img 
               src={i18n.language === 'en' ? "https://flagcdn.com/w20/gb.png" : "https://flagcdn.com/w20/it.png"} 
               alt={i18n.language === 'en' ? "English" : "Italiano"} 
