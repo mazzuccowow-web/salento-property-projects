@@ -36,7 +36,7 @@ export default function Navbar() {
     { name: t('nav.about'), path: '/about' },
     { name: t('nav.services'), path: '/services' },
     { name: t('nav.howItWorks'), path: '/how-it-works' },
-    { name: t('nav.Buyer's Guide'), path: '/buyers-guide' }, // Inserito esattamente qui
+    { name: 'Buyers Guide', path: '/buyers-guide' },
     { name: t('nav.contact'), path: '/contact' },
   ];
 
