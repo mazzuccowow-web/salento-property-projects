@@ -28,15 +28,13 @@ import homeph from "../photo/homeph.jpg";
 export default function BuyersGuide() {
 
   useEffect(() => {
-    // Creiamo il tag script dinamicamente quando la pagina viene caricata
+    // Caricamento dinamico del widget degli articoli
     const script = document.createElement('script');
     script.src = "https://app.trysoro.com/api/embed/bb2cb9bd-d6eb-475e-b4be-112bff94a8eb";
     script.defer = true;
     
-    // Lo appendiamo al body del documento
     document.body.appendChild(script);
 
-    // Rimuoviamo lo script quando l'utente cambia pagina per evitare duplicazioni
     return () => {
       document.body.removeChild(script);
     };
@@ -80,7 +78,7 @@ export default function BuyersGuide() {
         {/* TWO COLUMNS LAYOUT */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           
-          {/* LEFT COLUMN: MAIN CONTENT (Overview, Buying Process, Topics, Soro Embed) */}
+          {/* LEFT COLUMN: MAIN CONTENT (Overview, Buying Process, Topics, Embedded Blog) */}
           <main className="lg:col-span-8 space-y-16">
             
             {/* OVERVIEW SECTION */}
@@ -155,14 +153,14 @@ export default function BuyersGuide() {
               </div>
             </section>
 
-            {/* SORO EMBEDDED BLOG SECTION */}
+            {/* EMBEDDED BLOG SECTION (NEUTRO) */}
             <section className="space-y-6 pt-6 border-t border-brand-sand">
               <div>
                 <h2 className="text-3xl font-serif text-brand-black">Latest Articles & Insights</h2>
-                <p className="text-brand-taupe font-light mt-1">Explore our guides and articles updated automatically by Soro SEO.</p>
+                <p className="text-brand-taupe font-light mt-1">Explore our latest guides and articles.</p>
               </div>
 
-              {/* CONTENITORE DOVE SORO INIETTERÀ IL BLOG */}
+              {/* CONTENITORE DOVE VERRANNO INIETTATI GLI ARTICOLI */}
               <div className="bg-brand-white p-4 rounded-xl border border-brand-sand shadow-sm min-h-[400px]">
                 <div id="soro-blog"></div>
               </div>
