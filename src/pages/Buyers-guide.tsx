@@ -3,8 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { useEffect } from 'react';
 import { 
   Search, 
   ClipboardList, 
@@ -17,63 +16,31 @@ import {
   BookOpen, 
   Phone, 
   Mail, 
-  ArrowRight, 
-  X, 
-  Loader2,
+  ArrowRight,
   Calendar,
   Layers,
   MapPin,
   Hammer
 } from 'lucide-react';
 
-// Foto usate per i servizi della sidebar e l'hero (puoi cambiarle con i tuoi import reali)
 import homeph from "../photo/homeph.jpg";
-import company from "../photo/compani.png";
-
-interface WPPost {
-  id: number;
-  date: string;
-  title: { rendered: string };
-  excerpt: { rendered: string };
-  content: { rendered: string };
-  _embedded?: {
-    'wp:featuredmedia'?: Array<{
-      source_url: string;
-    }>;
-  };
-}
-
-// ⚠️ Cambia questa URL con l'indirizzo del tuo WordPress di appoggio per Soro SEO
-const WORDPRESS_URL = 'https://blog.salentopropertyprojects.co.uk';
 
 export default function BuyersGuide() {
-  const [posts, setPosts] = useState<WPPost[]>([]);
-  const [selectedPost, setSelectedPost] = useState<WPPost | null>(null);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`${WORDPRESS_URL}/wp-json/wp/v2/posts?_embed`)
-      .then((res) => {
-        if (!res.ok) throw new Error('Error loading guides');
-        return res.json();
-      })
-      .then((data: WPPost[]) => {
-        setPosts(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-        setLoading(false);
-      });
-  }, []);
+    // Creiamo il tag script dinamicamente quando la pagina viene caricata
+    const script = document.createElement('script');
+    script.src = "https://app.trysoro.com/api/embed/bb2cb9bd-d6eb-475e-b4be-112bff94a8eb";
+    script.defer = true;
+    
+    // Lo appendiamo al body del documento
+    document.body.appendChild(script);
 
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    });
-  };
+    // Rimuoviamo lo script quando l'utente cambia pagina per evitare duplicazioni
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <div className="pt-32 pb-24 bg-brand-beige min-h-screen" id="buyers-guide-page">
@@ -113,7 +80,7 @@ export default function BuyersGuide() {
         {/* TWO COLUMNS LAYOUT */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           
-          {/* LEFT COLUMN: MAIN CONTENT (Overview, Buying Process, Topics, Soro Articles) */}
+          {/* LEFT COLUMN: MAIN CONTENT (Overview, Buying Process, Topics, Soro Embed) */}
           <main className="lg:col-span-8 space-y-16">
             
             {/* OVERVIEW SECTION */}
@@ -188,55 +155,17 @@ export default function BuyersGuide() {
               </div>
             </section>
 
-            {/* SORO DYNAMIC ARTICLES SECTION */}
-            <section className="space-y-8 pt-6 border-t border-brand-sand">
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div>
-                  <h2 className="text-3xl font-serif text-brand-black">Latest Articles & Insights</h2>
-                  <p className="text-brand-taupe font-light mt-1">SEO-optimized guides and articles created automatically by Soro.</p>
-                </div>
+            {/* SORO EMBEDDED BLOG SECTION */}
+            <section className="space-y-6 pt-6 border-t border-brand-sand">
+              <div>
+                <h2 className="text-3xl font-serif text-brand-black">Latest Articles & Insights</h2>
+                <p className="text-brand-taupe font-light mt-1">Explore our guides and articles updated automatically by Soro SEO.</p>
               </div>
 
-              {loading ? (
-                <div className="flex items-center space-x-3 py-10">
-                  <Loader2 className="w-6 h-6 text-brand-gold animate-spin" />
-                  <span className="text-brand-taupe font-light text-sm">Syncing latest guides from Soro...</span>
-                </div>
-              ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {posts.slice(0, 4).map((post) => {
-                    const imageUrl = post._embedded?.['wp:featuredmedia']?.[0]?.source_url || homeph;
-                    return (
-                      <div key={post.id} className="bg-brand-white rounded-xl overflow-hidden border border-brand-sand shadow-sm flex flex-col">
-                        <div className="h-40 overflow-hidden relative">
-                          <img src={imageUrl} alt={post.title.rendered} className="w-full h-full object-cover" />
-                        </div>
-                        <div className="p-5 flex flex-col flex-grow space-y-3">
-                          <span className="text-[10px] font-bold text-brand-gold flex items-center space-x-1.5 uppercase">
-                            <Calendar className="w-3 h-3" />
-                            <span>{formatDate(post.date)}</span>
-                          </span>
-                          <h3 
-                            className="text-lg font-serif text-brand-black line-clamp-2"
-                            dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-                          />
-                          <div 
-                            className="text-brand-taupe font-light text-xs line-clamp-2 leading-relaxed"
-                            dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
-                          />
-                          <button
-                            onClick={() => setSelectedPost(post)}
-                            className="text-xs font-bold text-brand-gold uppercase tracking-wider flex items-center space-x-1 hover:text-brand-black transition-colors pt-2 mt-auto"
-                          >
-                            <span>Read Article</span>
-                            <ArrowRight className="w-3 h-3" />
-                          </button>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
+              {/* CONTENITORE DOVE SORO INIETTERÀ IL BLOG */}
+              <div className="bg-brand-white p-4 rounded-xl border border-brand-sand shadow-sm min-h-[400px]">
+                <div id="soro-blog"></div>
+              </div>
             </section>
 
             {/* CALL TO ACTION ROW */}
@@ -353,63 +282,6 @@ export default function BuyersGuide() {
           </aside>
 
         </div>
-
-        {/* MODAL DETTAGLIO ARTICOLO (POPUP) */}
-        <AnimatePresence>
-          {selectedPost && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-brand-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 md:p-10"
-            >
-              <motion.div
-                initial={{ y: 50, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: 50, opacity: 0 }}
-                className="bg-brand-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[85vh] overflow-y-auto relative p-6 md:p-10 border border-brand-sand"
-              >
-                {/* CLOSE BUTTON */}
-                <button
-                  onClick={() => setSelectedPost(null)}
-                  className="absolute top-4 right-4 bg-brand-beige hover:bg-brand-sand text-brand-black p-2 rounded-full transition-colors z-10"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-
-                {/* MODAL CONTENT */}
-                <article className="space-y-6">
-                  <div className="flex items-center space-x-2 text-brand-gold text-xs font-semibold uppercase">
-                    <Calendar className="w-4 h-4" />
-                    <span>{formatDate(selectedPost.date)}</span>
-                  </div>
-
-                  <h1 
-                    className="text-3xl md:text-5xl font-serif text-brand-black leading-tight"
-                    dangerouslySetInnerHTML={{ __html: selectedPost.title.rendered }}
-                  />
-
-                  {/* IMMAGINE IN EVIDENZA NEL POPUP */}
-                  {selectedPost._embedded?.['wp:featuredmedia']?.[0]?.source_url && (
-                    <div className="h-64 md:h-96 w-full overflow-hidden rounded-xl">
-                      <img
-                        src={selectedPost._embedded['wp:featuredmedia'][0].source_url}
-                        alt={selectedPost.title.rendered}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  )}
-
-                  {/* CONTENUTO HTML DELL'ARTICOLO */}
-                  <div 
-                    className="prose prose-stone max-w-none text-brand-taupe font-light leading-relaxed space-y-4"
-                    dangerouslySetInnerHTML={{ __html: selectedPost.content.rendered }}
-                  />
-                </article>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
 
       </div>
     </div>
