@@ -5,7 +5,7 @@
 
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Mail, Phone, MapPin, Facebook } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook, Linkedin } from 'lucide-react';
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -13,7 +13,9 @@ export default function Footer() {
   return (
     <footer className="bg-brand-black text-brand-beige py-16 px-6" id="main-footer">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
-        <div className="col-span-1 md:col-span-1">
+        
+        {/* COLONNA 1: LOGO E DESCRIZIONE */}
+        <div className="col-span-1">
            <Link to="/" className="flex flex-col mb-6" id="footer-logo">
             <span className="text-2xl font-serif font-bold tracking-tight text-brand-white">
               SALENTO
@@ -22,12 +24,12 @@ export default function Footer() {
               Property Projects
             </span>
           </Link>
-          {/* Collegato alla nuova chiave corretta del footer */}
           <p className="text-sm text-brand-white opacity-80 leading-relaxed font-light">
             {t('footer.description')}
           </p>
         </div>
 
+        {/* COLONNA 2: SERVIZI */}
         <div>
           <h4 className="text-brand-gold font-serif text-lg mb-6">{t('nav.services')}</h4>
           <ul className="space-y-3 text-sm opacity-80 font-light">
@@ -37,6 +39,7 @@ export default function Footer() {
           </ul>
         </div>
 
+        {/* COLONNA 3: CONTATTI */}
         <div>
           <h4 className="text-brand-gold font-serif text-lg mb-6">{t('nav.contact')}</h4>
           <ul className="space-y-4 text-sm opacity-80 font-light">
@@ -52,6 +55,13 @@ export default function Footer() {
               <MapPin className="w-4 h-4 text-brand-gold" />
               <span>Nardò, Salento (Italy) | London (UK)</span>
             </li>
+          </ul>
+        </div>
+
+        {/* COLONNA 4: SOCIAL MEDIA */}
+        <div>
+          <h4 className="text-brand-gold font-serif text-lg mb-6">{t('footer.socialMedia')}</h4>
+          <ul className="space-y-4 text-sm opacity-80 font-light">
             <li className="flex items-center space-x-3">
               <Facebook className="w-4 h-4 text-brand-gold" />
               <a 
@@ -62,9 +72,21 @@ export default function Footer() {
               >
                 Facebook
               </a>
-          </li>
+            </li>
+            <li className="flex items-center space-x-3">
+              <Linkedin className="w-4 h-4 text-brand-gold" />
+              <a 
+                href="https://www.linkedin.com/company/salento-property-projects/?viewAsMember=true" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-brand-gold transition-colors"
+              >
+                LinkedIn
+              </a>
+            </li>
           </ul>
         </div>
+
       </div>
       
       <div className="max-w-7xl mx-auto border-t border-brand-beige/10 mt-16 pt-8 text-[10px] uppercase font-medium tracking-widest opacity-40 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-center">
