@@ -5,7 +5,7 @@
 
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Mail, Phone, MapPin, Instagram, Facebook, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, Facebook } from 'lucide-react';
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -22,8 +22,9 @@ export default function Footer() {
               Property Projects
             </span>
           </Link>
+          {/* Collegato alla nuova chiave corretta del footer */}
           <p className="text-sm text-brand-white opacity-80 leading-relaxed font-light">
-            {t('hero.description')}
+            {t('footer.description')}
           </p>
         </div>
 
