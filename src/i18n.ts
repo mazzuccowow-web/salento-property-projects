@@ -14,16 +14,16 @@ const resources = {
         about: 'About',
         services: 'Services',
         howItWorks: 'How It Works',
+        buyersGuide: 'Buyers Guide',
         contact: 'Contact'
       },
 
       hero: {
-        title: 'Managing Property Projects in Salento, Italy',
-        subtitle: 'UK-standard project management for international property owners.',
-        description: 'We support international clients through every stage of renovation and property management in Salento.',
-        description2: 'Avoiding Costly Renovation Mistakes and Delays for International Buyers in Salento.',
+        title: 'Buying Property in Salento?',
+        subtitle: "We'll help you make the right decision before you buy...\n...and professionally manage everything that comes after.",
+        description2: "Buying a property abroad is exciting.\nManaging architects, builders, permits, budgets and renovations from another country isn't.\nThat's where we come in.",
         word: 'We transform the complexity of Italian property renovation into a seamless, prestigious journey for our international clients.',
-        cta: 'Book Consultation'
+        cta: 'Book a Free Consultation'
       },
 
       home: {
@@ -119,16 +119,16 @@ const resources = {
         about: 'Chi Siamo',
         services: 'Servizi',
         howItWorks: 'Come Funziona',
+        buyersGuide: 'Guida per Acquirenti',
         contact: 'Contatti'
       },
 
       hero: {
-        title: 'Gestione Progetti Immobiliari nel Salento',
-        subtitle: 'Project management di standard UK per proprietari internazionali.',
-        description: 'Supportiamo clienti internazionali in ogni fase della ristrutturazione e della gestione immobiliare nel Salento.',
-        description2: 'Evitiamo Costosi Errori e Ritardi nelle Ristrutturazioni per gli Acquirenti Internazionali nel Salento.',
+        title: 'Stai acquistando un immobile nel Salento?',
+        subtitle: "Ti aiutiamo a prendere la decisione giusta prima dell'acquisto...\ne gestiamo professionalmente tutto ciò che viene dopo.",
+        description2: "Acquistare un immobile all'estero è emozionante.\nGestire architetti, costruttori, permessi, budget e ristrutturazioni da un altro Paese non lo è.\nEd è qui che entriamo in gioco noi.",
         word: 'Trasformiamo la complessità delle ristrutturazioni immobiliari in Italia in un percorso lineare e di prestigio per i nostri clienti internazionali.',
-        cta: 'Prenota Consulenza'
+        cta: 'Prenota una Consulenza Gratuita'
       },
 
       home: {
