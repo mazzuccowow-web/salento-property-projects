@@ -58,28 +58,28 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* COLONNA 4: SOCIAL MEDIA */}
+        {/* COLONNA 4: SOCIAL MEDIA (Icone con i colori ufficiali di brand) */}
         <div>
           <h4 className="text-brand-gold font-serif text-lg mb-6">{t('footer.socialMedia')}</h4>
           <ul className="space-y-4 text-sm opacity-80 font-light">
             <li className="flex items-center space-x-3">
-              <Facebook className="w-4 h-4 text-brand-gold" />
+              <Facebook className="w-4 h-4 text-[#1877F2]" /> {/* Blu ufficiale Facebook */}
               <a 
                 href="https://www.facebook.com/salentopropertyprojects?locale=en_GB" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="hover:text-brand-gold transition-colors"
+                className="hover:text-[#1877F2] transition-colors"
               >
                 Facebook
               </a>
             </li>
             <li className="flex items-center space-x-3">
-              <Linkedin className="w-4 h-4 text-brand-gold" />
+              <Linkedin className="w-4 h-4 text-[#0A66C2]" /> {/* Blu ufficiale LinkedIn */}
               <a 
                 href="https://www.linkedin.com/company/salento-property-projects/?viewAsMember=true" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="hover:text-brand-gold transition-colors"
+                className="hover:text-[#0A66C2] transition-colors"
               >
                 LinkedIn
               </a>
