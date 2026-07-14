@@ -126,7 +126,7 @@ const resources = {
         piDesc: 'Regular health checks of your property during off-season.'
       },
 
-      // 👉 FOOTER SECTION (NEW)
+      // 👉 FOOTER SECTION
       footer: {
         description: 'We support international clients through every stage of renovation and property management in Salento.'
       }
@@ -252,7 +252,7 @@ const resources = {
         piDesc: 'Controlli regolari della proprietà durante i periodi di assenza.'
       },
 
-      // 👉 FOOTER SECTION (NEW)
+      // 👉 FOOTER SECTION
       footer: {
         description: 'Supportiamo clienti internazionali in ogni fase della ristrutturazione e della gestione immobiliare nel Salento.'
       }
