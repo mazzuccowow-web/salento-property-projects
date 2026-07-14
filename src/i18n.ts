@@ -111,7 +111,8 @@ const resources = {
 
       servicesPage: {
         title: 'Our Services',
-        subtitle: 'Comprehensive solutions for prestige renovations and property management in Salento.',
+        // Sottotitolo modificato in inglese
+        subtitle: 'At Salento Property Projects, we provide independent guidance and professional coordination throughout every phase of your journey—from your first property viewing to the successful completion of your investment.',
         pm: 'Property Project Management',
         pmDesc: 'End-to-end management of your Salento property project.',
         ro: 'Renovation Oversight',
@@ -237,7 +238,8 @@ const resources = {
 
       servicesPage: {
         title: 'I Nostri Servizi',
-        subtitle: 'Soluzioni complete per ristrutturazioni di prestigio e gestione immobiliare nel Salento.',
+        // Sottotitolo modificato in italiano
+        subtitle: 'Presso Salento Property Projects, forniamo consulenza indipendente e coordinamento professionale in ogni fase del vostro percorso—dalla prima visita all\'immobile fino al completamento con successo del vostro investimento.',
         pm: 'Project Management Immobiliare',
         pmDesc: 'Gestione end-to-end del vostro progetto immobiliare nel Salento.',
         ro: 'Supervisione Ristrutturazioni',
