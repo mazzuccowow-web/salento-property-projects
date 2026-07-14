@@ -111,7 +111,6 @@ const resources = {
 
       servicesPage: {
         title: 'Our Services',
-        // Sottotitolo modificato in inglese
         subtitle: 'At Salento Property Projects, we provide independent guidance and professional coordination throughout every phase of your journey—from your first property viewing to the successful completion of your investment.',
         pm: 'Property Project Management',
         pmDesc: 'End-to-end management of your Salento property project.',
@@ -129,7 +128,8 @@ const resources = {
 
       // 👉 FOOTER SECTION
       footer: {
-        description: 'We support international clients through every stage of renovation and property management in Salento.'
+        description: 'We support international clients through every stage of renovation and property management in Salento.',
+        socialMedia: 'Social Media' // Nuova chiave aggiunta
       }
     }
   },
@@ -238,7 +238,6 @@ const resources = {
 
       servicesPage: {
         title: 'I Nostri Servizi',
-        // Sottotitolo modificato in italiano
         subtitle: 'Presso Salento Property Projects, forniamo consulenza indipendente e coordinamento professionale in ogni fase del vostro percorso—dalla prima visita all\'immobile fino al completamento con successo del vostro investimento.',
         pm: 'Project Management Immobiliare',
         pmDesc: 'Gestione end-to-end del vostro progetto immobiliare nel Salento.',
@@ -256,7 +255,8 @@ const resources = {
 
       // 👉 FOOTER SECTION
       footer: {
-        description: 'Supportiamo clienti internazionali in ogni fase della ristrutturazione e della gestione immobiliare nel Salento.'
+        description: 'Supportiamo clienti internazionali in ogni fase della ristrutturazione e della gestione immobiliare nel Salento.',
+        socialMedia: 'Social Media' // Nuova chiave aggiunta
       }
     }
   }
