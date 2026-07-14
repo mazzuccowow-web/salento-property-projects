@@ -54,6 +54,22 @@ const resources = {
         missionDesc2:
           'With 25 years of experience in the UK operations and finance sectors, we are native Italian speakers who offer the perfect blend of British organizational standards and local expertise. We are well-connected with trained local professionals to ensure every project achieves international-level results.',
 
+        // 👉 SEZIONE INDIPENDENZA (NEW)
+        indTitle: 'Independent Project Coordination for International Property Buyers in Salento',
+        indDesc1: 'At Salento Property Projects, we believe buying a property is only the beginning of an exciting journey.',
+        indDesc2: "Whether you've already found your dream home or you're still searching, we're here to help you make informed decisions and guide you through every stage that follows.",
+        indDesc3: 'From independent pre-purchase advice to renovation planning, project coordination and final handover, we work exclusively in your best interests, giving you complete confidence throughout the entire process.',
+        
+        // 👉 BOX DIFFERENZA (NEW)
+        differentTitle: "Why We're Different",
+        diff1: "We don't sell properties.",
+        diff2: "We don't work for contractors.",
+        diff3: "We don't earn commissions from builders.",
+        diff4: "We work exclusively for you.",
+        diff5: "Independent advice.",
+        diff6: "Independent project coordination.",
+        diff7: "Complete peace of mind.",
+
         // 👉 TEAM SECTION
         teamTitle: 'The Team',
 
@@ -158,6 +174,22 @@ const resources = {
 
         missionDesc2:
           'Siamo madrelingua italiani con 25 anni di esperienza nei settori delle operazioni e della finanza nel Regno Unito. Questo ci permette di offrire il mix perfetto tra standard organizzativi britannici e competenza locale. Siamo profondamente connessi con professionisti del territorio per garantire che ogni progetto raggiunga risultati di livello internazionale.',
+
+        // 👉 SEZIONE INDIPENDENZA (NEW)
+        indTitle: 'Coordinamento Indipendente dei Progetti per Acquirenti Immobiliari Internazionali nel Salento',
+        indDesc1: 'Presso Salento Property Projects, crediamo che acquistare un immobile sia solo l\'inizio di un viaggio emozionante.',
+        indDesc2: 'Sia che tu abbia già trovato la casa dei tuoi sogni o che la stia ancora cercando, siamo qui per aiutarti a prendere decisioni informate e guidarti in ogni fase successiva.',
+        indDesc3: 'Dalla consulenza indipendente prima dell\'acquisto alla pianificazione della ristrutturazione, al coordinamento del progetto e alla consegna finale, lavoriamo esclusivamente nel tuo interesse, dandoti piena fiducia durante l\'intero processo.',
+        
+        // 👉 BOX DIFFERENZA (NEW)
+        differentTitle: 'Perché siamo diversi',
+        diff1: 'Non vendiamo immobili.',
+        diff2: 'Non lavoriamo per le imprese.',
+        diff3: 'Non guadagniamo commissioni dai costruttori.',
+        diff4: 'Lavoriamo esclusivamente per te.',
+        diff5: 'Consulenza indipendente.',
+        diff6: 'Coordinamento indipendente dei progetti.',
+        diff7: 'Completa tranquillità.',
 
         // 👉 TEAM SECTION
         teamTitle: 'Il Team',
