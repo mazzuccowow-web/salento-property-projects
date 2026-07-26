@@ -281,8 +281,14 @@ export default function BuyersGuide() {
     <div className="pt-32 pb-24 bg-brand-beige min-h-screen" id="buyers-guide-page">
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* 1. COPERTINA DI PAGINA BANNER */}
-        <section className="relative h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden mb-16 rounded-2xl shadow-md" id="buyers-guide-hero">
+        {/* 1. COPERTINA DI PAGINA BANNER (ANIMATA ALL'INGRESSO) */}
+        <motion.section 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="relative h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden mb-16 rounded-2xl shadow-md" 
+          id="buyers-guide-hero"
+        >
           <div className="absolute inset-0 z-0">
             <img 
               src={bgCop}
@@ -301,11 +307,15 @@ export default function BuyersGuide() {
               Your step-by-step resource for buying property in Salento, Italy
             </p>
           </div>
-        </section>
+        </motion.section>
 
-        {/* 2. MODULO DI DOWNLOAD LEAD MAGNET */}
-        <div className="bg-brand-white rounded-2xl overflow-hidden border border-brand-sand shadow-lg grid grid-cols-1 md:grid-cols-12 gap-0 mb-16">
-          
+        {/* 2. MODULO DI DOWNLOAD LEAD MAGNET (ANIMATO ALL'INGRESSO CON RITARDO) */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="bg-brand-white rounded-2xl overflow-hidden border border-brand-sand shadow-lg grid grid-cols-1 md:grid-cols-12 gap-0 mb-16"
+        >
           {/* COLONNA SINISTRA: TESTI E FORM */}
           <div className="md:col-span-7 p-8 md:p-12 flex flex-col justify-center space-y-6">
             <span className="text-brand-gold text-xs font-bold tracking-[0.2em] uppercase">
@@ -412,16 +422,22 @@ export default function BuyersGuide() {
               className="w-auto h-full max-h-[420px] object-contain rounded-lg shadow-2xl hover:scale-[1.02] transition-transform duration-300"
             />
           </div>
-        </div>
+        </motion.div>
 
         {/* TWO COLUMNS LAYOUT (REST OF THE PAGE) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           
-          {/* LEFT COLUMN */}
+          {/* LEFT COLUMN: MAIN CONTENT */}
           <main className="lg:col-span-8 space-y-16">
             
-            {/* OVERVIEW SECTION */}
-            <section className="bg-brand-white p-8 rounded-xl border border-brand-sand shadow-sm space-y-8">
+            {/* OVERVIEW SECTION (ANIMATA AL DEGLI SCORRIMENTO) */}
+            <motion.section 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-brand-white p-8 rounded-xl border border-brand-sand shadow-sm space-y-8"
+            >
               <h2 className="text-2xl font-serif text-brand-black border-b border-brand-sand pb-4">Overview</h2>
               <p className="text-brand-taupe font-light leading-relaxed">
                 Buying property in Salento is an exciting opportunity, whether for a holiday home, investment or permanent relocation. This guide walks you through every step of the process — from research and due diligence to purchase and renovation.
@@ -445,10 +461,16 @@ export default function BuyersGuide() {
                   </div>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
-            {/* THE BUYING PROCESS */}
-            <section className="space-y-6">
+            {/* THE BUYING PROCESS (ANIMATA AL DEGLI SCORRIMENTO) */}
+            <motion.section 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="space-y-6"
+            >
               <h2 className="text-2xl font-serif text-brand-black">The Buying Process</h2>
               <p className="text-brand-taupe font-light">A high-level overview of the key steps involved in buying property in Italy.</p>
               
@@ -466,10 +488,16 @@ export default function BuyersGuide() {
                   </div>
                 ))}
               </div>
-            </section>
+            </motion.section>
 
-            {/* KEY TOPICS COVERED (TRASFORMATO IN ACCORDION FLUIDO) */}
-            <section className="space-y-6">
+            {/* KEY TOPICS COVERED (ACCORDION ANIMATO AL DEGLI SCORRIMENTO) */}
+            <motion.section 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="space-y-6"
+            >
               <h2 className="text-2xl font-serif text-brand-black">Key Topics Covered</h2>
               
               <div className="space-y-4">
@@ -499,7 +527,7 @@ export default function BuyersGuide() {
                         />
                       </button>
 
-                      {/* CONTENUTO COLLASSABILE */}
+                      {/* CONTENUTO COLLASSABILE CON ANIMAZIONE FLUIDA */}
                       <AnimatePresence initial={false}>
                         {isOpened && (
                           <motion.div
@@ -518,10 +546,16 @@ export default function BuyersGuide() {
                   );
                 })}
               </div>
-            </section>
+            </motion.section>
 
-            {/* EMBEDDED BLOG SECTION */}
-            <section className="space-y-6 pt-6 border-t border-brand-sand">
+            {/* EMBEDDED BLOG SECTION (ANIMATA AL DEGLI SCORRIMENTO) */}
+            <motion.section 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="space-y-6 pt-6 border-t border-brand-sand"
+            >
               <div>
                 <h2 className="text-3xl font-serif text-brand-black">Latest Articles & Insights</h2>
                 <p className="text-brand-taupe font-light mt-1">Explore our latest guides and articles.</p>
@@ -529,15 +563,21 @@ export default function BuyersGuide() {
               <div className="bg-brand-white p-4 rounded-xl border border-brand-sand shadow-sm min-h-[400px]">
                 <div id="soro-blog"></div>
               </div>
-            </section>
+            </motion.section>
 
           </main>
 
-          {/* RIGHT COLUMN (SIDEBAR PULITA) */}
+          {/* RIGHT COLUMN: STICKY SIDEBAR */}
           <aside className="lg:col-span-4 space-y-8">
             
-            {/* NEED PERSONAL GUIDANCE */}
-            <div className="bg-brand-sand/20 p-6 rounded-xl border border-brand-sand shadow-xs text-center space-y-4">
+            {/* NEED PERSONAL GUIDANCE (ANIMATA AL DEGLI SCORRIMENTO) */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-brand-sand/20 p-6 rounded-xl border border-brand-sand shadow-xs text-center space-y-4"
+            >
               <h3 className="font-serif text-lg text-brand-black">Need Personal Guidance?</h3>
               <p className="text-xs text-brand-taupe font-light leading-relaxed">
                 We offer independent advice and end-to-end support for international buyers.
@@ -550,10 +590,16 @@ export default function BuyersGuide() {
               >
                 Book a Consultation
               </a>
-            </div>
+            </motion.div>
 
-            {/* HAVE QUESTIONS */}
-            <div className="bg-brand-white p-6 rounded-xl border border-brand-sand shadow-xs space-y-4">
+            {/* HAVE QUESTIONS (ANIMATA AL DEGLI SCORRIMENTO) */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-brand-white p-6 rounded-xl border border-brand-sand shadow-xs space-y-4"
+            >
               <h3 className="font-serif text-lg text-brand-black border-b border-brand-sand pb-3">Have Questions?</h3>
               <p className="text-xs text-brand-taupe font-light leading-relaxed">
                 We are here to help you make the right decision.
@@ -574,7 +620,7 @@ export default function BuyersGuide() {
               >
                 Contact Us
               </a>
-            </div>
+            </motion.div>
 
           </aside>
 
