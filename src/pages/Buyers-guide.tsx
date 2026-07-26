@@ -4,7 +4,7 @@
  */
 
 import { useState, useEffect } from 'react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { 
   Search, 
   ClipboardList, 
@@ -21,11 +21,11 @@ import {
   Calendar,
   Layers,
   MapPin,
-  Hammer
+  Hammer,
+  ChevronDown
 } from 'lucide-react';
 
 // IMPORT DELLE FOTO
-import homeph from "../photo/homeph.jpg";
 import copImg from "../photo/cop.png";     // Copertina del libro PDF
 import bgCop from "../photo/BGcop.png";     // Copertina di sfondo della pagina (Banner)
 
@@ -37,6 +37,9 @@ export default function BuyersGuide() {
     email: '',
     gdprConsent: false
   });
+
+  // Stato per gestire quale tendina (accordion) è aperta (null = tutte chiuse)
+  const [activeTopic, setActiveTopic] = useState<number | null>(null);
 
   useEffect(() => {
     // Caricamento dinamico del widget degli articoli di Soro
@@ -113,11 +116,172 @@ export default function BuyersGuide() {
       });
   };
 
+  // 6 Argomenti con i testi dettagliati forniti
+  const topics = [
+    {
+      title: "Why Salento?",
+      subtitle: "Why are more international buyers choosing Salento?",
+      icon: MapPin,
+      content: (
+        <div className="space-y-4">
+          <p>Salento has become one of Southern Europe's most attractive property investment destinations. With its crystal-clear coastline, historic towns, authentic Italian lifestyle and relatively affordable property prices, the region offers exceptional long-term value.</p>
+          <p>Unlike many saturated Mediterranean markets, Salento still presents opportunities to purchase historic townhouses, countryside villas and renovation projects at competitive prices.</p>
+          <p>Whether your goal is a holiday home, a lifestyle investment, short-term rental income or a long-term property portfolio, Salento combines strong potential with an exceptional quality of life.</p>
+          <div className="pt-2">
+            <p className="font-semibold mb-2">Key advantages include:</p>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Competitive property prices</li>
+              <li>Growing international demand</li>
+              <li>Strong tourism sector</li>
+              <li>Authentic Italian culture</li>
+              <li>Excellent renovation opportunities</li>
+              <li>High rental potential in selected locations</li>
+              <li>Mediterranean climate all year round</li>
+            </ul>
+          </div>
+          <p className="italic pt-2">Our role is to help you navigate this market with clarity, confidence and complete independence.</p>
+        </div>
+      )
+    },
+    {
+      title: "Step-by-Step Process",
+      subtitle: "Buying property in Italy doesn't have to be complicated.",
+      icon: ClipboardList,
+      content: (
+        <div className="space-y-4">
+          <p>We guide you through every stage of the process, ensuring you understand each decision before moving forward.</p>
+          <div className="pt-2">
+            <p className="font-semibold mb-2">Our consultancy typically follows these steps:</p>
+            <ol className="list-decimal pl-5 space-y-1.5">
+              <li>Initial consultation to understand your goals.</li>
+              <li>Property search and independent assessment.</li>
+              <li>Site inspections and technical observations.</li>
+              <li>Investment feasibility review.</li>
+              <li>Cost estimation and renovation strategy.</li>
+              <li>Legal and technical due diligence.</li>
+              <li>Offer negotiation support.</li>
+              <li>Coordination with professionals involved.</li>
+              <li>Renovation planning (if required).</li>
+              <li>Ongoing project management until completion.</li>
+            </ol>
+          </div>
+          <p className="pt-2">Every project is different, but our structured approach reduces uncertainty and helps avoid costly mistakes.</p>
+        </div>
+      )
+    },
+    {
+      title: "Costs & Taxes",
+      subtitle: "Understanding the real cost of buying property in Italy.",
+      icon: Landmark,
+      content: (
+        <div className="space-y-4">
+          <p>The purchase price is only one part of your investment.</p>
+          <div className="pt-2">
+            <p className="font-semibold mb-2">Depending on the type of property and your circumstances, additional costs may include:</p>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Purchase taxes</li>
+              <li>Notary fees</li>
+              <li>Legal fees</li>
+              <li>Land Registry charges</li>
+              <li>Survey costs</li>
+              <li>Agency fees (where applicable)</li>
+              <li>Renovation costs</li>
+              <li>Utility connections</li>
+              <li>Annual ownership taxes</li>
+            </ul>
+          </div>
+          <p>Many overseas buyers underestimate these additional expenses.</p>
+          <p>Our consultancy provides realistic cost planning before you commit to any purchase, allowing you to budget with confidence.</p>
+          <p className="font-semibold italic pt-2">Transparency is one of the foundations of every successful investment.</p>
+        </div>
+      )
+    },
+    {
+      title: "Legal & Due Diligence",
+      subtitle: "Protecting your investment before you buy.",
+      icon: ShieldCheck,
+      content: (
+        <div className="space-y-4">
+          <p>One of the biggest risks when purchasing overseas is relying on incomplete or inaccurate information.</p>
+          <p>Before any commitment is made, every property should be carefully assessed from both a legal and technical perspective.</p>
+          <div className="pt-2">
+            <p className="font-semibold mb-2">This may include reviewing:</p>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Ownership history</li>
+              <li>Planning permissions</li>
+              <li>Building compliance</li>
+              <li>Land Registry information</li>
+              <li>Existing mortgages or legal restrictions</li>
+              <li>Technical documentation</li>
+              <li>Building condition</li>
+              <li>Renovation feasibility</li>
+            </ul>
+          </div>
+          <p>We coordinate with qualified local professionals while remaining fully independent from estate agents and contractors.</p>
+          <p className="italic font-semibold">Our priority is protecting your interests throughout the purchasing process.</p>
+        </div>
+      )
+    },
+    {
+      title: "Renovation & Planning",
+      subtitle: "Transforming potential into value.",
+      icon: Hammer,
+      content: (
+        <div className="space-y-4">
+          <p>Many of Salento's most attractive properties require renovation.</p>
+          <p>A successful renovation begins long before construction starts.</p>
+          <div className="pt-2">
+            <p className="font-semibold mb-2">We help clients understand:</p>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Project feasibility</li>
+              <li>Preliminary design strategy</li>
+              <li>Budget planning</li>
+              <li>Construction cost estimates</li>
+              <li>Programme of works</li>
+              <li>Contractor coordination</li>
+              <li>Quality control</li>
+              <li>Progress monitoring</li>
+              <li>Final handover</li>
+            </ul>
+          </div>
+          <p>Whether restoring a traditional townhouse or renovating a countryside property, careful planning reduces delays, unexpected costs and unnecessary risks.</p>
+          <p className="italic">Our experience in project management allows clients to make informed decisions from the very beginning.</p>
+        </div>
+      )
+    },
+    {
+      title: "Managing Remotely",
+      subtitle: "Invest with confidence — wherever you are.",
+      icon: Layers,
+      content: (
+        <div className="space-y-4">
+          <p>Many of our clients live outside Italy. Travelling frequently during a renovation is often impractical.</p>
+          <p>Our consultancy allows you to manage your investment remotely through structured reporting and transparent communication.</p>
+          <div className="pt-2">
+            <p className="font-semibold mb-2">Depending on your chosen service package, we can provide:</p>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Regular project updates</li>
+              <li>Site visit reports</li>
+              <li>Photo and video progress documentation</li>
+              <li>Budget monitoring</li>
+              <li>Coordination with contractors</li>
+              <li>Issue management</li>
+              <li>Programme tracking</li>
+              <li>Final completion reporting</li>
+            </ul>
+          </div>
+          <p className="pt-2 font-semibold">Our objective is simple:</p>
+          <p className="italic">To give you complete visibility over your investment, even when you are thousands of miles away.</p>
+        </div>
+      )
+    }
+  ];
+
   return (
     <div className="pt-32 pb-24 bg-brand-beige min-h-screen" id="buyers-guide-page">
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* 1. COPERTINA DI PAGINA BANNER (Usando BGcop.png) */}
+        {/* 1. COPERTINA DI PAGINA BANNER */}
         <section className="relative h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden mb-16 rounded-2xl shadow-md" id="buyers-guide-hero">
           <div className="absolute inset-0 z-0">
             <img 
@@ -240,7 +404,7 @@ export default function BuyersGuide() {
 
           </div>
 
-          {/* COLONNA DESTRA: COPERTINA DEL LIBRO (cop.png) */}
+          {/* COLONNA DESTRA: COPERTINA DEL LIBRO */}
           <div className="md:col-span-5 relative bg-brand-sand/20 flex items-center justify-center p-8 md:p-12 min-h-[350px]">
             <img 
               src={copImg} 
@@ -304,27 +468,55 @@ export default function BuyersGuide() {
               </div>
             </section>
 
-            {/* KEY TOPICS COVERED */}
+            {/* KEY TOPICS COVERED (TRASFORMATO IN ACCORDION FLUIDO) */}
             <section className="space-y-6">
               <h2 className="text-2xl font-serif text-brand-black">Key Topics Covered</h2>
               
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                {[
-                  { title: 'Why Salento?', desc: 'Discover what makes Salento a unique place to invest and live.', icon: MapPin },
-                  { title: 'Costs & Taxes', desc: 'Understand all the costs involved and the tax implications.', icon: Landmark },
-                  { title: 'Legal & Due Diligence', desc: 'The essential checks to protect your investment.', icon: ShieldCheck },
-                  { title: 'Renovation & Planning', desc: 'Permits, approvals and best practices for renovations.', icon: Hammer },
-                  { title: 'Managing Remotely', desc: 'How we help you manage your property from abroad.', icon: Layers },
-                  { title: 'Financing Options', desc: 'Mortgages in Italy and international financing.', icon: BookOpen },
-                  { title: 'FAQs', desc: 'Answers to the most common questions from buyers.', icon: HelpCircle },
-                  { title: 'Useful Resources', desc: 'Links, contacts and documents to support your journey.', icon: FileText },
-                ].map((topic, idx) => (
-                  <div key={idx} className="bg-brand-white p-5 rounded-xl border border-brand-sand shadow-xs space-y-2 hover:border-brand-gold transition-colors">
-                    <topic.icon className="w-5 h-5 text-brand-gold mb-1" />
-                    <h4 className="text-xs font-bold text-brand-black">{topic.title}</h4>
-                    <p className="text-[11px] text-brand-taupe font-light leading-relaxed">{topic.desc}</p>
-                  </div>
-                ))}
+              <div className="space-y-4">
+                {topics.map((topic, idx) => {
+                  const isOpened = activeTopic === idx;
+                  return (
+                    <div 
+                      key={idx} 
+                      className="bg-brand-white rounded-xl border border-brand-sand overflow-hidden shadow-sm transition-all duration-300"
+                    >
+                      {/* INTESTAZIONE ACCORDION CLICKABILE */}
+                      <button
+                        onClick={() => setActiveTopic(isOpened ? null : idx)}
+                        className="w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none"
+                      >
+                        <div className="flex items-center space-x-4">
+                          <div className="w-10 h-10 rounded-full bg-brand-beige flex items-center justify-center text-brand-gold flex-shrink-0">
+                            <topic.icon className="w-5 h-5" />
+                          </div>
+                          <div>
+                            <h4 className="font-serif text-lg text-brand-black font-semibold">{topic.title}</h4>
+                            <p className="text-xs text-brand-taupe font-light mt-0.5">{topic.subtitle}</p>
+                          </div>
+                        </div>
+                        <ChevronDown 
+                          className={`w-5 h-5 text-brand-gold transition-transform duration-300 ${isOpened ? 'rotate-180' : ''}`} 
+                        />
+                      </button>
+
+                      {/* CONTENUTO COLLASSABILE */}
+                      <AnimatePresence initial={false}>
+                        {isOpened && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            <div className="px-6 pb-6 pt-2 border-t border-brand-sand/40 text-sm text-brand-taupe font-light leading-relaxed">
+                              {topic.content}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
               </div>
             </section>
 
@@ -341,30 +533,10 @@ export default function BuyersGuide() {
 
           </main>
 
-          {/* RIGHT COLUMN */}
+          {/* RIGHT COLUMN (SIDEBAR PULITA) */}
           <aside className="lg:col-span-4 space-y-8">
             
-            <div className="bg-brand-white p-6 rounded-xl border border-brand-sand shadow-xs space-y-4">
-              <h3 className="font-serif text-lg text-brand-black border-b border-brand-sand pb-3">In This Guide</h3>
-              <ul className="space-y-3 text-xs text-brand-taupe">
-                {[
-                  'Why Salento?',
-                  'Step-by-Step Process',
-                  'Costs & Taxes',
-                  'Legal & Due Diligence',
-                  'Renovation & Planning',
-                  'Managing Remotely',
-                  'FAQs',
-                  'Useful Resources'
-                ].map((item, idx) => (
-                  <li key={idx} className="flex items-center space-x-2.5 hover:text-brand-gold cursor-pointer transition-colors">
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand-gold" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
+            {/* NEED PERSONAL GUIDANCE */}
             <div className="bg-brand-sand/20 p-6 rounded-xl border border-brand-sand shadow-xs text-center space-y-4">
               <h3 className="font-serif text-lg text-brand-black">Need Personal Guidance?</h3>
               <p className="text-xs text-brand-taupe font-light leading-relaxed">
@@ -380,28 +552,7 @@ export default function BuyersGuide() {
               </a>
             </div>
 
-            <div className="bg-brand-white p-6 rounded-xl border border-brand-sand shadow-xs space-y-4">
-              <h3 className="font-serif text-lg text-brand-black border-b border-brand-sand pb-3">Related Services</h3>
-              <div className="space-y-4">
-                {[
-                  { title: 'Property Search Service', desc: 'Find the right property with local expertise.' },
-                  { title: 'Masseria Renovation', desc: 'Restore and add value to historic properties.' },
-                  { title: 'Apartment Refurbishment', desc: 'Modern living in the heart of Salento.' },
-                  { title: 'Project Management', desc: 'We manage your project from start to finish.' },
-                ].map((service, idx) => (
-                  <div key={idx} className="flex items-start space-x-3 group cursor-pointer">
-                    <div className="w-12 h-12 rounded bg-brand-beige overflow-hidden flex-shrink-0">
-                      <img src={homeph} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-bold text-brand-black group-hover:text-brand-gold transition-colors">{service.title}</h4>
-                      <p className="text-[10px] text-brand-taupe font-light leading-snug">{service.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
+            {/* HAVE QUESTIONS */}
             <div className="bg-brand-white p-6 rounded-xl border border-brand-sand shadow-xs space-y-4">
               <h3 className="font-serif text-lg text-brand-black border-b border-brand-sand pb-3">Have Questions?</h3>
               <p className="text-xs text-brand-taupe font-light leading-relaxed">
