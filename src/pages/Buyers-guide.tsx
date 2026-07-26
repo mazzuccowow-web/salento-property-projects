@@ -3,7 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { motion } from 'motion/react';
 import { 
   Search, 
   ClipboardList, 
@@ -23,62 +24,223 @@ import {
   Hammer
 } from 'lucide-react';
 
+// FOTO
 import homeph from "../photo/homeph.jpg";
+import copImg from "../photo/cop.png"; // Copertina della guida PDF
 
 export default function BuyersGuide() {
+  const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    gdprConsent: false
+  });
 
   useEffect(() => {
-    // Caricamento dinamico del widget degli articoli
+    // Caricamento dinamico del widget degli articoli di Soro
     const script = document.createElement('script');
     script.src = "https://app.trysoro.com/api/embed/bb2cb9bd-d6eb-475e-b4be-112bff94a8eb";
     script.defer = true;
-    
     document.body.appendChild(script);
+
+    // Tracciamento PageView sul Pixel di Meta al caricamento della pagina
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('track', 'PageView');
+    }
 
     return () => {
       document.body.removeChild(script);
     };
   }, []);
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value, type, checked } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormStatus('sending');
+
+    // 1. Invio dei dati a Netlify Forms
+    const encode = (data: { [key: string]: any }) => {
+      return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&");
+    };
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ 
+        "form-name": "buyers-guide-leads", 
+        ...formData 
+      })
+    })
+      .then((response) => {
+        if (response.ok) {
+          setFormStatus('success');
+
+          // 2. Tracciamento EVENTI sul Pixel di Meta
+          if (typeof window !== 'undefined' && (window as any).fbq) {
+            (window as any).fbq('track', 'Lead', {
+              content_name: 'Before You Buy in Salento PDF',
+              status: 'Form Submitted'
+            });
+            // Tracciamento evento personalizzato o standard per il download
+            (window as any).fbq('track', 'CompleteRegistration', {
+              content_name: 'PDF Downloaded'
+            });
+          }
+
+          // 3. Trigger automatico del download del file PDF dalla cartella public
+          const link = document.createElement('a');
+          link.href = '/Before_You_Buy_in_Salento.pdf';
+          link.download = 'Before_You_Buy_in_Salento.pdf';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        } else {
+          setFormStatus('error');
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        setFormStatus('error');
+      });
+  };
+
   return (
     <div className="pt-32 pb-24 bg-brand-beige min-h-screen" id="buyers-guide-page">
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* HERO SECTION (SPLIT LAYOUT) */}
+        {/* HERO SECTION: LEAD MAGNET (SPLIT LAYOUT) */}
         <div className="bg-brand-white rounded-2xl overflow-hidden border border-brand-sand shadow-lg grid grid-cols-1 md:grid-cols-12 gap-0 mb-16">
-          <div className="md:col-span-7 p-8 md:p-16 flex flex-col justify-center space-y-6">
-            <h1 className="text-4xl md:text-6xl font-serif text-brand-black leading-tight">
-              Buyer's Guide
+          
+          {/* COLONNA SINISTRA: TESTI E FORM */}
+          <div className="md:col-span-7 p-8 md:p-12 flex flex-col justify-center space-y-6">
+            <span className="text-brand-gold text-xs font-bold tracking-[0.2em] uppercase">
+              Free Digital Download
+            </span>
+            <h1 className="text-4xl md:text-5xl font-serif text-brand-black leading-tight">
+              Before You Buy in Salento
             </h1>
-            <p className="text-xl text-brand-gold font-serif italic">
-              Your step-by-step resource for buying property in Salento, Italy
+            <p className="text-lg text-brand-taupe font-serif italic">
+              The Essential Guide for International Property Buyers
             </p>
-            <p className="text-brand-taupe font-light leading-relaxed">
-              Essential information, practical advice and local insights to help you buy with confidence and avoid costly mistakes.
+            <p className="text-sm text-brand-taupe font-light leading-relaxed">
+              Thinking of buying a property in Salento? Download our free Buyer’s Guide and discover the essential steps, hidden costs, legal considerations and practical advice every international buyer should know before making a purchase. Written by local property professionals to help you buy with confidence.
             </p>
-            <a 
-              href="https://wa.me/447465207494"
-              target="_blank"
-              rel="noreferrer"
-              className="bg-brand-gold text-brand-black px-8 py-3.5 rounded-md font-bold text-sm tracking-wider uppercase hover:bg-brand-black hover:text-brand-white transition-all shadow-md w-fit flex items-center space-x-2"
-            >
-              <span>Book a Consultation</span>
-              <ArrowRight className="w-4 h-4" />
-            </a>
+
+            {formStatus !== 'success' ? (
+              /* MODULO DI DOWNLOAD */
+              <form 
+                name="buyers-guide-leads"
+                method="POST"
+                data-netlify="true"
+                onSubmit={handleSubmit}
+                className="space-y-4 pt-4 border-t border-brand-sand/60"
+              >
+                {/* Input nascosto per Netlify */}
+                <input type="hidden" name="form-name" value="buyers-guide-leads" />
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <input
+                    type="text"
+                    name="firstName"
+                    required
+                    placeholder="First Name"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    className="w-full bg-brand-beige border border-brand-sand rounded px-4 py-2.5 text-sm focus:ring-1 focus:ring-brand-gold focus:outline-none"
+                  />
+                  <input
+                    type="text"
+                    name="lastName"
+                    required
+                    placeholder="Last Name"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    className="w-full bg-brand-beige border border-brand-sand rounded px-4 py-2.5 text-sm focus:ring-1 focus:ring-brand-gold focus:outline-none"
+                  />
+                </div>
+
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="Email Address"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full bg-brand-beige border border-brand-sand rounded px-4 py-2.5 text-sm focus:ring-1 focus:ring-brand-gold focus:outline-none"
+                />
+
+                {/* CONSENSO GDPR */}
+                <div className="flex items-start space-x-2.5 pt-2">
+                  <input
+                    type="checkbox"
+                    name="gdprConsent"
+                    id="gdprConsent"
+                    required
+                    checked={formData.gdprConsent}
+                    onChange={handleChange}
+                    className="mt-1 h-4 w-4 rounded border-brand-sand text-brand-gold focus:ring-brand-gold"
+                  />
+                  <label htmlFor="gdprConsent" className="text-[11px] text-brand-taupe leading-snug font-light">
+                    I agree to receive updates, guides and occasional property insights from Salento Property Projects. I can unsubscribe at any time.
+                  </label>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={formStatus === 'sending'}
+                  className="w-full bg-brand-gold text-brand-black py-3.5 rounded font-bold text-xs tracking-wider uppercase hover:bg-brand-black hover:text-brand-white transition-all shadow-md disabled:opacity-50 flex items-center justify-center space-x-2"
+                >
+                  <span>{formStatus === 'sending' ? 'Preparing Download...' : 'Download Your Free Guide'}</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+                
+                {formStatus === 'error' && (
+                  <p className="text-red-600 text-xs text-center font-medium">Something went wrong. Please try again.</p>
+                )}
+              </form>
+            ) : (
+              /* MESSAGGIO DI SUCCESSO */
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="bg-green-50 border border-green-200 p-6 rounded-xl text-center space-y-2"
+              >
+                <h4 className="text-green-800 font-bold text-lg">Thank you!</h4>
+                <p className="text-green-700 text-sm font-light">
+                  Your download has started automatically. If it doesn't,{' '}
+                  <a href="/Before_You_Buy_in_Salento.pdf" download className="underline font-semibold hover:text-green-900">
+                    click here to download manually
+                  </a>.
+                </p>
+              </motion.div>
+            )}
+
           </div>
-          <div className="md:col-span-5 relative h-64 md:h-auto min-h-[350px]">
+
+          {/* COLONNA DESTRA: COPERTINA DEL LIBRO (cop.png) */}
+          <div className="md:col-span-5 relative bg-brand-sand/20 flex items-center justify-center p-8 md:p-12 min-h-[350px]">
             <img 
-              src={homeph} 
-              alt="Salento Property landscape" 
-              className="absolute inset-0 w-full h-full object-cover"
+              src={copImg} 
+              alt="Before You Buy in Salento - Guide Cover" 
+              className="w-auto h-full max-h-[420px] object-contain rounded-lg shadow-2xl hover:scale-[1.02] transition-transform duration-300"
             />
           </div>
         </div>
 
-        {/* TWO COLUMNS LAYOUT */}
+        {/* TWO COLUMNS LAYOUT (REST OF THE PAGE) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           
-          {/* LEFT COLUMN: MAIN CONTENT (Overview, Buying Process, Topics, Embedded Blog) */}
+          {/* LEFT COLUMN */}
           <main className="lg:col-span-8 space-y-16">
             
             {/* OVERVIEW SECTION */}
@@ -153,46 +315,22 @@ export default function BuyersGuide() {
               </div>
             </section>
 
-            {/* EMBEDDED BLOG SECTION (NEUTRO) */}
+            {/* EMBEDDED BLOG SECTION */}
             <section className="space-y-6 pt-6 border-t border-brand-sand">
               <div>
                 <h2 className="text-3xl font-serif text-brand-black">Latest Articles & Insights</h2>
                 <p className="text-brand-taupe font-light mt-1">Explore our latest guides and articles.</p>
               </div>
-
-              {/* CONTENITORE DOVE VERRANNO INIETTATI GLI ARTICOLI */}
               <div className="bg-brand-white p-4 rounded-xl border border-brand-sand shadow-sm min-h-[400px]">
                 <div id="soro-blog"></div>
               </div>
             </section>
 
-            {/* CALL TO ACTION ROW */}
-            <div className="bg-brand-sand/30 p-8 rounded-xl border border-brand-sand flex flex-col md:flex-row items-center justify-between gap-6">
-              <div className="flex items-center space-x-4">
-                <div className="bg-brand-gold/10 p-3 rounded-full text-brand-gold hidden md:block">
-                  <Calendar className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="font-serif text-xl text-brand-black">Ready to Take the Next Step?</h4>
-                  <p className="text-sm text-brand-taupe font-light mt-1">Book a consultation with our team and start your property journey in Salento.</p>
-                </div>
-              </div>
-              <a 
-                href="https://wa.me/447465207494"
-                target="_blank"
-                rel="noreferrer"
-                className="bg-brand-gold text-brand-black px-6 py-3 rounded-md font-bold text-xs tracking-wider uppercase hover:bg-brand-black hover:text-brand-white transition-all w-full md:w-auto text-center"
-              >
-                Book a Consultation
-              </a>
-            </div>
-
           </main>
 
-          {/* RIGHT COLUMN: STICKY SIDEBAR */}
+          {/* RIGHT COLUMN */}
           <aside className="lg:col-span-4 space-y-8">
             
-            {/* IN THIS GUIDE */}
             <div className="bg-brand-white p-6 rounded-xl border border-brand-sand shadow-xs space-y-4">
               <h3 className="font-serif text-lg text-brand-black border-b border-brand-sand pb-3">In This Guide</h3>
               <ul className="space-y-3 text-xs text-brand-taupe">
@@ -214,7 +352,6 @@ export default function BuyersGuide() {
               </ul>
             </div>
 
-            {/* NEED PERSONAL GUIDANCE */}
             <div className="bg-brand-sand/20 p-6 rounded-xl border border-brand-sand shadow-xs text-center space-y-4">
               <h3 className="font-serif text-lg text-brand-black">Need Personal Guidance?</h3>
               <p className="text-xs text-brand-taupe font-light leading-relaxed">
@@ -230,7 +367,6 @@ export default function BuyersGuide() {
               </a>
             </div>
 
-            {/* RELATED SERVICES */}
             <div className="bg-brand-white p-6 rounded-xl border border-brand-sand shadow-xs space-y-4">
               <h3 className="font-serif text-lg text-brand-black border-b border-brand-sand pb-3">Related Services</h3>
               <div className="space-y-4">
@@ -253,7 +389,6 @@ export default function BuyersGuide() {
               </div>
             </div>
 
-            {/* HAVE QUESTIONS */}
             <div className="bg-brand-white p-6 rounded-xl border border-brand-sand shadow-xs space-y-4">
               <h3 className="font-serif text-lg text-brand-black border-b border-brand-sand pb-3">Have Questions?</h3>
               <p className="text-xs text-brand-taupe font-light leading-relaxed">
