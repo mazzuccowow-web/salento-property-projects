@@ -92,7 +92,32 @@ const resources = {
 
       contact: {
         title: 'Get in Touch',
-        subtitle: 'Let’s discuss your project'
+        subtitle: 'Let’s discuss your project',
+        callUs: 'Call Us',
+        emailUs: 'Email Us',
+        presence: 'Our Presence',
+        whatsapp: 'WhatsApp',
+        whatsappDesc: 'Need a quick answer? Connect with our project managers directly on WhatsApp.',
+        openWhatsapp: 'Open WhatsApp',
+        form: {
+          name: 'Name',
+          namePlaceholder: 'Your Name',
+          email: 'Email',
+          emailPlaceholder: 'Your Email',
+          projectType: 'Project Type',
+          message: 'Message',
+          messagePlaceholder: 'Tell us about your project...',
+          send: 'Send Message',
+          sending: 'Sending...',
+          success: 'Thank you! Your message has been sent successfully.',
+          error: 'Something went wrong. Please try again.',
+          options: {
+            masseria: 'Masseria Renovation',
+            apartment: 'Apartment Refurbishment',
+            search: 'Property Search Support',
+            other: 'Other'
+          }
+        }
       },
 
       howItWorks: {
@@ -129,7 +154,7 @@ const resources = {
       // 👉 FOOTER SECTION
       footer: {
         description: 'We support international clients through every stage of renovation and property management in Salento.',
-        socialMedia: 'Social Media' // Nuova chiave aggiunta
+        socialMedia: 'Social Media'
       }
     }
   },
@@ -219,7 +244,32 @@ const resources = {
 
       contact: {
         title: 'Contattaci',
-        subtitle: 'Parliamo del tuo progetto'
+        subtitle: 'Parliamo del tuo progetto',
+        callUs: 'Chiamaci',
+        emailUs: 'Scrivici via Email',
+        presence: 'La Nostra Presenza',
+        whatsapp: 'WhatsApp',
+        whatsappDesc: 'Hai bisogno di una risposta rapida? Connettiti direttamente con i nostri project manager su WhatsApp.',
+        openWhatsapp: 'Apri WhatsApp',
+        form: {
+          name: 'Nome',
+          namePlaceholder: 'Il tuo Nome',
+          email: 'Email',
+          emailPlaceholder: 'La tua Email',
+          projectType: 'Tipo di Progetto',
+          message: 'Messaggio',
+          messagePlaceholder: 'Raccontaci del tuo progetto...',
+          send: 'Invia Messaggio',
+          sending: 'Invio in corso...',
+          success: 'Grazie! Il tuo messaggio è stato inviato con successo.',
+          error: 'Qualcosa è andato storto. Per favore riprova.',
+          options: {
+            masseria: 'Ristrutturazione Masseria',
+            apartment: 'Ristrutturazione Appartamento',
+            search: 'Supporto Ricerca Immobili',
+            other: 'Altro'
+          }
+        }
       },
 
       howItWorks: {
@@ -231,7 +281,7 @@ const resources = {
         step3: 'Pianificazione e Budgeting',
         step3Desc: 'Ci occupiamo degli aspetti finanziari del progetto, aiutando a proteggere i nostri clienti da errori costosi, spese impreviste e rischi non necessari. Attraverso una pianificazione attenta, un budgeting trasparente e una supervisione continua, garantiamo che ogni decisione supporti gli obiettivi del progetto salvaguardando l\'investimento del cliente. Un cronoprogramma dettagliato e una struttura dei costi vengono preparati fin dall\'inizio per offrire chiarezza, controllo e tranquillità durante l\'intero processo.',
         step4: 'Esecuzione del Progetto',
-        step4Desc: 'I nostri professionisti qualificati gestiscono e coordinano ogni aspetto del processo di ristrutturazione o costruzione per vostro conto. Siamo specializzati nel lavorare con proprietari e investitori stranieri, offrendo un\'esperienza fluida di project management da remoto. Tramite aggiornamenti regolari via email, videochiamate programmate, sopralluoghi in diretta dal cantiere e rapporti dettagliati sullo stato di avanzamento, ci assicuriamo che rimaniate pienamente informati e coinvolti in ogni fase. Il nostro obiettivo è darvi completa visibilità, sicurezza e tranquillità, ovunque vi troviate nel mondo.',
+        step4Desc: 'I nostri professionisti qualificati gestiscono e coordinano ogni aspect del processo di ristrutturazione o costruzione per vostro conto. Siamo specializzati nel lavorare con proprietari e investitori stranieri, offrendo un\'esperienza fluida di project management da remoto. Tramite aggiornamenti regolari via email, videochiamate programmate, sopralluoghi in diretta dal cantiere e rapporti dettagliati sullo stato di avanzamento, ci assicuriamo che rimaniate pienamente informati e coinvolti in ogni fase. Il nostro obiettivo è darvi completa visibilità, sicurezza e tranquillità, ovunque vi troviate nel mondo.',
         step5: 'Completamento e Consegna',
         step5Desc: 'Una volta completati i lavori, eseguiamo le ispezioni finali per garantire il rispetto dei più alti standard qualitativi. L\'immobile viene quindi consegnato pronto per l\'uso, l\'affitto o la rivendita, insieme a tutta la documentazione e alle certificazioni pertinenti.'
       },
@@ -256,7 +306,7 @@ const resources = {
       // 👉 FOOTER SECTION
       footer: {
         description: 'Supportiamo clienti internazionali in ogni fase della ristrutturazione e della gestione immobiliare nel Salento.',
-        socialMedia: 'Social Media' // Nuova chiave aggiunta
+        socialMedia: 'Social Media'
       }
     }
   }
