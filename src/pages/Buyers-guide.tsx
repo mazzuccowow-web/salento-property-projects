@@ -116,7 +116,7 @@ export default function BuyersGuide() {
       });
   };
 
-  // 6 Argomenti con i testi dettagliati forniti
+  // 6 Argomenti con i testi dettagliati
   const topics = [
     {
       title: "Why Salento?",
