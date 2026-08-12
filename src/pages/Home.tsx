@@ -82,13 +82,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TRUST SECTION (Riproprozionata con 3 colonne uguali e ampiezza sbloccata) */}
+      {/* TRUST SECTION (Ottimizzata per dare spazio orizzontale sia al centro che ai lati) */}
       <section className="py-20 bg-brand-black text-brand-beige border-t border-b border-brand-beige/10">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-14 items-center">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
 
-          {/* COLONNA SINISTRA: Testo a sinistra + Immagine Minister a destra */}
-          <div className="flex flex-row items-center gap-5 justify-center lg:justify-end w-full">
-            <p className="text-xs md:text-sm text-brand-white opacity-80 font-light leading-relaxed text-center sm:text-right max-w-[240px] lg:max-w-none">
+          {/* COLONNA SINISTRA: Testo a sinistra + Immagine Minister (25% dello spazio) */}
+          <div className="col-span-1 lg:col-span-3 flex flex-row items-center gap-5 justify-center lg:justify-end w-full">
+            <p className="text-xs md:text-sm text-brand-white opacity-80 font-light leading-relaxed text-center sm:text-right w-full">
               {t('home.trust.leftText')}
             </p>
             <div className="flex items-center justify-center flex-shrink-0">
@@ -101,13 +101,13 @@ export default function Home() {
             </div>
           </div>
 
-          {/* COLONNA CENTRALE: Citazione di prestigio */}
-          <div className="text-center italic font-serif text-xl md:text-2xl xl:text-3xl opacity-90 leading-relaxed px-4">
+          {/* COLONNA CENTRALE: Citazione di prestigio ampia (50% dello spazio) */}
+          <div className="col-span-1 lg:col-span-6 text-center italic font-serif text-xl md:text-2xl xl:text-3xl opacity-90 leading-relaxed px-4">
             "We transform the complexity of Italian property renovation into a seamless, prestigious journey for our international clients."
           </div>
 
-          {/* COLONNA DESTRA: Immagine Company a sinistra + Testo a destra */}
-          <div className="flex flex-row items-center gap-5 justify-center lg:justify-start w-full">
+          {/* COLONNA DESTRA: Immagine Company + Testo a destra (25% dello spazio) */}
+          <div className="col-span-1 lg:col-span-3 flex flex-row items-center gap-5 justify-center lg:justify-start w-full">
             <div className="flex items-center justify-center flex-shrink-0">
               <img 
                 src={company}
@@ -116,7 +116,7 @@ export default function Home() {
                 id="trust-badge-company"
               />
             </div>
-            <p className="text-xs md:text-sm text-brand-white opacity-80 font-light leading-relaxed text-center sm:text-left whitespace-pre-line max-w-[260px] lg:max-w-none">
+            <p className="text-xs md:text-sm text-brand-white opacity-80 font-light leading-relaxed text-center sm:text-left whitespace-pre-line w-full">
               {t('home.trust.rightText')}
             </p>
           </div>
