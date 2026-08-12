@@ -52,15 +52,15 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
 
          {/* TEXT LOGO */}
-        <Link to="/" className="flex flex-col" id="logo-link">
-          <span className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-brand-black">
-            SALENTO
-          </span>
-        
-          <span className="text-xs md:text-sm tracking-[0.2em] font-sans font-medium text-brand-gold uppercase -mt-1 md:-mt-1.5">
-            Property Projects
-          </span>
-        </Link>
+          <Link to="/" className="flex flex-col" id="logo-link">
+            <span className="text-4xl md:text-5xl font-serif font-bold tracking-tight text-brand-black">
+              SALENTO
+            </span>
+          
+            <span className="text-sm md:text-base tracking-[0.2em] font-sans font-medium text-brand-gold uppercase -mt-1.5 md:-mt-2">
+              Property Projects
+            </span>
+          </Link>
 
         {/* DESKTOP NAV */}
         <div className="hidden md:flex items-center space-x-10">
