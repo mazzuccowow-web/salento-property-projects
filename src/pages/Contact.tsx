@@ -68,6 +68,7 @@ export default function Contact() {
                 <div>
                   <h4 className="font-serif text-xl text-brand-black mb-1">{t('contact.callUs')}</h4>
                   <p className="text-brand-taupe">+44 7465 207494 (UK)</p>
+                  <p className="text-brand-taupe">+39 0832 1786674 (IT)</p>
                 </div>
               </div>
 
@@ -87,7 +88,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-serif text-xl text-brand-black mb-1">{t('contact.presence')}</h4>
-                  <p className="text-brand-taupe">London, UK | Nardò, Italy</p>
+                  <p className="text-brand-taupe">London, UK | Lecce, Italy</p>
                 </div>
               </div>
             </div>
