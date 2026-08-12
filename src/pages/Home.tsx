@@ -82,12 +82,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TRUST SECTION (Con tre colonne uguali, immagini rimpicciolite e testi estesi in orizzontale) */}
+      {/* TRUST SECTION (Ottimizzata con Flexbox per dare massimo respiro alla citazione centrale lasciando intatti i lati) */}
       <section className="py-20 bg-brand-black text-brand-beige border-t border-b border-brand-beige/10">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-14 items-center">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-8">
 
-          {/* COLONNA SINISTRA: Testo disteso + Immagine Minister ridimensionata */}
-          <div className="flex flex-row items-center gap-4 justify-center lg:justify-end w-full">
+          {/* COLONNA SINISTRA: Occupa il 28% dello spazio desktop (Mantenuta identica al tuo design perfetto) */}
+          <div className="w-full lg:w-[28%] flex flex-row items-center gap-4 justify-center lg:justify-end lg:flex-shrink-0">
             <p className="text-[11px] xl:text-xs text-brand-white opacity-80 font-light leading-relaxed text-center sm:text-right">
               {t('home.trust.leftText')}
             </p>
@@ -101,13 +101,13 @@ export default function Home() {
             </div>
           </div>
 
-          {/* COLONNA CENTRALE: Citazione di prestigio */}
-          <div className="text-center italic font-serif text-xl md:text-2xl xl:text-3xl opacity-90 leading-relaxed px-4">
+          {/* COLONNA CENTRALE: Citazione di prestigio ampliata al 44% dello spazio di visualizzazione */}
+          <div className="w-full lg:w-[44%] text-center italic font-serif text-xl md:text-2xl xl:text-3xl opacity-90 leading-relaxed px-4">
             "We transform the complexity of Italian property renovation into a seamless, prestigious journey for our international clients."
           </div>
 
-          {/* COLONNA DESTRA: Immagine Company ridimensionata + Testo disteso */}
-          <div className="flex flex-row items-center gap-4 justify-center lg:justify-start w-full">
+          {/* COLONNA DESTRA: Occupa il 28% dello spazio desktop (Mantenuta identica al tuo design perfetto) */}
+          <div className="w-full lg:w-[28%] flex flex-row items-center gap-4 justify-center lg:justify-start lg:flex-shrink-0">
             <div className="flex items-center justify-center flex-shrink-0">
               <img 
                 src={company}
