@@ -40,6 +40,11 @@ const resources = {
           budgeting: 'Budget Planning',
           planning: 'Project Planning',
           renovation: 'Renovation Management'
+        },
+        // 👉 NUOVA SEZIONE TRUST CON TESTI ESTERNI (EN)
+        trust: {
+          leftText: 'Working in collaboration with a carefully selected network of established Italian companies and professional partners.',
+          rightText: 'Salento Property Projects is a trading name of New Deal Construction Ltd, a company registered in England and Wales.\nCompany No. 13665037 · VAT No. 402 8992 85'
         }
       },
 
@@ -192,6 +197,11 @@ const resources = {
           budgeting: 'Pianificazione Budget',
           planning: 'Pianificazione Progetto',
           renovation: 'Gestione Ristrutturazione'
+        },
+        // 👉 NUOVA SEZIONE TRUST CON TESTI ESTERNI (IT)
+        trust: {
+          leftText: 'Lavoriamo in collaborazione con una rete accuratamente selezionata di aziende italiane affermate e partner professionali.',
+          rightText: 'Salento Property Projects è un nome commerciale di New Deal Construction Ltd, società registrata in Inghilterra e Galles.\nReg. Società N. 13665037 · Partita IVA N. 402 8992 85'
         }
       },
 
