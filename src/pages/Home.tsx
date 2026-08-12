@@ -84,31 +84,41 @@ export default function Home() {
 
       {/* TRUST SECTION */}
       <section className="py-16 bg-brand-black text-brand-beige text-center border-t border-b border-brand-beige/10">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-14">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-8">
 
-          {/* LEFT IMAGE */}
-          <div className="flex items-center justify-center">
-            <img 
-              src={minister}
-              alt="Minister"
-              className="h-28 md:h-32 w-auto object-contain opacity-90 hover:opacity-100 transition-all duration-300"
-              id="trust-badge-minister"
-            />
+          {/* CONTENITORE SINISTRO: Testo + Immagine Minister */}
+          <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-right max-w-md w-full justify-center lg:justify-end">
+            <p className="text-xs text-brand-white opacity-80 font-light leading-relaxed sm:max-w-[200px]">
+              {t('home.trust.leftText')}
+            </p>
+            <div className="flex items-center justify-center flex-shrink-0">
+              <img 
+                src={minister}
+                alt="Minister"
+                className="h-24 w-auto object-contain opacity-90 hover:opacity-100 transition-all duration-300"
+                id="trust-badge-minister"
+              />
+            </div>
           </div>
 
-          {/* CENTER TEXT */}
-          <div className="flex-1 italic font-serif text-xl md:text-3xl opacity-90 leading-relaxed max-w-3xl px-2">
+          {/* TESTO CENTRALE */}
+          <div className="flex-1 italic font-serif text-xl md:text-2xl xl:text-3xl opacity-90 leading-relaxed max-w-xl px-2">
             "We transform the complexity of Italian property renovation into a seamless, prestigious journey for our international clients."
           </div>
 
-          {/* RIGHT IMAGE */}
-          <div className="flex items-center justify-center">
-            <img 
-              src={company}
-              alt="Company"
-              className="h-28 md:h-32 w-auto object-contain opacity-90 hover:opacity-100 transition-all duration-300"
-              id="trust-badge-company"
-            />
+          {/* CONTENITORE DESTRO: Immagine Company + Testo */}
+          <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left max-w-md w-full justify-center lg:justify-start">
+            <div className="flex items-center justify-center flex-shrink-0">
+              <img 
+                src={company}
+                alt="Company"
+                className="h-24 w-auto object-contain opacity-90 hover:opacity-100 transition-all duration-300"
+                id="trust-badge-company"
+              />
+            </div>
+            <p className="text-xs text-brand-white opacity-80 font-light leading-relaxed sm:max-w-[220px] whitespace-pre-line">
+              {t('home.trust.rightText')}
+            </p>
           </div>
 
         </div>
