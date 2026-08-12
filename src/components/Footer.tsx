@@ -43,9 +43,13 @@ export default function Footer() {
         <div>
           <h4 className="text-brand-gold font-serif text-lg mb-6">{t('nav.contact')}</h4>
           <ul className="space-y-4 text-sm opacity-80 font-light">
-            <li className="flex items-center space-x-3">
-              <Phone className="w-4 h-4 text-brand-gold" />
-              <span>+44 7465 207494 (UK)</span>
+            {/* Numeri di telefono (UK e IT raggruppati elegantemente) */}
+            <li className="flex items-start space-x-3">
+              <Phone className="w-4 h-4 text-brand-gold mt-0.5" />
+              <div className="flex flex-col space-y-1">
+                <span>+44 7465 207494 (UK)</span>
+                <span>+39 0832 1786674 (IT)</span>
+              </div>
             </li>
             <li className="flex items-center space-x-3">
               <Mail className="w-4 h-4 text-brand-gold" />
@@ -53,7 +57,7 @@ export default function Footer() {
             </li>
             <li className="flex items-center space-x-3">
               <MapPin className="w-4 h-4 text-brand-gold" />
-              <span>Nardò, Salento (Italy) | London (UK)</span>
+              <span>Lecce, Salento (Italy) | London (UK)</span>
             </li>
           </ul>
         </div>
