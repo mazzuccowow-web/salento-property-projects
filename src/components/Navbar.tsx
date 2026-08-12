@@ -51,13 +51,13 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
 
-        {/* TEXT LOGO */}
+         {/* TEXT LOGO */}
         <Link to="/" className="flex flex-col" id="logo-link">
-          <span className="text-xl md:text-2xl font-serif font-bold tracking-tight text-brand-black">
+          <span className="text-3xl md:text-4xl font-serif font-bold tracking-tight text-brand-black">
             SALENTO
           </span>
-
-          <span className="text-[10px] md:text-xs tracking-[0.2em] font-sans font-medium text-brand-gold uppercase -mt-1">
+        
+          <span className="text-xs md:text-sm tracking-[0.2em] font-sans font-medium text-brand-gold uppercase -mt-1 md:-mt-1.5">
             Property Projects
           </span>
         </Link>
