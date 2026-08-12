@@ -79,9 +79,9 @@ const resources = {
         teamTitle: 'The Team',
 
         whoWeAreDesc:
-          'Founded by Andrea Mazzucco and Mirella Lefter, Salento Property Projects was created to help international buyers navigate renovation projects in Salento through a more structured, transparent and operational approach.',
+          'Founded by Andrea and Mirella Lefter, Salento Property Projects was created to help international buyers navigate renovation projects in Salento through a more structured, transparent and operational approach.',
 
-        andreaName: 'Andrea Mazzucco',
+        andreaName: 'Andrea',
         andreaRole: 'Founder & Project Coordinator',
         andreaDesc:
           'With a background influenced by UK operational and project coordination standards, Andrea focuses on helping international buyers navigate the complexities of property renovation in Salento with greater clarity, structure and confidence.',
