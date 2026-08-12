@@ -82,20 +82,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TRUST SECTION (Ridisegnata con Griglia a 12 colonne per massima ampiezza) */}
+      {/* TRUST SECTION (Con scritte e immagini leggermente più grandi) */}
       <section className="py-20 bg-brand-black text-brand-beige border-t border-b border-brand-beige/10">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
           {/* COLONNA SINISTRA: Testo a sinistra + Immagine Minister a destra */}
           <div className="col-span-1 lg:col-span-3 flex flex-row items-center gap-4 justify-center lg:justify-end">
-            <p className="text-xs text-brand-white opacity-80 font-light leading-relaxed text-center sm:text-right max-w-[200px] lg:max-w-none">
+            <p className="text-xs md:text-sm text-brand-white opacity-80 font-light leading-relaxed text-center sm:text-right max-w-[240px] lg:max-w-none">
               {t('home.trust.leftText')}
             </p>
             <div className="flex items-center justify-center flex-shrink-0">
               <img 
                 src={minister}
                 alt="Minister"
-                className="h-24 md:h-28 w-auto object-contain opacity-90 hover:opacity-100 transition-all duration-300"
+                className="h-28 md:h-32 xl:h-36 w-auto object-contain opacity-90 hover:opacity-100 transition-all duration-300"
                 id="trust-badge-minister"
               />
             </div>
@@ -112,11 +112,11 @@ export default function Home() {
               <img 
                 src={company}
                 alt="Company"
-                className="h-24 md:h-28 w-auto object-contain opacity-90 hover:opacity-100 transition-all duration-300"
+                className="h-28 md:h-32 xl:h-36 w-auto object-contain opacity-90 hover:opacity-100 transition-all duration-300"
                 id="trust-badge-company"
               />
             </div>
-            <p className="text-xs text-brand-white opacity-80 font-light leading-relaxed text-center sm:text-left whitespace-pre-line max-w-[220px] lg:max-w-none">
+            <p className="text-xs md:text-sm text-brand-white opacity-80 font-light leading-relaxed text-center sm:text-left whitespace-pre-line max-w-[260px] lg:max-w-none">
               {t('home.trust.rightText')}
             </p>
           </div>
