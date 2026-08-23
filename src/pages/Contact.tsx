@@ -28,6 +28,16 @@ export default function Contact() {
       .then((response) => {
         if (response.ok) {
           setStatus('success');
+
+          // CONVERSIONE GOOGLE ADS: Traccia 'Submit lead form'
+          if (typeof window !== 'undefined' && (window as any).gtag) {
+            (window as any).gtag('event', 'conversion', {
+              'send_to': 'AW-16488738384/yld5CKzCtOYcENDcuLY9',
+              'value': 1.0,
+              'currency': 'GBP'
+            });
+          }
+
           form.reset();
         } else {
           setStatus('error');
