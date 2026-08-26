@@ -36,6 +36,7 @@ export default function Navbar() {
     { name: t('nav.about'), path: '/about' },
     { name: t('nav.services'), path: '/services' },
     { name: t('nav.howItWorks'), path: '/how-it-works' },
+    { name: t('nav.testimonials'), path: '/testimonials' },
     { name: "Buyer's Guide", path: '/buyers-guide' },
     { name: t('nav.contact'), path: '/contact' },
   ];
@@ -51,28 +52,26 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
 
-         {/* TEXT LOGO */}
-          <Link to="/" className="flex flex-col" id="logo-link">
-            <span className="text-4xl md:text-5xl font-serif font-bold tracking-tight text-brand-black">
-              SALENTO
-            </span>
-          
-            <span className="text-sm md:text-base tracking-[0.2em] font-sans font-medium text-brand-gold uppercase -mt-1.5 md:-mt-2">
-              Property Projects
-            </span>
-          </Link>
+        {/* TEXT LOGO */}
+        <Link to="/" className="flex flex-col" id="logo-link">
+          <span className="text-3xl lg:text-4xl xl:text-5xl font-serif font-bold tracking-tight text-brand-black">
+            SALENTO
+          </span>
+          <span className="text-xs lg:text-sm xl:text-base tracking-[0.2em] font-sans font-medium text-brand-gold uppercase -mt-1.5 md:-mt-2">
+            Property Projects
+          </span>
+        </Link>
 
         {/* DESKTOP NAV */}
-        <div className="hidden md:flex items-center space-x-10">
-
-          <div className="flex space-x-8">
+        <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
+          <div className="flex space-x-5 lg:space-x-7">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 className={`text-sm font-medium tracking-wide transition-colors hover:text-brand-gold ${
                   location.pathname === link.path
-                    ? 'text-brand-gold'
+                    ? 'text-brand-gold font-semibold'
                     : 'text-brand-black'
                 }`}
                 id={`nav-link-${link.name
@@ -101,7 +100,6 @@ export default function Navbar() {
 
         {/* MOBILE */}
         <div className="flex md:hidden items-center space-x-4">
-
           {/* LANGUAGE BUTTON (MOBILE) */}
           <button
             onClick={toggleLanguage}
@@ -127,7 +125,6 @@ export default function Navbar() {
               <Menu className="w-6 h-6" />
             )}
           </button>
-
         </div>
       </div>
 
@@ -148,7 +145,7 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className={`text-lg font-serif transition-colors ${
                   location.pathname === link.path
-                    ? 'text-brand-gold'
+                    ? 'text-brand-gold font-semibold'
                     : 'text-brand-black'
                 }`}
                 id={`mobile-nav-link-${link.name
