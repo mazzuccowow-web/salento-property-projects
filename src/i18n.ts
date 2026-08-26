@@ -82,11 +82,11 @@ const resources = {
           'Together, we combine operational coordination and cost management expertise to help international clients approach renovation projects in Salento with greater peace of mind and structure.'
       },
 
+      // 👉 SEZIONE TESTIMONIALS (EN) - SENZA VERIFIED BADGE
       testimonials: {
         eyebrow: 'Client Experiences',
         title: 'What Our Clients Say',
         subtitle: 'From property consultancy in Salento to construction and project management in London, our clients value our independent advice, hands-on approach and commitment to getting things right.',
-        verifiedBadge: 'Verified Reference',
         ctaTitle: 'Ready to start your property journey with total confidence?',
         ctaSubtitle: 'Book a confidential consultation with Andrea and our team.',
         ctaButton: 'Book a Free Consultation',
@@ -115,7 +115,6 @@ const resources = {
         }
       },
 
-      // 👉 SEZIONE BUYER'S GUIDE (EN)
       buyersGuidePage: {
         hero: {
           title: "Buyer's Guide",
@@ -368,11 +367,11 @@ const resources = {
           'Insieme uniamo coordinamento operativo e competenze nella gestione dei costi per aiutare clienti internazionali ad affrontare progetti di ristrutturazione nel Salento con maggiore serenità e organizzazione.'
       },
 
+      // 👉 SEZIONE TESTIMONIALS (IT) - SENZA VERIFIED BADGE
       testimonials: {
         eyebrow: 'Esperienze dei Clienti',
         title: 'Cosa Dicono i Nostri Clienti',
         subtitle: 'Dalla consulenza immobiliare nel Salento alla gestione di progetti e costruzioni a Londra, i nostri clienti apprezzano la nostra consulenza indipendente, l\'approccio operativo e l\'impegno costante per ottenere risultati ottimali.',
-        verifiedBadge: 'Referenza Verificata',
         ctaTitle: 'Pronto ad avviare il tuo progetto immobiliare con la massima serenità?',
         ctaSubtitle: 'Prenota una consulenza riservata con Andrea e il nostro team.',
         ctaButton: 'Prenota una Consulenza Gratuita',
@@ -401,7 +400,6 @@ const resources = {
         }
       },
 
-      // 👉 SEZIONE BUYER'S GUIDE (IT)
       buyersGuidePage: {
         hero: {
           title: 'Guida per Acquirenti',
