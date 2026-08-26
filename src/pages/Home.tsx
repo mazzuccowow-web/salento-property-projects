@@ -103,7 +103,7 @@ export default function Home() {
 
           {/* COLONNA CENTRALE: Citazione di prestigio ampliata al 44% dello spazio di visualizzazione */}
           <div className="w-full lg:w-[44%] text-center italic font-serif text-xl md:text-2xl xl:text-3xl opacity-90 leading-relaxed px-4">
-            "We transform the complexity of Italian property renovation into a seamless, prestigious journey for our international clients."
+            "Independent Property Consultancy in Salento, Puglia & Italy"
           </div>
 
           {/* COLONNA DESTRA: Occupa il 28% dello spazio desktop (Mantenuta identica al tuo design perfetto) */}
