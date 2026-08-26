@@ -41,7 +41,6 @@ const resources = {
           planning: 'Project Planning',
           renovation: 'Renovation Management'
         },
-        // 👉 NUOVA SEZIONE TRUST CON TESTI ESTERNI (EN)
         trust: {
           leftText: 'Working in collaboration with a carefully selected network of established Italian companies and professional partners.',
           rightText: 'Salento Property Projects is a trading name of New Deal Construction Ltd, a company registered in England and Wales.\nCompany No. 13665037 · VAT No. 402 8992 85'
@@ -59,8 +58,8 @@ const resources = {
         missionDesc2:
           'With 25 years of experience in the UK operations and finance sectors, we are native Italian speakers who offer the perfect blend of British organizational standards and local expertise. We are well-connected with trained local professionals to ensure every project achieves international-level results.',
 
-        // 👉 SEZIONE INDIPENDENZA
-        indTitle: 'Independent Project Coordination for International Property Buyers in Salento',
+        // 👉 SEZIONE INDIPENDENZA AGGIORNATA
+        indTitle: 'Independent Property Consultancy in Salento & Italy',
         indDesc1: 'At Salento Property Projects, we believe buying a property is only the beginning of an exciting journey.',
         indDesc2: "Whether you've already found your dream home or you're still searching, we're here to help you make informed decisions and guide you through every stage that follows.",
         indDesc3: 'From independent pre-purchase advice to renovation planning, project coordination and final handover, we work exclusively in your best interests, giving you complete confidence throughout the entire process.',
@@ -156,7 +155,6 @@ const resources = {
         piDesc: 'Regular health checks of your property during off-season.'
       },
 
-      // 👉 FOOTER SECTION
       footer: {
         description: 'We support international clients through every stage of renovation and property management in Salento.',
         socialMedia: 'Social Media'
@@ -198,7 +196,6 @@ const resources = {
           planning: 'Pianificazione Progetto',
           renovation: 'Gestione Ristrutturazione'
         },
-        // 👉 NUOVA SEZIONE TRUST CON TESTI ESTERNI (IT)
         trust: {
           leftText: 'Lavoriamo in collaborazione con una rete accuratamente selezionata di aziende italiane affermate e partner professionali.',
           rightText: 'Salento Property Projects è un nome commerciale di New Deal Construction Ltd, società registrata in Inghilterra e Galles.\nReg. Società N. 13665037 · Partita IVA N. 402 8992 85'
@@ -216,8 +213,8 @@ const resources = {
         missionDesc2:
           'Siamo madrelingua italiani con 25 anni di esperienza nei settori delle operazioni e della finanza nel Regno Unito. Questo ci permette di offrire il mix perfetto tra standard organizzativi britannici e competenza locale. Siamo profondamente connessi con professionisti del territorio per garantire che ogni progetto raggiunga risultati di livello internazionale.',
 
-        // 👉 SEZIONE INDIPENDENZA
-        indTitle: 'Coordinamento Indipendente dei Progetti per Acquirenti Immobiliari Internazionali nel Salento',
+        // 👉 SEZIONE INDIPENDENZA AGGIORNATA
+        indTitle: 'Consulenza Immobiliare Indipendente nel Salento e in Italia',
         indDesc1: 'Presso Salento Property Projects, crediamo che acquistare un immobile sia solo l\'inizio di un viaggio emozionante.',
         indDesc2: 'Sia che tu abbia già trovato la casa dei tuoi sogni o che la stia ancora cercando, siamo qui per aiutarti a prendere decisioni informate e guidarti in ogni fase successiva.',
         indDesc3: 'Dalla consulenza indipendente prima dell\'acquisto alla pianificazione della ristrutturazione, al coordinamento del progetto e alla consegna finale, lavoriamo esclusivamente nel tuo interesse, dandoti piena fiducia durante l\'intero processo.',
@@ -313,7 +310,6 @@ const resources = {
         piDesc: 'Controlli regolari della proprietà durante i periodi di assenza.'
       },
 
-      // 👉 FOOTER SECTION
       footer: {
         description: 'Supportiamo clienti internazionali in ogni fase della ristrutturazione e della gestione immobiliare nel Salento.',
         socialMedia: 'Social Media'
