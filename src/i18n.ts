@@ -15,7 +15,7 @@ const resources = {
         services: 'Services',
         howItWorks: 'How It Works',
         testimonials: 'Testimonials',
-        buyersGuide: 'Buyers Guide',
+        buyersGuide: "Buyer's Guide",
         contact: 'Contact'
       },
 
@@ -82,7 +82,6 @@ const resources = {
           'Together, we combine operational coordination and cost management expertise to help international clients approach renovation projects in Salento with greater peace of mind and structure.'
       },
 
-      // 👉 SEZIONE TESTIMONIALS (EN)
       testimonials: {
         eyebrow: 'Client Experiences',
         title: 'What Our Clients Say',
@@ -113,6 +112,116 @@ const resources = {
             p2: 'We hope you accept this gift from us as a sincere token of our gratitude and appreciation.',
             highlight: 'We will forever be grateful for your help.'
           }
+        }
+      },
+
+      // 👉 SEZIONE BUYER'S GUIDE (EN)
+      buyersGuidePage: {
+        hero: {
+          title: "Buyer's Guide",
+          subtitle: 'Your step-by-step resource for buying property in Salento, Italy'
+        },
+        leadMagnet: {
+          badge: 'Free Digital Download',
+          title: 'Before You Buy in Salento',
+          subtitle: 'The Essential Guide for International Property Buyers',
+          description: 'Thinking of buying a property in Salento? Download our free Buyer’s Guide and discover the essential steps, hidden costs, legal considerations and practical advice every international buyer should know before making a purchase. Written by local property professionals to help you buy with confidence.',
+          firstName: 'First Name',
+          lastName: 'Last Name',
+          email: 'Email Address',
+          gdprConsent: 'I agree to receive updates, guides and occasional property insights from Salento Property Projects. I can unsubscribe at any time.',
+          buttonIdle: 'Download Your Free Guide',
+          buttonSending: 'Preparing Download...',
+          errorMessage: 'Something went wrong. Please try again.',
+          successTitle: 'Thank you!',
+          successText: 'Your download has started automatically. If it doesn’t, ',
+          successLink: 'click here to download manually.'
+        },
+        overview: {
+          title: 'Overview',
+          description: 'Buying property in Salento is an exciting opportunity, whether for a holiday home, investment or permanent relocation. This guide walks you through every step of the process — from research and due diligence to purchase and renovation.'
+        },
+        steps: {
+          title: 'The Buying Process',
+          subtitle: 'A high-level overview of the key steps involved in buying property in Italy.',
+          s1: { name: 'Research & Define', desc: 'Define your goals, budget, preferred areas and property type.' },
+          s2: { name: 'Search & Viewings', desc: 'We identify suitable options and arrange viewings in Salento.' },
+          s3: { name: 'Due Diligence', desc: 'We conduct all legal, technical and planning checks for peace of mind.' },
+          s4: { name: 'Offer & Legal Process', desc: 'Make an offer, sign preliminary contract and complete legal formalities.' },
+          s5: { name: 'Completion', desc: 'Final deed signing, utilities transfer and post-purchase support.' }
+        },
+        accordionTitle: 'Key Topics Covered',
+        topics: {
+          t1: {
+            title: 'Why Salento?',
+            subtitle: 'Why are more international buyers choosing Salento?',
+            p1: "Salento has become one of Southern Europe's most attractive property investment destinations. With its crystal-clear coastline, historic towns, authentic Italian lifestyle and relatively affordable property prices, the region offers exceptional long-term value.",
+            p2: 'Unlike many saturated Mediterranean markets, Salento still presents opportunities to purchase historic townhouses, countryside villas and renovation projects at competitive prices.',
+            p3: 'Whether your goal is a holiday home, a lifestyle investment, short-term rental income or a long-term property portfolio, Salento combines strong potential with an exceptional quality of life.',
+            listTitle: 'Key advantages include:',
+            items: ['Competitive property prices', 'Growing international demand', 'Strong tourism sector', 'Authentic Italian culture', 'Excellent renovation opportunities', 'High rental potential in selected locations', 'Mediterranean climate all year round'],
+            closing: 'Our role is to help you navigate this market with clarity, confidence and complete independence.'
+          },
+          t2: {
+            title: 'Step-by-Step Process',
+            subtitle: "Buying property in Italy doesn't have to be complicated.",
+            p1: 'We guide you through every stage of the process, ensuring you understand each decision before moving forward.',
+            listTitle: 'Our consultancy typically follows these steps:',
+            items: ['Initial consultation to understand your goals.', 'Property search and independent assessment.', 'Site inspections and technical observations.', 'Investment feasibility review.', 'Cost estimation and renovation strategy.', 'Legal and technical due diligence.', 'Offer negotiation support.', 'Coordination with professionals involved.', 'Renovation planning (if required).', 'Ongoing project management until completion.'],
+            closing: 'Every project is different, but our structured approach reduces uncertainty and helps avoid costly mistakes.'
+          },
+          t3: {
+            title: 'Costs & Taxes',
+            subtitle: 'Understanding the real cost of buying property in Italy.',
+            p1: 'The purchase price is only one part of your investment.',
+            listTitle: 'Depending on the type of property and your circumstances, additional costs may include:',
+            items: ['Purchase taxes', 'Notary fees', 'Legal fees', 'Land Registry charges', 'Survey costs', 'Agency fees (where applicable)', 'Renovation costs', 'Utility connections', 'Annual ownership taxes'],
+            after1: 'Many overseas buyers underestimate these additional expenses.',
+            after2: 'Our consultancy provides realistic cost planning before you commit to any purchase, allowing you to budget with confidence.',
+            closing: 'Transparency is one of the foundations of every successful investment.'
+          },
+          t4: {
+            title: 'Legal & Due Diligence',
+            subtitle: 'Protecting your investment before you buy.',
+            p1: 'One of the biggest risks when purchasing overseas is relying on incomplete or inaccurate information.',
+            p2: 'Before any commitment is made, every property should be carefully assessed from both a legal and technical perspective.',
+            listTitle: 'This may include reviewing:',
+            items: ['Ownership history', 'Planning permissions', 'Building compliance', 'Land Registry information', 'Existing mortgages or legal restrictions', 'Technical documentation', 'Building condition', 'Renovation feasibility'],
+            after1: 'We coordinate with qualified local professionals while remaining fully independent from estate agents and contractors.',
+            closing: 'Our priority is protecting your interests throughout the purchasing process.'
+          },
+          t5: {
+            title: 'Renovation & Planning',
+            subtitle: 'Transforming potential into value.',
+            p1: "Many of Salento's most attractive properties require renovation.",
+            p2: 'A successful renovation begins long before construction starts.',
+            listTitle: 'We help clients understand:',
+            items: ['Project feasibility', 'Preliminary design strategy', 'Budget planning', 'Construction cost estimates', 'Programme of works', 'Contractor coordination', 'Quality control', 'Progress monitoring', 'Final handover'],
+            after1: 'Whether restoring a traditional townhouse or renovating a countryside property, careful planning reduces delays, unexpected costs and unnecessary risks.',
+            closing: 'Our experience in project management allows clients to make informed decisions from the very beginning.'
+          },
+          t6: {
+            title: 'Managing Remotely',
+            subtitle: 'Invest with confidence — wherever you are.',
+            p1: 'Many of our clients live outside Italy. Travelling frequently during a renovation is often impractical.',
+            p2: 'Our consultancy allows you to manage your investment remotely through structured reporting and transparent communication.',
+            listTitle: 'Depending on your chosen service package, we can provide:',
+            items: ['Regular project updates', 'Site visit reports', 'Photo and video progress documentation', 'Budget monitoring', 'Coordination with contractors', 'Issue management', 'Programme tracking', 'Final completion reporting'],
+            after1: 'Our objective is simple:',
+            closing: 'To give you complete visibility over your investment, even when you are thousands of miles away.'
+          }
+        },
+        blog: {
+          title: 'Latest Articles & Insights',
+          subtitle: 'Explore our latest guides and articles.'
+        },
+        sidebar: {
+          guidanceTitle: 'Need Personal Guidance?',
+          guidanceDesc: 'We offer independent advice and end-to-end support for international buyers.',
+          guidanceBtn: 'Book a Consultation',
+          questionsTitle: 'Have Questions?',
+          questionsDesc: 'We are here to help you make the right decision.',
+          questionsBtn: 'Contact Us'
         }
       },
 
@@ -259,7 +368,6 @@ const resources = {
           'Insieme uniamo coordinamento operativo e competenze nella gestione dei costi per aiutare clienti internazionali ad affrontare progetti di ristrutturazione nel Salento con maggiore serenità e organizzazione.'
       },
 
-      // 👉 SEZIONE TESTIMONIALS (IT)
       testimonials: {
         eyebrow: 'Esperienze dei Clienti',
         title: 'Cosa Dicono i Nostri Clienti',
@@ -290,6 +398,116 @@ const resources = {
             p2: 'Speriamo accettiate questo pensiero come sincero segno della nostra gratitudine e stima.',
             highlight: 'Vi saremo per sempre grati per il vostro prezioso aiuto.'
           }
+        }
+      },
+
+      // 👉 SEZIONE BUYER'S GUIDE (IT)
+      buyersGuidePage: {
+        hero: {
+          title: 'Guida per Acquirenti',
+          subtitle: 'La tua guida passo dopo passo per acquistare immobili nel Salento'
+        },
+        leadMagnet: {
+          badge: 'Download Digitale Gratuito',
+          title: 'Prima di Acquistare nel Salento',
+          subtitle: 'La Guida Essenziale per Acquirenti Internazionali',
+          description: 'Stai pensando di acquistare un immobile nel Salento? Scarica la nostra Guida gratuita e scopri i passaggi chiave, i costi nascosti, gli aspetti legali e i consigli pratici che ogni acquirente dovrebbe conoscere prima di procedere. Scritta da professionisti per farti acquistare in totale serenità.',
+          firstName: 'Nome',
+          lastName: 'Cognome',
+          email: 'Indirizzo Email',
+          gdprConsent: 'Accetto di ricevere aggiornamenti, guide e approfondimenti periodici da Salento Property Projects. Posso disiscrivermi in qualsiasi momento.',
+          buttonIdle: 'Scarica la Tua Guida Gratuita',
+          buttonSending: 'Preparazione Download...',
+          errorMessage: 'Qualcosa è andato storto. Per favore riprova.',
+          successTitle: 'Grazie!',
+          successText: 'Il download è iniziato automaticamente. Se non dovesse partire, ',
+          successLink: 'clicca qui per scaricarla manualmente.'
+        },
+        overview: {
+          title: 'Panoramica',
+          description: 'Acquistare un immobile nel Salento è un\'opportunità straordinaria, sia per una casa vacanze, un investimento o un trasferimento permanente. Questa guida ti accompagna in ogni fase del percorso: dalla ricerca preliminare alla due diligence, fino all\'acquisto e alla ristrutturazione.'
+        },
+        steps: {
+          title: 'Il Processo di Acquisto',
+          subtitle: 'Una panoramica completa dei passaggi chiave per acquistare un immobile in Italia.',
+          s1: { name: 'Ricerca e Definizione', desc: 'Definisci obiettivi, budget, zone preferite e tipologia di immobile.' },
+          s2: { name: 'Ricerca e Visite', desc: 'Identifichiamo le migliori opzioni e organizziamo i sopralluoghi nel Salento.' },
+          s3: { name: 'Due Diligence', desc: 'Eseguiamo verifiche legali, tecniche e urbanistiche per la massima serenità.' },
+          s4: { name: 'Offerta e Pratiche Legali', desc: 'Formulazione dell\'offerta, firma del preliminare e iter notarile.' },
+          s5: { name: 'Rogito e Consegna', desc: 'Firma dell\'atto finale, voltura delle utenze e supporto post-vendita.' }
+        },
+        accordionTitle: 'Argomenti Principali Trattati',
+        topics: {
+          t1: {
+            title: 'Perché il Salento?',
+            subtitle: 'Perché sempre più acquirenti internazionali scelgono il Salento?',
+            p1: 'Il Salento è diventato una delle mete di investimento immobiliare più ambite del Sud Europa. Con le sue coste cristalline, i centri storici ricchi di fascino, l\'autentico stile di vita italiano e prezzi ancora competitivi, la regione offre uno straordinario valore a lungo termine.',
+            p2: 'A differenza di mercati mediterranei saturi, il Salento offre ancora l\'opportunità di acquistare palazzotti storici, ville di campagna e proprietà da ristrutturare a condizioni molto vantaggiose.',
+            p3: 'Che il tuo obiettivo sia una casa vacanze, un investimento a reddito o un patrimonio a lungo termine, il Salento unisce forte potenziale a una qualità di vita impareggiabile.',
+            listTitle: 'I principali vantaggi includono:',
+            items: ['Prezzi degli immobili altamente competitivi', 'Crescente domanda internazionale', 'Settore turistico in forte espansione', 'Cultura e tradizioni autentiche', 'Eccellenti opportunità di ristrutturazione', 'Alto potenziale di rendita da locazione', 'Clima mediterraneo tutto l\'anno'],
+            closing: 'Il nostro ruolo è guidarti in questo mercato con trasparenza, sicurezza e totale indipendenza.'
+          },
+          t2: {
+            title: 'Processo Passo dopo Passo',
+            subtitle: 'Acquistare un immobile in Italia non deve essere complicato.',
+            p1: 'Ti accompagniamo in ogni fase del percorso, assicurandoci che tu comprenda ogni scelta prima di procedere.',
+            listTitle: 'La nostra consulenza segue solitamente questi passaggi:',
+            items: ['Consulenza iniziale per comprendere le tue esigenze.', 'Ricerca mirata e valutazione indipendente.', 'Sopralluoghi e rilievi tecnici sul posto.', 'Analisi di fattibilità dell\'investimento.', 'Stima dei costi e strategia di ristrutturazione.', 'Due diligence legale e tecnica approfondita.', 'Supporto nella negoziazione dell\'offerta.', 'Coordinamento con i professionisti coinvolti.', 'Pianificazione dei lavori (se necessari).', 'Project management continuo fino alla consegna.'],
+            closing: 'Ogni progetto è unico, ma il nostro metodo strutturato riduce le incertezze ed evita errori costosi.'
+          },
+          t3: {
+            title: 'Costi e Imposte',
+            subtitle: 'Comprendere il costo reale dell\'acquisto in Italia.',
+            p1: 'Il prezzo di vendita è solo una parte dell\'investimento complessivo.',
+            listTitle: 'A seconda della tipologia di immobile e della tua situazione, i costi aggiuntivi possono includere:',
+            items: ['Imposte di registro o IVA', 'Onorari notarili', 'Consulenze legali e tecniche', 'Spese catastali e ipotecarie', 'Costi di perizia', 'Provvigioni di agenzia (ove applicabili)', 'Budget di ristrutturazione', 'Allacci utenze', 'Imposte annuali sulla proprietà (IMU/TARI)'],
+            after1: 'Molti acquirenti stranieri sottovalutano queste spese accessorie.',
+            after2: 'La nostra consulenza fornisce una pianificazione economica realistica prima di assumere impegni vincolanti, permettendoti di pianificare il budget con certezza.',
+            closing: 'La trasparenza è il pilastro di ogni investimento di successo.'
+          },
+          t4: {
+            title: 'Verifiche Legali e Due Diligence',
+            subtitle: 'Proteggere il tuo investimento prima del rogito.',
+            p1: 'Uno dei rischi maggiori quando si acquista all\'estero è fare affidamento su informazioni incomplete o imprecise.',
+            p2: 'Prima di versare caparre, ogni immobile deve essere esaminato con la massima cura sia sotto il profilo giuridico che tecnico.',
+            listTitle: 'Le verifiche possono comprendere:',
+            items: ['Continuità delle trascrizioni e provenienza', 'Conformità edilizia e urbanistica', 'Allineamento catastale', 'Ispezioni ipotecarie (presenza di vincoli o ipoteche)', 'Agibilità e certificazioni impianti', 'Stato strutturale e conservativo', 'Fattibilità degli interventi edilizi'],
+            after1: 'Collaboriamo con professionisti locali qualificati mantenendo la totale indipendenza da agenzie e imprese.',
+            closing: 'La nostra priorità è tutelare esclusivamente i tuoi interessi durante l\'acquisto.'
+          },
+          t5: {
+            title: 'Pianificazione e Ristrutturazione',
+            subtitle: 'Trasformare il potenziale in valore reale.',
+            p1: 'Molti degli immobili più affascinanti nel Salento richiedono interventi di restauro.',
+            p2: 'Una ristrutturazione di successo inizia molto prima dell\'apertura del cantiere.',
+            listTitle: 'Aiutiamo i clienti a comprendere:',
+            items: ['Fattibilità preliminare dell\'intervento', 'Strategia progettuale', 'Pianificazione analitica del budget', 'Computi metrici estimativi dettagliati', 'Cronoprogramma dei lavori', 'Selezione e coordinamento delle imprese', 'Controllo di qualità continuo', 'Monitoraggio dell\'avanzamento', 'Collaudo e consegna finale'],
+            after1: 'Che si tratti di restaurare un palazzotto antico o rinnovare una masseria, un\'attenta pianificazione previene ritardi, costi imprevisti e rischi.',
+            closing: 'La nostra esperienza nel project management consente ai clienti di prendere decisioni consapevoli fin dal primo momento.'
+          },
+          t6: {
+            title: 'Gestione da Remoto',
+            subtitle: 'Investi con sicurezza — ovunque ti trovi.',
+            p1: 'La maggior parte dei nostri clienti risiede all\'estero. Viaggiare costantemente durante i lavori è spesso complicato.',
+            p2: 'Il nostro servizio ti consente di gestire il progetto a distanza grazie a reportistica costante e comunicazione trasparente.',
+            listTitle: 'A seconda del pacchetto concordato, forniamo:',
+            items: ['Aggiornamenti periodici dettagliati', 'Report di sopralluogo in cantiere', 'Documentazione foto e video in alta risoluzione', 'Monitoraggio costante dei costi', 'Interfaccia unica con imprese e artigiani', 'Risoluzione tempestiva degli imprevisti', 'Controllo del rispetto dei tempi', 'Verbale di fine lavori e consegna'],
+            after1: 'Il nostro obiettivo è chiaro:',
+            closing: 'Offrirti il pieno controllo e la totale serenità sul tuo investimento, anche a migliaia di chilometri di distanza.'
+          }
+        },
+        blog: {
+          title: 'Ultimi Articoli e Approfondimenti',
+          subtitle: 'Esplora le nostre guide e i consigli di settore.'
+        },
+        sidebar: {
+          guidanceTitle: 'Hai Bisogno di una Guida Personale?',
+          guidanceDesc: 'Offriamo consulenza indipendente e assistenza end-to-end per acquirenti internazionali.',
+          guidanceBtn: 'Prenota una Consulenza',
+          questionsTitle: 'Hai Domande?',
+          questionsDesc: 'Siamo qui per aiutarti a prendere la decisione giusta.',
+          questionsBtn: 'Contattaci'
         }
       },
 
