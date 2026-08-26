@@ -14,6 +14,7 @@ const resources = {
         about: 'About',
         services: 'Services',
         howItWorks: 'How It Works',
+        testimonials: 'Testimonials',
         buyersGuide: 'Buyers Guide',
         contact: 'Contact'
       },
@@ -58,13 +59,11 @@ const resources = {
         missionDesc2:
           'With 25 years of experience in the UK operations and finance sectors, we are native Italian speakers who offer the perfect blend of British organizational standards and local expertise. We are well-connected with trained local professionals to ensure every project achieves international-level results.',
 
-        // 👉 SEZIONE INDIPENDENZA AGGIORNATA
         indTitle: 'Independent Property Consultancy in Salento & Italy',
         indDesc1: 'At Salento Property Projects, we believe buying a property is only the beginning of an exciting journey.',
         indDesc2: "Whether you've already found your dream home or you're still searching, we're here to help you make informed decisions and guide you through every stage that follows.",
         indDesc3: 'From independent pre-purchase advice to renovation planning, project coordination and final handover, we work exclusively in your best interests, giving you complete confidence throughout the entire process.',
         
-        // 👉 BOX DIFFERENZA
         differentTitle: "Why We're Different",
         diff1: "We don't sell properties.",
         diff2: "We don't work for contractors.",
@@ -74,7 +73,6 @@ const resources = {
         diff6: "Independent project coordination.",
         diff7: "Complete peace of mind.",
 
-        // 👉 TEAM SECTION
         teamTitle: 'The Team',
 
         whoWeAreDesc:
@@ -169,6 +167,7 @@ const resources = {
         about: 'Chi Siamo',
         services: 'Servizi',
         howItWorks: 'Come Funziona',
+        testimonials: 'Testimonianze',
         buyersGuide: 'Guida per Acquirenti',
         contact: 'Contatti'
       },
@@ -213,13 +212,11 @@ const resources = {
         missionDesc2:
           'Siamo madrelingua italiani con 25 anni di esperienza nei settori delle operazioni e della finanza nel Regno Unito. Questo ci permette di offrire il mix perfetto tra standard organizzativi britannici e competenza locale. Siamo profondamente connessi con professionisti del territorio per garantire che ogni progetto raggiunga risultati di livello internazionale.',
 
-        // 👉 SEZIONE INDIPENDENZA AGGIORNATA
         indTitle: 'Consulenza Immobiliare Indipendente nel Salento e in Italia',
         indDesc1: 'Presso Salento Property Projects, crediamo che acquistare un immobile sia solo l\'inizio di un viaggio emozionante.',
         indDesc2: 'Sia che tu abbia già trovato la casa dei tuoi sogni o che la stia ancora cercando, siamo qui per aiutarti a prendere decisioni informate e guidarti in ogni fase successiva.',
         indDesc3: 'Dalla consulenza indipendente prima dell\'acquisto alla pianificazione della ristrutturazione, al coordinamento del progetto e alla consegna finale, lavoriamo esclusivamente nel tuo interesse, dandoti piena fiducia durante l\'intero processo.',
         
-        // 👉 BOX DIFFERENZA
         differentTitle: 'Perché siamo diversi',
         diff1: 'Non vendiamo immobili.',
         diff2: 'Non lavoriamo per le imprese.',
@@ -229,7 +226,6 @@ const resources = {
         diff6: 'Coordinamento indipendente dei progetti.',
         diff7: 'Completa tranquillità.',
 
-        // 👉 TEAM SECTION
         teamTitle: 'Il Team',
 
         whoWeAreDesc:
