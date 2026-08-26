@@ -10,18 +10,32 @@ import { Link } from 'react-router-dom';
 export default function Testimonials() {
   const { t } = useTranslation();
 
-  // Array dinamico delle recensioni
+  // Lista delle recensioni con soli Nomi e Città (senza indirizzi privati)
   const testimonialsList = [
     {
       id: 'ian-fielding',
-      name: t('testimonials.items.ian.name'),
-      address: t('testimonials.items.ian.address'),
+      author: t('testimonials.items.ian.author'),
       locationBadge: t('testimonials.items.ian.locationBadge'),
       p1: t('testimonials.items.ian.p1'),
       p2: t('testimonials.items.ian.p2'),
       highlight: t('testimonials.items.ian.highlight')
+    },
+    {
+      id: 'silvana-de-palma',
+      author: t('testimonials.items.silvana.author'),
+      locationBadge: t('testimonials.items.silvana.locationBadge'),
+      p1: t('testimonials.items.silvana.p1'),
+      p2: t('testimonials.items.silvana.p2'),
+      highlight: t('testimonials.items.silvana.highlight')
+    },
+    {
+      id: 'hgm-management',
+      author: t('testimonials.items.hgm.author'),
+      locationBadge: t('testimonials.items.hgm.locationBadge'),
+      p1: t('testimonials.items.hgm.p1'),
+      p2: t('testimonials.items.hgm.p2'),
+      highlight: t('testimonials.items.hgm.highlight')
     }
-    // Qui aggiungeremo le altre recensioni appena me le passi!
   ];
 
   return (
@@ -68,7 +82,7 @@ export default function Testimonials() {
           </motion.p>
         </header>
 
-        {/* GRID TESTIMONIALS (Bozza 1) */}
+        {/* GRID TESTIMONIALS */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {testimonialsList.map((item, index) => (
             <motion.div
@@ -76,10 +90,10 @@ export default function Testimonials() {
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.15, duration: 0.5 }}
+              transition={{ delay: index * 0.12, duration: 0.5 }}
               className="bg-brand-beige border border-brand-sand rounded-2xl p-8 md:p-12 relative flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow"
             >
-              {/* Filigrana virgoletta stilizzata */}
+              {/* Filigrana */}
               <span className="absolute top-6 right-8 text-7xl font-serif text-brand-gold/20 select-none leading-none pointer-events-none">
                 “
               </span>
@@ -91,29 +105,24 @@ export default function Testimonials() {
                   <span>{item.locationBadge}</span>
                 </div>
 
-                {/* Testimonial Quote */}
+                {/* Testimonial Text */}
                 <blockquote className="text-brand-taupe text-base md:text-lg leading-relaxed font-light space-y-4 mb-8">
-                  <p>{item.p1}</p>
-                  <p>
-                    {item.p2}{' '}
-                    {item.highlight && (
-                      <strong className="font-semibold text-brand-black block mt-2">
-                        {item.highlight}
-                      </strong>
-                    )}
-                  </p>
+                  {item.p1 && <p>{item.p1}</p>}
+                  {item.p2 && <p>{item.p2}</p>}
+                  {item.highlight && (
+                    <strong className="font-semibold text-brand-black block mt-2">
+                      {item.highlight}
+                    </strong>
+                  )}
                 </blockquote>
               </div>
 
-              {/* Client Signature Block */}
+              {/* Client Signature Block: Nome — Zona, Città */}
               <div className="pt-6 border-t border-brand-sand flex items-center justify-between gap-4">
                 <div>
-                  <h3 className="text-xl font-serif font-bold text-brand-black">
-                    {item.name}
+                  <h3 className="text-lg md:text-xl font-serif font-bold text-brand-black">
+                    {item.author}
                   </h3>
-                  <p className="text-sm text-brand-taupe font-light">
-                    {item.address}
-                  </p>
                 </div>
                 <span className="text-xs text-brand-gold border border-brand-gold/40 px-3 py-1 rounded-full font-medium whitespace-nowrap bg-brand-white">
                   {t('testimonials.verifiedBadge')}
