@@ -10,7 +10,6 @@ import { Link } from 'react-router-dom';
 export default function Testimonials() {
   const { t } = useTranslation();
 
-  // Lista delle recensioni con soli Nomi e Città (senza indirizzi privati)
   const testimonialsList = [
     {
       id: 'ian-fielding',
@@ -83,7 +82,7 @@ export default function Testimonials() {
         </header>
 
         {/* GRID TESTIMONIALS */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonialsList.map((item, index) => (
             <motion.div
               key={item.id}
@@ -91,7 +90,7 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.12, duration: 0.5 }}
-              className="bg-brand-beige border border-brand-sand rounded-2xl p-8 md:p-12 relative flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow"
+              className="bg-brand-beige border border-brand-sand rounded-2xl p-8 relative flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow"
             >
               {/* Filigrana */}
               <span className="absolute top-6 right-8 text-7xl font-serif text-brand-gold/20 select-none leading-none pointer-events-none">
@@ -106,25 +105,25 @@ export default function Testimonials() {
                 </div>
 
                 {/* Testimonial Text */}
-                <blockquote className="text-brand-taupe text-base md:text-lg leading-relaxed font-light space-y-4 mb-8">
+                <blockquote className="text-brand-taupe text-base leading-relaxed font-light space-y-4 mb-8">
                   {item.p1 && <p>{item.p1}</p>}
                   {item.p2 && <p>{item.p2}</p>}
                   {item.highlight && (
-                    <strong className="font-semibold text-brand-black block mt-2">
+                    <strong className="font-semibold text-brand-black block pt-2">
                       {item.highlight}
                     </strong>
                   )}
                 </blockquote>
               </div>
 
-              {/* Client Signature Block: Nome — Zona, Città */}
-              <div className="pt-6 border-t border-brand-sand flex items-center justify-between gap-4">
+              {/* Client Signature: Nome — Zona, Città */}
+              <div className="pt-6 border-t border-brand-sand flex items-center justify-between gap-3">
                 <div>
-                  <h3 className="text-lg md:text-xl font-serif font-bold text-brand-black">
+                  <h3 className="text-base md:text-lg font-serif font-bold text-brand-black">
                     {item.author}
                   </h3>
                 </div>
-                <span className="text-xs text-brand-gold border border-brand-gold/40 px-3 py-1 rounded-full font-medium whitespace-nowrap bg-brand-white">
+                <span className="text-xs text-brand-gold border border-brand-gold/40 px-2.5 py-1 rounded-full font-medium whitespace-nowrap bg-brand-white">
                   {t('testimonials.verifiedBadge')}
                 </span>
               </div>
