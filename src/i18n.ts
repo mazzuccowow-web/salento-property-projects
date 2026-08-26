@@ -82,7 +82,7 @@ const resources = {
           'Together, we combine operational coordination and cost management expertise to help international clients approach renovation projects in Salento with greater peace of mind and structure.'
       },
 
-      // 👉 SEZIONE TESTIMONIALS (EN)
+      // 👉 SEZIONE TESTIMONIALS (EN) - SENZA INDIRIZZI COMPLETI
       testimonials: {
         eyebrow: 'Client Experiences',
         title: 'What Our Clients Say',
@@ -93,12 +93,25 @@ const resources = {
         ctaButton: 'Book a Free Consultation',
         items: {
           ian: {
-            name: 'Ian Fielding',
-            address: '115 Kenilworth Crescent, Enfield, London',
+            author: 'Ian Fielding — Enfield, London',
             locationBadge: 'London, United Kingdom',
             p1: 'Andrea, the manager, ensured he and his team always kept us informed and discussed issues arising before, during and after the building works. The works were undertaken whilst we were at home and the attitude of all the contractor’s team towards us was very positive and open to listening to our needs.',
             p2: 'There are a small number of snagging items at the end of the works, but everything is being resolved to our satisfaction. This project could have been very disruptive as both my wife and I work from home, but New Deal managed to minimise any disturbance to us and allowed us to continue our routines as usual.',
             highlight: 'Certainly a company I have no hesitation in recommending others to use.'
+          },
+          silvana: {
+            author: 'Silvana De Palma — Nettuno, Rome',
+            locationBadge: 'Rome, Italy',
+            p1: '', // Incolla qui il testo della recensione di Silvana
+            p2: '',
+            highlight: ''
+          },
+          hgm: {
+            author: 'HGM Management — Poplar, London',
+            locationBadge: 'London, United Kingdom',
+            p1: '', // Incolla qui il testo della recensione di HGM
+            p2: '',
+            highlight: ''
           }
         }
       },
@@ -246,7 +259,7 @@ const resources = {
           'Insieme uniamo coordinamento operativo e competenze nella gestione dei costi per aiutare clienti internazionali ad affrontare progetti di ristrutturazione nel Salento con maggiore serenità e organizzazione.'
       },
 
-      // 👉 SEZIONE TESTIMONIALS (IT)
+      // 👉 SEZIONE TESTIMONIALS (IT) - SENZA INDIRIZZI COMPLETI
       testimonials: {
         eyebrow: 'Esperienze dei Clienti',
         title: 'Cosa Dicono i Nostri Clienti',
@@ -257,12 +270,25 @@ const resources = {
         ctaButton: 'Prenota una Consulenza Gratuita',
         items: {
           ian: {
-            name: 'Ian Fielding',
-            address: '115 Kenilworth Crescent, Enfield, London',
+            author: 'Ian Fielding — Enfield, London',
             locationBadge: 'Londra, Regno Unito',
             p1: 'Andrea, il manager, si è assicurato che lui e il suo team ci tenessero sempre informati e discutessero qualsiasi problematica prima, durante e dopo i lavori. Le opere sono state eseguite mentre eravamo a casa e l\'atteggiamento di tutta la squadra è stato estremamente positivo e aperto all\'ascolto delle nostre esigenze.',
             p2: 'C\'erano alcune piccole rifiniture finali al termine dei lavori, ma tutto è stato risolto con nostra piena soddisfazione. Questo progetto avrebbe potuto essere molto invasivo dato che sia io che mia moglie lavoriamo da casa, ma New Deal è riuscita a ridurre al minimo i disagi permettendoci di continuare le nostre routine come di consueto.',
             highlight: 'Un\'azienda che non ho alcuna esitazione a raccomandare ad altri.'
+          },
+          silvana: {
+            author: 'Silvana De Palma — Nettuno, Rome',
+            locationBadge: 'Roma, Italia',
+            p1: '', // Incolla qui il testo in italiano per Silvana
+            p2: '',
+            highlight: ''
+          },
+          hgm: {
+            author: 'HGM Management — Poplar, London',
+            locationBadge: 'Londra, Regno Unito',
+            p1: '', // Incolla qui il testo in italiano per HGM
+            p2: '',
+            highlight: ''
           }
         }
       },
