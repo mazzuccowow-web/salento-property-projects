@@ -82,7 +82,7 @@ const resources = {
           'Together, we combine operational coordination and cost management expertise to help international clients approach renovation projects in Salento with greater peace of mind and structure.'
       },
 
-      // 👉 SEZIONE TESTIMONIALS (EN) - SENZA INDIRIZZI COMPLETI
+      // 👉 SEZIONE TESTIMONIALS (EN)
       testimonials: {
         eyebrow: 'Client Experiences',
         title: 'What Our Clients Say',
@@ -102,16 +102,16 @@ const resources = {
           silvana: {
             author: 'Silvana De Palma — Nettuno, Rome',
             locationBadge: 'Rome, Italy',
-            p1: '', // Incolla qui il testo della recensione di Silvana
-            p2: '',
-            highlight: ''
+            p1: 'We had an initial consultation with Andrea and Mirella before purchasing a property in Salento. We were particularly impressed by their knowledge of the local market and their ability to make sense of what can sometimes feel like a real jungle when looking for the right property in Italy.',
+            p2: 'Their advice and initial assessment gave us much greater clarity and helped us choose the right property, not only for what we were looking for, but also for its potential as an investment.',
+            highlight: 'A very valuable consultation that gave us the confidence to make the right choice.'
           },
           hgm: {
             author: 'HGM Management — Poplar, London',
             locationBadge: 'London, United Kingdom',
-            p1: '', // Incolla qui il testo della recensione di HGM
-            p2: '',
-            highlight: ''
+            p1: 'Dear Andrea and Mirella, we would like to take a moment to thank you for all of your hard work and effort over the last months. We truly appreciate all that you have done for us.',
+            p2: 'We hope you accept this gift from us as a sincere token of our gratitude and appreciation.',
+            highlight: 'We will forever be grateful for your help.'
           }
         }
       },
@@ -259,7 +259,7 @@ const resources = {
           'Insieme uniamo coordinamento operativo e competenze nella gestione dei costi per aiutare clienti internazionali ad affrontare progetti di ristrutturazione nel Salento con maggiore serenità e organizzazione.'
       },
 
-      // 👉 SEZIONE TESTIMONIALS (IT) - SENZA INDIRIZZI COMPLETI
+      // 👉 SEZIONE TESTIMONIALS (IT)
       testimonials: {
         eyebrow: 'Esperienze dei Clienti',
         title: 'Cosa Dicono i Nostri Clienti',
@@ -279,16 +279,16 @@ const resources = {
           silvana: {
             author: 'Silvana De Palma — Nettuno, Rome',
             locationBadge: 'Roma, Italia',
-            p1: '', // Incolla qui il testo in italiano per Silvana
-            p2: '',
-            highlight: ''
+            p1: 'Abbiamo fatto una consulenza iniziale con Andrea e Mirella prima di acquistare un immobile nel Salento. Siamo rimasti particolarmente colpiti dalla loro conoscenza del mercato locale e dalla capacità di fare chiarezza in quella che a volte può sembrare una vera giungla quando si cerca la proprietà giusta in Italia.',
+            p2: 'I loro consigli e la valutazione preliminare ci hanno dato una chiarezza molto maggiore e ci hanno aiutato a scegliere l\'immobile perfetto, non solo per quello che cercavamo, ma anche per il suo potenziale come investimento.',
+            highlight: 'Una consulenza di grande valore che ci ha dato la sicurezza necessaria per fare la scelta giusta.'
           },
           hgm: {
             author: 'HGM Management — Poplar, London',
             locationBadge: 'Londra, Regno Unito',
-            p1: '', // Incolla qui il testo in italiano per HGM
-            p2: '',
-            highlight: ''
+            p1: 'Cari Andrea e Mirella, desideriamo ringraziarvi di cuore per tutto il vostro duro lavoro e l\'impegno costante negli ultimi mesi. Apprezziamo immensamente tutto ciò che avete fatto per noi.',
+            p2: 'Speriamo accettiate questo pensiero come sincero segno della nostra gratitudine e stima.',
+            highlight: 'Vi saremo per sempre grati per il vostro prezioso aiuto.'
           }
         }
       },
