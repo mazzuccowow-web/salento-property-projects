@@ -37,7 +37,7 @@ export default function Navbar() {
     { name: t('nav.services'), path: '/services' },
     { name: t('nav.howItWorks'), path: '/how-it-works' },
     { name: t('nav.testimonials'), path: '/testimonials' },
-    { name: "Buyer's Guide", path: '/buyers-guide' },
+    { name: t('nav.buyersGuide'), path: '/buyers-guide' },
     { name: t('nav.contact'), path: '/contact' },
   ];
 
@@ -64,30 +64,27 @@ export default function Navbar() {
 
         {/* DESKTOP NAV */}
         <div className="hidden md:flex items-center space-x-6 xl:space-x-8">
-          <div className="flex items-center space-x-5 xl:space-x-7">
+          <div className="flex items-center space-x-4 lg:space-x-6 xl:space-x-7">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                /* Testo dei link ingrandito a text-base / lg:text-[17px] */
-                className={`text-base lg:text-[17px] font-medium tracking-wide transition-colors hover:text-brand-gold ${
+                className={`text-base lg:text-[17px] font-medium tracking-wide transition-colors hover:text-brand-gold whitespace-nowrap ${
                   location.pathname === link.path
                     ? 'text-brand-gold font-bold'
                     : 'text-brand-black'
                 }`}
-                id={`nav-link-${link.name
-                  .toLowerCase()
-                  .replace(/\s+/g, '-')}`}
+                id={`nav-link-${link.path.replace('/', '') || 'home'}`}
               >
                 {link.name}
               </Link>
             ))}
           </div>
 
-          {/* LANGUAGE BUTTON (DESKTOP) - Ingrandito */}
+          {/* LANGUAGE BUTTON (DESKTOP) */}
           <button
             onClick={toggleLanguage}
-            className="flex items-center space-x-2 text-base font-semibold border border-brand-taupe/30 px-3.5 py-1.5 rounded-full hover:bg-brand-taupe/10 transition-colors shadow-2xs"
+            className="flex items-center space-x-2 text-base font-semibold border border-brand-taupe/30 px-3.5 py-1.5 rounded-full hover:bg-brand-taupe/10 transition-colors shadow-2xs flex-shrink-0"
             id="lang-toggle-desktop"
           >
             <img 
@@ -101,7 +98,7 @@ export default function Navbar() {
 
         {/* MOBILE */}
         <div className="flex md:hidden items-center space-x-4">
-          {/* LANGUAGE BUTTON (MOBILE) - Ingrandito */}
+          {/* LANGUAGE BUTTON (MOBILE) */}
           <button
             onClick={toggleLanguage}
             className="flex items-center space-x-2 text-sm font-bold border border-brand-taupe/30 px-3 py-1.5 rounded-full"
@@ -144,15 +141,12 @@ export default function Navbar() {
                 key={link.path}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                /* Voci del menu mobile rese più grandi (text-xl) */
                 className={`text-xl font-serif transition-colors py-1 ${
                   location.pathname === link.path
                     ? 'text-brand-gold font-bold'
                     : 'text-brand-black'
                 }`}
-                id={`mobile-nav-link-${link.name
-                  .toLowerCase()
-                  .replace(/\s+/g, '-')}`}
+                id={`mobile-nav-link-${link.path.replace('/', '') || 'home'}`}
               >
                 {link.name}
               </Link>
