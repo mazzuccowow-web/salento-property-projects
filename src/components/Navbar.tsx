@@ -57,21 +57,22 @@ export default function Navbar() {
           <span className="text-3xl lg:text-4xl xl:text-5xl font-serif font-bold tracking-tight text-brand-black">
             SALENTO
           </span>
-          <span className="text-xs lg:text-sm xl:text-base tracking-[0.2em] font-sans font-medium text-brand-gold uppercase -mt-1.5 md:-mt-2">
+          <span className="text-xs lg:text-sm xl:text-base tracking-[0.22em] font-sans font-semibold text-brand-gold uppercase -mt-1.5 md:-mt-2">
             Property Projects
           </span>
         </Link>
 
         {/* DESKTOP NAV */}
-        <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-          <div className="flex space-x-5 lg:space-x-7">
+        <div className="hidden md:flex items-center space-x-6 xl:space-x-8">
+          <div className="flex items-center space-x-5 xl:space-x-7">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium tracking-wide transition-colors hover:text-brand-gold ${
+                /* Testo dei link ingrandito a text-base / lg:text-[17px] */
+                className={`text-base lg:text-[17px] font-medium tracking-wide transition-colors hover:text-brand-gold ${
                   location.pathname === link.path
-                    ? 'text-brand-gold font-semibold'
+                    ? 'text-brand-gold font-bold'
                     : 'text-brand-black'
                 }`}
                 id={`nav-link-${link.name
@@ -83,16 +84,16 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* LANGUAGE BUTTON (DESKTOP) */}
+          {/* LANGUAGE BUTTON (DESKTOP) - Ingrandito */}
           <button
             onClick={toggleLanguage}
-            className="flex items-center space-x-2 text-sm font-medium border border-brand-taupe/30 px-3 py-1.5 rounded-full hover:bg-brand-taupe/10 transition-colors"
+            className="flex items-center space-x-2 text-base font-semibold border border-brand-taupe/30 px-3.5 py-1.5 rounded-full hover:bg-brand-taupe/10 transition-colors shadow-2xs"
             id="lang-toggle-desktop"
           >
             <img 
               src={i18n.language === 'en' ? "https://flagcdn.com/w20/gb.png" : "https://flagcdn.com/w20/it.png"} 
               alt={i18n.language === 'en' ? "English" : "Italiano"} 
-              className="w-4 h-auto rounded-sm shadow-sm"
+              className="w-5 h-auto rounded-xs shadow-xs"
             />
             <span>{i18n.language.toUpperCase()}</span>
           </button>
@@ -100,29 +101,29 @@ export default function Navbar() {
 
         {/* MOBILE */}
         <div className="flex md:hidden items-center space-x-4">
-          {/* LANGUAGE BUTTON (MOBILE) */}
+          {/* LANGUAGE BUTTON (MOBILE) - Ingrandito */}
           <button
             onClick={toggleLanguage}
-            className="flex items-center space-x-1.5 text-xs font-bold border border-brand-taupe/30 px-2.5 py-1 rounded-full"
+            className="flex items-center space-x-2 text-sm font-bold border border-brand-taupe/30 px-3 py-1.5 rounded-full"
             id="lang-toggle-mobile-icon"
           >
             <img 
               src={i18n.language === 'en' ? "https://flagcdn.com/w20/gb.png" : "https://flagcdn.com/w20/it.png"} 
               alt={i18n.language === 'en' ? "English" : "Italiano"} 
-              className="w-4 h-auto rounded-sm"
+              className="w-4 h-auto rounded-xs"
             />
             <span>{i18n.language.toUpperCase()}</span>
           </button>
 
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-brand-black"
+            className="text-brand-black p-1"
             id="mobile-menu-toggle"
           >
             {isOpen ? (
-              <X className="w-6 h-6" />
+              <X className="w-7 h-7" />
             ) : (
-              <Menu className="w-6 h-6" />
+              <Menu className="w-7 h-7" />
             )}
           </button>
         </div>
@@ -143,9 +144,10 @@ export default function Navbar() {
                 key={link.path}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`text-lg font-serif transition-colors ${
+                /* Voci del menu mobile rese più grandi (text-xl) */
+                className={`text-xl font-serif transition-colors py-1 ${
                   location.pathname === link.path
-                    ? 'text-brand-gold font-semibold'
+                    ? 'text-brand-gold font-bold'
                     : 'text-brand-black'
                 }`}
                 id={`mobile-nav-link-${link.name
