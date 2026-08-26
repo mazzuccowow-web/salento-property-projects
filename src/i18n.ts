@@ -50,20 +50,15 @@ const resources = {
 
       about: {
         title: 'Who We Are',
-
         mission: 'Our Mission',
-
         missionDesc1:
           'Salento Property Projects was founded on a simple realization: international property owners in Salento needed operational support capable of more effectively structuring and coordinating professionals, contractors, and all stages of the project.',
-
         missionDesc2:
           'With 25 years of experience in the UK operations and finance sectors, we are native Italian speakers who offer the perfect blend of British organizational standards and local expertise. We are well-connected with trained local professionals to ensure every project achieves international-level results.',
-
         indTitle: 'Independent Property Consultancy in Salento & Italy',
         indDesc1: 'At Salento Property Projects, we believe buying a property is only the beginning of an exciting journey.',
         indDesc2: "Whether you've already found your dream home or you're still searching, we're here to help you make informed decisions and guide you through every stage that follows.",
         indDesc3: 'From independent pre-purchase advice to renovation planning, project coordination and final handover, we work exclusively in your best interests, giving you complete confidence throughout the entire process.',
-        
         differentTitle: "Why We're Different",
         diff1: "We don't sell properties.",
         diff2: "We don't work for contractors.",
@@ -72,24 +67,40 @@ const resources = {
         diff5: "Independent advice.",
         diff6: "Independent project coordination.",
         diff7: "Complete peace of mind.",
-
         teamTitle: 'The Team',
-
         whoWeAreDesc:
           'Founded by Andrea and Mirella Lefter, Salento Property Projects was created to help international buyers navigate renovation projects in Salento through a more structured, transparent and operational approach.',
-
         andreaName: 'Andrea',
         andreaRole: 'Founder & Project Coordinator',
         andreaDesc:
           'With a background influenced by UK operational and project coordination standards, Andrea focuses on helping international buyers navigate the complexities of property renovation in Salento with greater clarity, structure and confidence.',
-
         mirellaName: 'Mirella Lefter',
         mirellaRole: 'Quantity Surveyor',
         mirellaDesc:
           'Mirella supports the financial and cost management side of each project, helping clients better understand budgets, work scopes and renovation planning through a more organised and transparent approach.',
-
         teamDesc:
           'Together, we combine operational coordination and cost management expertise to help international clients approach renovation projects in Salento with greater peace of mind and structure.'
+      },
+
+      // 👉 SEZIONE TESTIMONIALS (EN)
+      testimonials: {
+        eyebrow: 'Client Experiences',
+        title: 'What Our Clients Say',
+        subtitle: 'From property consultancy in Salento to construction and project management in London, our clients value our independent advice, hands-on approach and commitment to getting things right.',
+        verifiedBadge: 'Verified Reference',
+        ctaTitle: 'Ready to start your property journey with total confidence?',
+        ctaSubtitle: 'Book a confidential consultation with Andrea and our team.',
+        ctaButton: 'Book a Free Consultation',
+        items: {
+          ian: {
+            name: 'Ian Fielding',
+            address: '115 Kenilworth Crescent, Enfield, London',
+            locationBadge: 'London, United Kingdom',
+            p1: 'Andrea, the manager, ensured he and his team always kept us informed and discussed issues arising before, during and after the building works. The works were undertaken whilst we were at home and the attitude of all the contractor’s team towards us was very positive and open to listening to our needs.',
+            p2: 'There are a small number of snagging items at the end of the works, but everything is being resolved to our satisfaction. This project could have been very disruptive as both my wife and I work from home, but New Deal managed to minimise any disturbance to us and allowed us to continue our routines as usual.',
+            highlight: 'Certainly a company I have no hesitation in recommending others to use.'
+          }
+        }
       },
 
       contact: {
@@ -203,20 +214,15 @@ const resources = {
 
       about: {
         title: 'Chi Siamo',
-
         mission: 'La Nostra Missione',
-
         missionDesc1:
           'Salento Property Projects è nata da una semplice consapevolezza: i proprietari internazionali di immobili nel Salento avevano bisogno di un supporto operativo capace di coordinare in modo più strutturato professionisti, imprese e tutte le fasi del progetto.',
-
         missionDesc2:
           'Siamo madrelingua italiani con 25 anni di esperienza nei settori delle operazioni e della finanza nel Regno Unito. Questo ci permette di offrire il mix perfetto tra standard organizzativi britannici e competenza locale. Siamo profondamente connessi con professionisti del territorio per garantire che ogni progetto raggiunga risultati di livello internazionale.',
-
         indTitle: 'Consulenza Immobiliare Indipendente nel Salento e in Italia',
         indDesc1: 'Presso Salento Property Projects, crediamo che acquistare un immobile sia solo l\'inizio di un viaggio emozionante.',
         indDesc2: 'Sia che tu abbia già trovato la casa dei tuoi sogni o che la stia ancora cercando, siamo qui per aiutarti a prendere decisioni informate e guidarti in ogni fase successiva.',
         indDesc3: 'Dalla consulenza indipendente prima dell\'acquisto alla pianificazione della ristrutturazione, al coordinamento del progetto e alla consegna finale, lavoriamo esclusivamente nel tuo interesse, dandoti piena fiducia durante l\'intero processo.',
-        
         differentTitle: 'Perché siamo diversi',
         diff1: 'Non vendiamo immobili.',
         diff2: 'Non lavoriamo per le imprese.',
@@ -225,24 +231,40 @@ const resources = {
         diff5: 'Consulenza indipendente.',
         diff6: 'Coordinamento indipendente dei progetti.',
         diff7: 'Completa tranquillità.',
-
         teamTitle: 'Il Team',
-
         whoWeAreDesc:
           'Fondata da Andrea Mazzucco e Mirella Lefter, Salento Property Projects nasce per aiutare clienti internazionali a gestire progetti di ristrutturazione nel Salento attraverso un approccio più strutturato, trasparente e operativo.',
-
         andreaName: 'Andrea Mazzucco',
         andreaRole: 'Fondatore & Coordinatore Progetti',
         andreaDesc:
           'Con un background influenzato dagli standard britannici di coordinamento operativo e gestione progetti, Andrea aiuta clienti internazionali ad affrontare le complessità delle ristrutturazioni nel Salento con maggiore chiarezza, struttura e sicurezza.',
-
         mirellaName: 'Mirella Lefter',
         mirellaRole: 'Responsabile controllo costi',
         mirellaDesc:
           'Mirella si occupa della gestione economica e del controllo costi dei progetti, aiutando i clienti a comprendere meglio budget, lavorazioni e pianificazione delle ristrutturazioni attraverso un approccio più organizzato e trasparente.',
-
         teamDesc:
           'Insieme uniamo coordinamento operativo e competenze nella gestione dei costi per aiutare clienti internazionali ad affrontare progetti di ristrutturazione nel Salento con maggiore serenità e organizzazione.'
+      },
+
+      // 👉 SEZIONE TESTIMONIALS (IT)
+      testimonials: {
+        eyebrow: 'Esperienze dei Clienti',
+        title: 'Cosa Dicono i Nostri Clienti',
+        subtitle: 'Dalla consulenza immobiliare nel Salento alla gestione di progetti e costruzioni a Londra, i nostri clienti apprezzano la nostra consulenza indipendente, l\'approccio operativo e l\'impegno costante per ottenere risultati ottimali.',
+        verifiedBadge: 'Referenza Verificata',
+        ctaTitle: 'Pronto ad avviare il tuo progetto immobiliare con la massima serenità?',
+        ctaSubtitle: 'Prenota una consulenza riservata con Andrea e il nostro team.',
+        ctaButton: 'Prenota una Consulenza Gratuita',
+        items: {
+          ian: {
+            name: 'Ian Fielding',
+            address: '115 Kenilworth Crescent, Enfield, London',
+            locationBadge: 'Londra, Regno Unito',
+            p1: 'Andrea, il manager, si è assicurato che lui e il suo team ci tenessero sempre informati e discutessero qualsiasi problematica prima, durante e dopo i lavori. Le opere sono state eseguite mentre eravamo a casa e l\'atteggiamento di tutta la squadra è stato estremamente positivo e aperto all\'ascolto delle nostre esigenze.',
+            p2: 'C\'erano alcune piccole rifiniture finali al termine dei lavori, ma tutto è stato risolto con nostra piena soddisfazione. Questo progetto avrebbe potuto essere molto invasivo dato che sia io che mia moglie lavoriamo da casa, ma New Deal è riuscita a ridurre al minimo i disagi permettendoci di continuare le nostre routine come di consueto.',
+            highlight: 'Un\'azienda che non ho alcuna esitazione a raccomandare ad altri.'
+          }
+        }
       },
 
       contact: {
