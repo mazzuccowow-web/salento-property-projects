@@ -92,7 +92,7 @@ export default function Testimonials() {
               transition={{ delay: index * 0.12, duration: 0.5 }}
               className="bg-brand-beige border border-brand-sand rounded-2xl p-8 relative flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow"
             >
-              {/* Filigrana */}
+              {/* Filigrana virgoletta */}
               <span className="absolute top-6 right-8 text-7xl font-serif text-brand-gold/20 select-none leading-none pointer-events-none">
                 “
               </span>
@@ -116,16 +116,11 @@ export default function Testimonials() {
                 </blockquote>
               </div>
 
-              {/* Client Signature: Nome — Zona, Città */}
-              <div className="pt-6 border-t border-brand-sand flex items-center justify-between gap-3">
-                <div>
-                  <h3 className="text-base md:text-lg font-serif font-bold text-brand-black">
-                    {item.author}
-                  </h3>
-                </div>
-                <span className="text-xs text-brand-gold border border-brand-gold/40 px-2.5 py-1 rounded-full font-medium whitespace-nowrap bg-brand-white">
-                  {t('testimonials.verifiedBadge')}
-                </span>
+              {/* Client Signature: Nome — Zona, Città (Senza badge) */}
+              <div className="pt-6 border-t border-brand-sand">
+                <h3 className="text-base md:text-lg font-serif font-bold text-brand-black">
+                  {item.author}
+                </h3>
               </div>
             </motion.div>
           ))}
@@ -144,9 +139,10 @@ export default function Testimonials() {
           <p className="text-brand-taupe font-light mb-8 max-w-xl mx-auto">
             {t('testimonials.ctaSubtitle')}
           </p>
+          {/* Bottone dorato/arancio in stile brand */}
           <Link
             to="/contact"
-            className="inline-block bg-brand-black text-brand-white px-8 py-4 rounded-xl font-medium hover:bg-brand-gold transition-colors shadow-sm"
+            className="inline-block bg-brand-gold text-brand-black px-8 py-4 rounded-xl font-bold text-xs tracking-wider uppercase hover:bg-brand-black hover:text-brand-white transition-all shadow-md"
           >
             {t('testimonials.ctaButton')}
           </Link>
