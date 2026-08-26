@@ -13,6 +13,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import HowItWorks from './pages/HowItWorks';
+import Testimonials from './pages/Testimonials';
 import Contact from './pages/Contact';
 import BuyersGuide from './pages/Buyers-guide';
 
@@ -47,6 +48,8 @@ export default function App() {
             <Route path="/services" element={<Services />} />
 
             <Route path="/how-it-works" element={<HowItWorks />} />
+
+            <Route path="/testimonials" element={<Testimonials />} />
 
             <Route path="/buyers-guide" element={<BuyersGuide />} />
 
