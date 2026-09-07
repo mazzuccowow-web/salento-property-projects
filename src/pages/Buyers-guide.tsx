@@ -9,12 +9,12 @@ import { motion, AnimatePresence } from 'motion/react';
 import { 
   Search, ClipboardList, ShieldCheck, Handshake, Key, 
   Landmark, Phone, Mail, ArrowRight, Layers, MapPin, 
-  Hammer, ChevronDown, ArrowLeft, Clock, Calendar, BookOpen
+  Hammer, ChevronDown, ArrowLeft, Clock, Calendar
 } from 'lucide-react';
 
 import copImg from "../photo/cop.png";
 import bgCop from "../photo/BGcop.png";
-import { articlesData, Article } from "../data/articlesData";
+import { articlesData, Article } from "./articlesData";
 
 export default function BuyersGuide() {
   const { t } = useTranslation();
@@ -23,14 +23,13 @@ export default function BuyersGuide() {
   const [formData, setFormData] = useState({ firstName: '', lastName: '', email: '', gdprConsent: false });
   const [activeTopic, setActiveTopic] = useState<number | null>(null);
 
-  // STATI PER LA SEZIONE ARTICOLI INTERNA
+  // STATI SEZIONE ARTICOLI
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const articlesPerPage = 6;
 
   useEffect(() => {
-    // Tracciamento PageView sul Pixel di Meta
     if (typeof window !== 'undefined' && (window as any).fbq) {
       (window as any).fbq('track', 'PageView');
     }
@@ -73,7 +72,6 @@ export default function BuyersGuide() {
       .catch(() => setFormStatus('error'));
   };
 
-  // 5 STEP DEL PROCESSO TRADOTTI
   const buyingSteps = [
     { step: '1', name: t('buyersGuidePage.steps.s1.name'), desc: t('buyersGuidePage.steps.s1.desc'), icon: Search },
     { step: '2', name: t('buyersGuidePage.steps.s2.name'), desc: t('buyersGuidePage.steps.s2.desc'), icon: ClipboardList },
@@ -82,7 +80,6 @@ export default function BuyersGuide() {
     { step: '5', name: t('buyersGuidePage.steps.s5.name'), desc: t('buyersGuidePage.steps.s5.desc'), icon: Key },
   ];
 
-  // 6 ARGOMENTI TRADOTTI
   const topicsData = [
     {
       title: t('buyersGuidePage.topics.t1.title'),
@@ -150,7 +147,6 @@ export default function BuyersGuide() {
     }
   ];
 
-  // FILTRAGGIO ARTICOLI
   const filteredArticles = articlesData.filter(article =>
     article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
     article.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -180,7 +176,8 @@ export default function BuyersGuide() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden mb-16 rounded-2xl shadow-md"
+          className="relative h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden mb-16 rounded-2xl shadow-md" 
+          id="buyers-guide-hero"
         >
           <div className="absolute inset-0 z-0">
             <img src={bgCop} alt="Salento Landscape Cover" className="w-full h-full object-cover brightness-[65%]" />
@@ -386,7 +383,7 @@ export default function BuyersGuide() {
               </div>
             </motion.section>
 
-            {/* 👉 NUOVA SEZIONE NATIVA: LATEST ARTICLES & INSIGHTS (SENZA SORO) */}
+            {/* SEZIONE ARTICOLI (PULITA) */}
             <motion.section 
               id="articles-hub-section"
               initial={{ opacity: 0, y: 30 }} 
@@ -401,14 +398,13 @@ export default function BuyersGuide() {
                 <p className="text-brand-taupe font-light mt-1">Explore our in-depth guides and practical advice for property buyers in Salento.</p>
               </div>
 
-              {/* VISTA ARTICOLO SINGOLO (QUANDO CLICCHI SU UNA CARD) */}
+              {/* VISTA ARTICOLO SINGOLO */}
               {selectedArticle ? (
                 <motion.div 
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="bg-brand-white p-8 md:p-12 rounded-2xl border border-brand-sand shadow-sm space-y-8"
                 >
-                  {/* Bottone Indietro */}
                   <button
                     onClick={() => setSelectedArticle(null)}
                     className="inline-flex items-center space-x-2 text-sm font-semibold text-brand-gold hover:text-brand-black transition-colors"
@@ -417,7 +413,6 @@ export default function BuyersGuide() {
                     <span>Back to all articles</span>
                   </button>
 
-                  {/* Header Articolo */}
                   <div className="space-y-3 border-b border-brand-sand pb-6">
                     <div className="flex items-center space-x-3 text-xs font-semibold text-brand-taupe uppercase tracking-wider">
                       <span className="bg-brand-beige px-3 py-1 rounded-full text-brand-gold font-bold">
@@ -439,14 +434,19 @@ export default function BuyersGuide() {
                     </h1>
                   </div>
 
-                  {/* Testo Completo dell'Articolo */}
                   <div className="space-y-6 text-brand-taupe text-base md:text-lg font-light leading-relaxed">
-                    {selectedArticle.paragraphs.map((para, pIdx) => (
-                      <p key={pIdx}>{para}</p>
-                    ))}
+                    {selectedArticle.paragraphs.map((para, pIdx) => {
+                      if (para.startsWith('## ')) {
+                        return (
+                          <h3 key={pIdx} className="text-xl md:text-2xl font-serif font-bold text-brand-black pt-6 pb-1 border-b border-brand-sand/60">
+                            {para.replace('## ', '')}
+                          </h3>
+                        );
+                      }
+                      return <p key={pIdx}>{para}</p>;
+                    })}
                   </div>
 
-                  {/* Box CTA di Chiusura Articolo */}
                   <div className="pt-8 border-t border-brand-sand flex flex-col md:flex-row items-center justify-between gap-4 bg-brand-beige/50 p-6 rounded-xl">
                     <div>
                       <h4 className="font-serif font-bold text-brand-black text-lg">Need Advice on This Topic?</h4>
@@ -460,7 +460,6 @@ export default function BuyersGuide() {
                     </a>
                   </div>
 
-                  {/* Bottone Indietro in Basso */}
                   <div className="pt-4">
                     <button
                       onClick={() => setSelectedArticle(null)}
@@ -472,14 +471,13 @@ export default function BuyersGuide() {
                   </div>
                 </motion.div>
               ) : (
-                /* VISTA GRIGLIA SCHEDE (RETTANGOLARI) */
+                /* VISTA GRIGLIA */
                 <div className="space-y-6">
-                  {/* Barra di Ricerca Veloce */}
                   <div className="relative">
                     <Search className="w-4 h-4 text-brand-taupe absolute left-4 top-1/2 -translate-y-1/2" />
                     <input
                       type="text"
-                      placeholder="Search across all guides (e.g. taxes, renovation, permits, notary)..."
+                      placeholder="Search across all guides (e.g. flat, renovation, permits, condominium)..."
                       value={searchQuery}
                       onChange={(e) => {
                         setSearchQuery(e.target.value);
@@ -489,7 +487,6 @@ export default function BuyersGuide() {
                     />
                   </div>
 
-                  {/* Griglia Rettangolare Articoli */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {displayedArticles.map((article) => (
                       <div
@@ -525,14 +522,12 @@ export default function BuyersGuide() {
                     ))}
                   </div>
 
-                  {/* Se nessun articolo trovato */}
                   {displayedArticles.length === 0 && (
                     <div className="bg-brand-white p-8 rounded-xl border border-brand-sand text-center text-brand-taupe text-sm">
                       No articles found matching "{searchQuery}". Try a different keyword.
                     </div>
                   )}
 
-                  {/* Paginazione */}
                   {totalPages > 1 && (
                     <div className="flex justify-center items-center space-x-2 pt-6">
                       <button
