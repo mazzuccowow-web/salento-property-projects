@@ -24,7 +24,7 @@ const resources = {
         subtitle: "We'll help you make the right decision before you buy...\n...and professionally manage everything that comes after.",
         description2: "Buying a property abroad is exciting.\nManaging architects, builders, permits, budgets and renovations from another country isn't.\nThat's where we come in.",
         word: 'We transform the complexity of Italian property renovation into a seamless, prestigious journey for our international clients.',
-        cta: 'Book a Free Consultation'
+        cta: 'Book a Consultation'
       },
 
       home: {
@@ -82,14 +82,13 @@ const resources = {
           'Together, we combine operational coordination and cost management expertise to help international clients approach renovation projects in Salento with greater peace of mind and structure.'
       },
 
-      // 👉 SEZIONE TESTIMONIALS (EN) - SENZA VERIFIED BADGE
       testimonials: {
         eyebrow: 'Client Experiences',
         title: 'What Our Clients Say',
         subtitle: 'From property consultancy in Salento to construction and project management in London, our clients value our independent advice, hands-on approach and commitment to getting things right.',
         ctaTitle: 'Ready to start your property journey with total confidence?',
         ctaSubtitle: 'Book a confidential consultation with Andrea and our team.',
-        ctaButton: 'Book a Free Consultation',
+        ctaButton: 'Book a Consultation',
         items: {
           ian: {
             author: 'Ian Fielding — Enfield, London',
@@ -121,15 +120,15 @@ const resources = {
           subtitle: 'Your step-by-step resource for buying property in Salento, Italy'
         },
         leadMagnet: {
-          badge: 'Free Digital Download',
+          badge: 'Digital Download',
           title: 'Before You Buy in Salento',
           subtitle: 'The Essential Guide for International Property Buyers',
-          description: 'Thinking of buying a property in Salento? Download our free Buyer’s Guide and discover the essential steps, hidden costs, legal considerations and practical advice every international buyer should know before making a purchase. Written by local property professionals to help you buy with confidence.',
+          description: 'Thinking of buying a property in Salento? Download our Buyer’s Guide and discover the essential steps, hidden costs, legal considerations and practical advice every international buyer should know before making a purchase. Written by local property professionals to help you buy with confidence.',
           firstName: 'First Name',
           lastName: 'Last Name',
           email: 'Email Address',
           gdprConsent: 'I agree to receive updates, guides and occasional property insights from Salento Property Projects. I can unsubscribe at any time.',
-          buttonIdle: 'Download Your Free Guide',
+          buttonIdle: 'Download Your Guide',
           buttonSending: 'Preparing Download...',
           errorMessage: 'Something went wrong. Please try again.',
           successTitle: 'Thank you!',
@@ -309,7 +308,7 @@ const resources = {
         subtitle: "Ti aiutiamo a prendere la decisione giusta prima dell'acquisto...\ne gestiamo professionalmente tutto ciò che viene dopo.",
         description2: "Acquistare un immobile all'estero è emozionante.\nGestire architetti, costruttori, permessi, budget e ristrutturazioni da un altro Paese non lo è.\nEd è qui che entriamo in gioco noi.",
         word: 'Trasformiamo la complessità delle ristrutturazioni immobiliari in Italia in un percorso lineare e di prestigio per i nostri clienti internazionali.',
-        cta: 'Prenota una Consulenza Gratuita'
+        cta: 'Prenota una Consulenza'
       },
 
       home: {
@@ -367,14 +366,13 @@ const resources = {
           'Insieme uniamo coordinamento operativo e competenze nella gestione dei costi per aiutare clienti internazionali ad affrontare progetti di ristrutturazione nel Salento con maggiore serenità e organizzazione.'
       },
 
-      // 👉 SEZIONE TESTIMONIALS (IT) - SENZA VERIFIED BADGE
       testimonials: {
         eyebrow: 'Esperienze dei Clienti',
         title: 'Cosa Dicono i Nostri Clienti',
         subtitle: 'Dalla consulenza immobiliare nel Salento alla gestione di progetti e costruzioni a Londra, i nostri clienti apprezzano la nostra consulenza indipendente, l\'approccio operativo e l\'impegno costante per ottenere risultati ottimali.',
         ctaTitle: 'Pronto ad avviare il tuo progetto immobiliare con la massima serenità?',
         ctaSubtitle: 'Prenota una consulenza riservata con Andrea e il nostro team.',
-        ctaButton: 'Prenota una Consulenza Gratuita',
+        ctaButton: 'Prenota una Consulenza',
         items: {
           ian: {
             author: 'Ian Fielding — Enfield, London',
@@ -406,15 +404,15 @@ const resources = {
           subtitle: 'La tua guida passo dopo passo per acquistare immobili nel Salento'
         },
         leadMagnet: {
-          badge: 'Download Digitale Gratuito',
+          badge: 'Download Digitale',
           title: 'Prima di Acquistare nel Salento',
           subtitle: 'La Guida Essenziale per Acquirenti Internazionali',
-          description: 'Stai pensando di acquistare un immobile nel Salento? Scarica la nostra Guida gratuita e scopri i passaggi chiave, i costi nascosti, gli aspetti legali e i consigli pratici che ogni acquirente dovrebbe conoscere prima di procedere. Scritta da professionisti per farti acquistare in totale serenità.',
+          description: 'Stai pensando di acquistare un immobile nel Salento? Scarica la nostra Guida e scopri i passaggi chiave, i costi nascosti, gli aspetti legali e i consigli pratici che ogni acquirente dovrebbe conoscere prima di procedere. Scritta da professionisti per farti acquistare in totale serenità.',
           firstName: 'Nome',
           lastName: 'Cognome',
           email: 'Indirizzo Email',
           gdprConsent: 'Accetto di ricevere aggiornamenti, guide e approfondimenti periodici da Salento Property Projects. Posso disiscrivermi in qualsiasi momento.',
-          buttonIdle: 'Scarica la Tua Guida Gratuita',
+          buttonIdle: 'Scarica la Tua Guida',
           buttonSending: 'Preparazione Download...',
           errorMessage: 'Qualcosa è andato storto. Per favore riprova.',
           successTitle: 'Grazie!',
