@@ -9,12 +9,11 @@ import { motion, AnimatePresence } from 'motion/react';
 import { 
   Search, ClipboardList, ShieldCheck, Handshake, Key, 
   Landmark, Phone, Mail, ArrowRight, Layers, MapPin, 
-  Hammer, ChevronDown, ArrowLeft, Clock, Calendar
+  Hammer, ChevronDown 
 } from 'lucide-react';
 
 import copImg from "../photo/cop.png";
 import bgCop from "../photo/BGcop.png";
-import { articlesData } from "../data/articlesData";
 
 export default function BuyersGuide() {
   const { t } = useTranslation();
@@ -23,16 +22,21 @@ export default function BuyersGuide() {
   const [formData, setFormData] = useState({ firstName: '', lastName: '', email: '', gdprConsent: false });
   const [activeTopic, setActiveTopic] = useState<number | null>(null);
 
-  // STATI SEZIONE ARTICOLI
-  const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
-  const articlesPerPage = 6;
-
   useEffect(() => {
+    // Soro SEO Script
+    const script = document.createElement('script');
+    script.src = "https://app.trysoro.com/api/embed/bb2cb9bd-d6eb-475e-b4be-112bff94a8eb";
+    script.defer = true;
+    document.body.appendChild(script);
+
+    // Meta Pixel PageView
     if (typeof window !== 'undefined' && (window as any).fbq) {
       (window as any).fbq('track', 'PageView');
     }
+
+    return () => {
+      document.body.removeChild(script);
+    };
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -72,6 +76,7 @@ export default function BuyersGuide() {
       .catch(() => setFormStatus('error'));
   };
 
+  // 5 STEP DEL PROCESSO TRADOTTI
   const buyingSteps = [
     { step: '1', name: t('buyersGuidePage.steps.s1.name'), desc: t('buyersGuidePage.steps.s1.desc'), icon: Search },
     { step: '2', name: t('buyersGuidePage.steps.s2.name'), desc: t('buyersGuidePage.steps.s2.desc'), icon: ClipboardList },
@@ -80,6 +85,7 @@ export default function BuyersGuide() {
     { step: '5', name: t('buyersGuidePage.steps.s5.name'), desc: t('buyersGuidePage.steps.s5.desc'), icon: Key },
   ];
 
+  // 6 ARGOMENTI TRADOTTI
   const topicsData = [
     {
       title: t('buyersGuidePage.topics.t1.title'),
@@ -147,37 +153,15 @@ export default function BuyersGuide() {
     }
   ];
 
-  const filteredArticles = articlesData.filter(article =>
-    article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    article.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    article.category.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  const totalPages = Math.ceil(filteredArticles.length / articlesPerPage);
-  const displayedArticles = filteredArticles.slice(
-    (currentPage - 1) * articlesPerPage,
-    currentPage * articlesPerPage
-  );
-
-  const handleSelectArticle = (article: Article) => {
-    setSelectedArticle(article);
-    const element = document.getElementById('articles-hub-section');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <div className="pt-32 pb-24 bg-brand-beige min-h-screen" id="buyers-guide-page">
       <div className="max-w-7xl mx-auto px-6">
-        
         {/* BANNER COVER */}
         <motion.section 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden mb-16 rounded-2xl shadow-md" 
-          id="buyers-guide-hero"
+          className="relative h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden mb-16 rounded-2xl shadow-md"
         >
           <div className="absolute inset-0 z-0">
             <img src={bgCop} alt="Salento Landscape Cover" className="w-full h-full object-cover brightness-[65%]" />
@@ -299,7 +283,6 @@ export default function BuyersGuide() {
 
         {/* TWO COLUMNS LAYOUT */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          
           <main className="lg:col-span-8 space-y-16">
             {/* OVERVIEW */}
             <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="bg-brand-white p-8 rounded-xl border border-brand-sand shadow-sm space-y-8">
@@ -383,184 +366,15 @@ export default function BuyersGuide() {
               </div>
             </motion.section>
 
-            {/* SEZIONE ARTICOLI (PULITA) */}
-            <motion.section 
-              id="articles-hub-section"
-              initial={{ opacity: 0, y: 30 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              viewport={{ once: true }} 
-              transition={{ duration: 0.6 }} 
-              className="space-y-6 pt-6 border-t border-brand-sand"
-            >
+            {/* BLOG SECTION */}
+            <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="space-y-6 pt-6 border-t border-brand-sand">
               <div>
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-gold">Knowledge Base</span>
-                <h2 className="text-3xl font-serif text-brand-black mt-1">Latest Articles & Insights</h2>
-                <p className="text-brand-taupe font-light mt-1">Explore our in-depth guides and practical advice for property buyers in Salento.</p>
+                <h2 className="text-3xl font-serif text-brand-black">{t('buyersGuidePage.blog.title')}</h2>
+                <p className="text-brand-taupe font-light mt-1">{t('buyersGuidePage.blog.subtitle')}</p>
               </div>
-
-              {/* VISTA ARTICOLO SINGOLO */}
-              {selectedArticle ? (
-                <motion.div 
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="bg-brand-white p-8 md:p-12 rounded-2xl border border-brand-sand shadow-sm space-y-8"
-                >
-                  <button
-                    onClick={() => setSelectedArticle(null)}
-                    className="inline-flex items-center space-x-2 text-sm font-semibold text-brand-gold hover:text-brand-black transition-colors"
-                  >
-                    <ArrowLeft className="w-4 h-4" />
-                    <span>Back to all articles</span>
-                  </button>
-
-                  <div className="space-y-3 border-b border-brand-sand pb-6">
-                    <div className="flex items-center space-x-3 text-xs font-semibold text-brand-taupe uppercase tracking-wider">
-                      <span className="bg-brand-beige px-3 py-1 rounded-full text-brand-gold font-bold">
-                        {selectedArticle.category}
-                      </span>
-                      <span className="flex items-center space-x-1">
-                        <Clock className="w-3.5 h-3.5" />
-                        <span>{selectedArticle.readTime}</span>
-                      </span>
-                      <span>·</span>
-                      <span className="flex items-center space-x-1">
-                        <Calendar className="w-3.5 h-3.5" />
-                        <span>{selectedArticle.date}</span>
-                      </span>
-                    </div>
-
-                    <h1 className="text-2xl md:text-4xl font-serif font-bold text-brand-black leading-tight">
-                      {selectedArticle.title}
-                    </h1>
-                  </div>
-
-                  <div className="space-y-6 text-brand-taupe text-base md:text-lg font-light leading-relaxed">
-                    {selectedArticle.paragraphs.map((para, pIdx) => {
-                      if (para.startsWith('## ')) {
-                        return (
-                          <h3 key={pIdx} className="text-xl md:text-2xl font-serif font-bold text-brand-black pt-6 pb-1 border-b border-brand-sand/60">
-                            {para.replace('## ', '')}
-                          </h3>
-                        );
-                      }
-                      return <p key={pIdx}>{para}</p>;
-                    })}
-                  </div>
-
-                  <div className="pt-8 border-t border-brand-sand flex flex-col md:flex-row items-center justify-between gap-4 bg-brand-beige/50 p-6 rounded-xl">
-                    <div>
-                      <h4 className="font-serif font-bold text-brand-black text-lg">Need Advice on This Topic?</h4>
-                      <p className="text-xs text-brand-taupe font-light">Discuss your specific property project directly with Andrea.</p>
-                    </div>
-                    <a
-                      href="/contact"
-                      className="bg-brand-gold text-brand-black px-6 py-3 rounded-lg font-bold text-xs uppercase tracking-wider hover:bg-brand-black hover:text-brand-white transition-colors whitespace-nowrap shadow-xs"
-                    >
-                      Book a Consultation
-                    </a>
-                  </div>
-
-                  <div className="pt-4">
-                    <button
-                      onClick={() => setSelectedArticle(null)}
-                      className="inline-flex items-center space-x-2 text-sm font-medium text-brand-taupe hover:text-brand-gold transition-colors"
-                    >
-                      <ArrowLeft className="w-4 h-4" />
-                      <span>Back to all articles</span>
-                    </button>
-                  </div>
-                </motion.div>
-              ) : (
-                /* VISTA GRIGLIA */
-                <div className="space-y-6">
-                  <div className="relative">
-                    <Search className="w-4 h-4 text-brand-taupe absolute left-4 top-1/2 -translate-y-1/2" />
-                    <input
-                      type="text"
-                      placeholder="Search across all guides (e.g. flat, renovation, permits, condominium)..."
-                      value={searchQuery}
-                      onChange={(e) => {
-                        setSearchQuery(e.target.value);
-                        setCurrentPage(1);
-                      }}
-                      className="w-full bg-brand-white border border-brand-sand rounded-xl pl-11 pr-4 py-3 text-sm text-brand-black placeholder:text-brand-taupe/60 focus:ring-1 focus:ring-brand-gold focus:outline-none shadow-2xs"
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {displayedArticles.map((article) => (
-                      <div
-                        key={article.id}
-                        onClick={() => handleSelectArticle(article)}
-                        className="bg-brand-white border border-brand-sand rounded-xl p-6 shadow-xs hover:shadow-md hover:border-brand-gold/60 transition-all cursor-pointer flex flex-col justify-between group space-y-4"
-                      >
-                        <div className="space-y-3">
-                          <div className="flex items-center justify-between text-xs text-brand-taupe font-medium">
-                            <span className="bg-brand-beige px-2.5 py-0.5 rounded-full text-brand-gold font-bold">
-                              {article.category}
-                            </span>
-                            <span className="flex items-center space-x-1 font-light">
-                              <Clock className="w-3 h-3" />
-                              <span>{article.readTime}</span>
-                            </span>
-                          </div>
-
-                          <h3 className="font-serif text-lg font-bold text-brand-black group-hover:text-brand-gold transition-colors leading-snug">
-                            {article.title}
-                          </h3>
-
-                          <p className="text-xs text-brand-taupe font-light leading-relaxed line-clamp-3">
-                            {article.excerpt}
-                          </p>
-                        </div>
-
-                        <div className="pt-3 border-t border-brand-sand/60 flex items-center justify-between text-xs font-bold text-brand-gold group-hover:text-brand-black transition-colors uppercase tracking-wider">
-                          <span>Read Article</span>
-                          <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {displayedArticles.length === 0 && (
-                    <div className="bg-brand-white p-8 rounded-xl border border-brand-sand text-center text-brand-taupe text-sm">
-                      No articles found matching "{searchQuery}". Try a different keyword.
-                    </div>
-                  )}
-
-                  {totalPages > 1 && (
-                    <div className="flex justify-center items-center space-x-2 pt-6">
-                      <button
-                        onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-                        disabled={currentPage === 1}
-                        className="px-3 py-1.5 rounded-md border border-brand-sand text-xs font-semibold text-brand-black disabled:opacity-30 hover:bg-brand-gold transition-colors"
-                      >
-                        Prev
-                      </button>
-                      {Array.from({ length: totalPages }, (_, i) => i + 1).map((num) => (
-                        <button
-                          key={num}
-                          onClick={() => setCurrentPage(num)}
-                          className={`w-8 h-8 rounded-md text-xs font-bold transition-colors ${
-                            currentPage === num
-                              ? 'bg-brand-gold text-brand-black'
-                              : 'bg-brand-white border border-brand-sand text-brand-black hover:bg-brand-sand/40'
-                          }`}
-                        >
-                          {num}
-                        </button>
-                      ))}
-                      <button
-                        onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-                        disabled={currentPage === totalPages}
-                        className="px-3 py-1.5 rounded-md border border-brand-sand text-xs font-semibold text-brand-black disabled:opacity-30 hover:bg-brand-gold transition-colors"
-                      >
-                        Next
-                      </button>
-                    </div>
-                  )}
-                </div>
-              )}
+              <div className="bg-brand-white p-4 rounded-xl border border-brand-sand shadow-sm min-h-[400px]">
+                <div id="soro-blog"></div>
+              </div>
             </motion.section>
           </main>
 
@@ -592,7 +406,6 @@ export default function BuyersGuide() {
               </a>
             </motion.div>
           </aside>
-
         </div>
       </div>
     </div>
