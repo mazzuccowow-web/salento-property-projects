@@ -14,7 +14,7 @@ import {
 
 import copImg from "../photo/cop.png";
 import bgCop from "../photo/BGcop.png";
-import { articlesData, Article } from "./articlesData";
+import { articlesData } from "../data/articlesData";
 
 export default function BuyersGuide() {
   const { t } = useTranslation();
