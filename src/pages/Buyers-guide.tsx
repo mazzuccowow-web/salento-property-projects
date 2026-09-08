@@ -5,12 +5,10 @@
 
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import { 
-  Search, ClipboardList, ShieldCheck, Handshake, Key, 
-  Landmark, Phone, Mail, ArrowRight, Layers, MapPin, 
-  Hammer, ChevronDown, BookOpen, Clock, AlertTriangle, 
-  CheckCircle2, HelpCircle
+  Phone, Mail, ArrowRight, BookOpen, Clock, 
+  AlertTriangle, CheckCircle2, HelpCircle 
 } from 'lucide-react';
 
 import copImg from "../photo/cop.png";
@@ -21,7 +19,6 @@ export default function BuyersGuide() {
 
   const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [formData, setFormData] = useState({ firstName: '', lastName: '', email: '', gdprConsent: false });
-  const [activeTopic, setActiveTopic] = useState<number | null>(null);
 
   useEffect(() => {
     // Meta Pixel PageView
@@ -67,83 +64,6 @@ export default function BuyersGuide() {
       .catch(() => setFormStatus('error'));
   };
 
-  // 5 STEP DEL PROCESSO
-  const buyingSteps = [
-    { step: '1', name: t('buyersGuidePage.steps.s1.name'), desc: t('buyersGuidePage.steps.s1.desc'), icon: Search },
-    { step: '2', name: t('buyersGuidePage.steps.s2.name'), desc: t('buyersGuidePage.steps.s2.desc'), icon: ClipboardList },
-    { step: '3', name: t('buyersGuidePage.steps.s3.name'), desc: t('buyersGuidePage.steps.s3.desc'), icon: ShieldCheck },
-    { step: '4', name: t('buyersGuidePage.steps.s4.name'), desc: t('buyersGuidePage.steps.s4.desc'), icon: Handshake },
-    { step: '5', name: t('buyersGuidePage.steps.s5.name'), desc: t('buyersGuidePage.steps.s5.desc'), icon: Key },
-  ];
-
-  // 6 ARGOMENTI ACCORDION
-  const topicsData = [
-    {
-      title: t('buyersGuidePage.topics.t1.title'),
-      subtitle: t('buyersGuidePage.topics.t1.subtitle'),
-      icon: MapPin,
-      paragraphs: [t('buyersGuidePage.topics.t1.p1'), t('buyersGuidePage.topics.t1.p2'), t('buyersGuidePage.topics.t1.p3')],
-      listTitle: t('buyersGuidePage.topics.t1.listTitle'),
-      listType: 'disc' as const,
-      listItems: t('buyersGuidePage.topics.t1.items', { returnObjects: true }) as string[],
-      closing: t('buyersGuidePage.topics.t1.closing')
-    },
-    {
-      title: t('buyersGuidePage.topics.t2.title'),
-      subtitle: t('buyersGuidePage.topics.t2.subtitle'),
-      icon: ClipboardList,
-      paragraphs: [t('buyersGuidePage.topics.t2.p1')],
-      listTitle: t('buyersGuidePage.topics.t2.listTitle'),
-      listType: 'decimal' as const,
-      listItems: t('buyersGuidePage.topics.t2.items', { returnObjects: true }) as string[],
-      closing: t('buyersGuidePage.topics.t2.closing')
-    },
-    {
-      title: t('buyersGuidePage.topics.t3.title'),
-      subtitle: t('buyersGuidePage.topics.t3.subtitle'),
-      icon: Landmark,
-      paragraphs: [t('buyersGuidePage.topics.t3.p1')],
-      listTitle: t('buyersGuidePage.topics.t3.listTitle'),
-      listType: 'disc' as const,
-      listItems: t('buyersGuidePage.topics.t3.items', { returnObjects: true }) as string[],
-      afterList: [t('buyersGuidePage.topics.t3.after1'), t('buyersGuidePage.topics.t3.after2')],
-      closing: t('buyersGuidePage.topics.t3.closing')
-    },
-    {
-      title: t('buyersGuidePage.topics.t4.title'),
-      subtitle: t('buyersGuidePage.topics.t4.subtitle'),
-      icon: ShieldCheck,
-      paragraphs: [t('buyersGuidePage.topics.t4.p1'), t('buyersGuidePage.topics.t4.p2')],
-      listTitle: t('buyersGuidePage.topics.t4.listTitle'),
-      listType: 'disc' as const,
-      listItems: t('buyersGuidePage.topics.t4.items', { returnObjects: true }) as string[],
-      afterList: [t('buyersGuidePage.topics.t4.after1')],
-      closing: t('buyersGuidePage.topics.t4.closing')
-    },
-    {
-      title: t('buyersGuidePage.topics.t5.title'),
-      subtitle: t('buyersGuidePage.topics.t5.subtitle'),
-      icon: Hammer,
-      paragraphs: [t('buyersGuidePage.topics.t5.p1'), t('buyersGuidePage.topics.t5.p2')],
-      listTitle: t('buyersGuidePage.topics.t5.listTitle'),
-      listType: 'disc' as const,
-      listItems: t('buyersGuidePage.topics.t5.items', { returnObjects: true }) as string[],
-      afterList: [t('buyersGuidePage.topics.t5.after1')],
-      closing: t('buyersGuidePage.topics.t5.closing')
-    },
-    {
-      title: t('buyersGuidePage.topics.t6.title'),
-      subtitle: t('buyersGuidePage.topics.t6.subtitle'),
-      icon: Layers,
-      paragraphs: [t('buyersGuidePage.topics.t6.p1'), t('buyersGuidePage.topics.t6.p2')],
-      listTitle: t('buyersGuidePage.topics.t6.listTitle'),
-      listType: 'disc' as const,
-      listItems: t('buyersGuidePage.topics.t6.items', { returnObjects: true }) as string[],
-      afterList: [t('buyersGuidePage.topics.t6.after1')],
-      closing: t('buyersGuidePage.topics.t6.closing')
-    }
-  ];
-
   const introParagraphs = t('buyersGuidePage.article.intro', { returnObjects: true }) as string[];
   const investigationItems = t('buyersGuidePage.article.investigation.items', { returnObjects: true }) as Array<{ label: string; desc: string }>;
   const frameworkSteps = t('buyersGuidePage.article.framework.steps', { returnObjects: true }) as string[];
@@ -157,7 +77,7 @@ export default function BuyersGuide() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden mb-16 rounded-2xl shadow-md"
+          className="relative h-[280px] md:h-[380px] flex items-center justify-center overflow-hidden mb-16 rounded-2xl shadow-md"
         >
           <div className="absolute inset-0 z-0">
             <img src={bgCop} alt="Salento Landscape Cover" className="w-full h-full object-cover brightness-[65%]" />
@@ -277,93 +197,11 @@ export default function BuyersGuide() {
           </div>
         </motion.div>
 
-        {/* TWO COLUMNS LAYOUT */}
+        {/* MAIN LAYOUT WITH SIDEBAR */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <main className="lg:col-span-8 space-y-16">
-            
-            {/* OVERVIEW */}
-            <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="bg-brand-white p-8 rounded-xl border border-brand-sand shadow-sm space-y-8">
-              <h2 className="text-2xl font-serif text-brand-black border-b border-brand-sand pb-4">
-                {t('buyersGuidePage.overview.title')}
-              </h2>
-              <p className="text-brand-taupe font-light leading-relaxed">
-                {t('buyersGuidePage.overview.description')}
-              </p>
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-6 pt-4 text-center relative">
-                {buyingSteps.map((item, idx) => (
-                  <div key={idx} className="flex flex-col items-center space-y-3 relative z-10">
-                    <div className="w-14 h-14 rounded-full bg-brand-beige border border-brand-sand flex items-center justify-center text-brand-gold shadow-sm hover:scale-105 transition-transform">
-                      <item.icon className="w-6 h-6" />
-                    </div>
-                    <span className="text-xs font-bold text-brand-gold font-serif">{item.step}</span>
-                    <h4 className="text-xs font-bold text-brand-black leading-tight max-w-[100px] mx-auto">{item.name}</h4>
-                  </div>
-                ))}
-              </div>
-            </motion.section>
-
-            {/* THE BUYING PROCESS CARDS */}
-            <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="space-y-6">
-              <h2 className="text-2xl font-serif text-brand-black">{t('buyersGuidePage.steps.title')}</h2>
-              <p className="text-brand-taupe font-light">{t('buyersGuidePage.steps.subtitle')}</p>
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-                {buyingSteps.map((card, idx) => (
-                  <div key={idx} className="bg-brand-white p-5 rounded-xl border border-brand-sand shadow-xs space-y-3">
-                    <h4 className="text-xs font-bold text-brand-gold uppercase tracking-wider">{card.step}. {card.name}</h4>
-                    <p className="text-xs text-brand-taupe font-light leading-relaxed">{card.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </motion.section>
-
-            {/* KEY TOPICS ACCORDION */}
-            <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="space-y-6">
-              <h2 className="text-2xl font-serif text-brand-black">{t('buyersGuidePage.accordionTitle')}</h2>
-              <div className="space-y-4">
-                {topicsData.map((topic, idx) => {
-                  const isOpened = activeTopic === idx;
-                  const ListTag = topic.listType === 'decimal' ? 'ol' : 'ul';
-                  return (
-                    <div key={idx} className="bg-brand-white rounded-xl border border-brand-sand overflow-hidden shadow-sm transition-all duration-300">
-                      <button onClick={() => setActiveTopic(isOpened ? null : idx)} className="w-full p-6 text-left flex items-center justify-between gap-4 focus:outline-none">
-                        <div className="flex items-center space-x-4">
-                          <div className="w-10 h-10 rounded-full bg-brand-beige flex items-center justify-center text-brand-gold flex-shrink-0">
-                            <topic.icon className="w-5 h-5" />
-                          </div>
-                          <div>
-                            <h4 className="font-serif text-lg text-brand-black font-semibold">{topic.title}</h4>
-                            <p className="text-xs text-brand-taupe font-light mt-0.5">{topic.subtitle}</p>
-                          </div>
-                        </div>
-                        <ChevronDown className={`w-5 h-5 text-brand-gold transition-transform duration-300 ${isOpened ? 'rotate-180' : ''}`} />
-                      </button>
-
-                      <AnimatePresence initial={false}>
-                        {isOpened && (
-                          <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }}>
-                            <div className="px-6 pb-6 pt-2 border-t border-brand-sand/40 text-sm text-brand-taupe font-light leading-relaxed space-y-4">
-                              {topic.paragraphs.map((p, pIdx) => <p key={pIdx}>{p}</p>)}
-                              {Array.isArray(topic.listItems) && (
-                                <div className="pt-1">
-                                  {topic.listTitle && <p className="font-semibold mb-2">{topic.listTitle}</p>}
-                                  <ListTag className={`${topic.listType === 'decimal' ? 'list-decimal' : 'list-disc'} pl-5 space-y-1`}>
-                                    {topic.listItems.map((li, lIdx) => <li key={lIdx}>{li}</li>)}
-                                  </ListTag>
-                                </div>
-                              )}
-                              {topic.afterList?.map((p, aIdx) => <p key={aIdx}>{p}</p>)}
-                              {topic.closing && <p className="italic pt-1 font-medium text-brand-black/80">{topic.closing}</p>}
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  );
-                })}
-              </div>
-            </motion.section>
-
-            {/* EDITORIAL ARTICLE (SOSTITUISCE IL CONTAINER SORO) */}
+          
+          {/* ARTICLE CONTENT */}
+          <main className="lg:col-span-8">
             <motion.article 
               initial={{ opacity: 0, y: 30 }} 
               whileInView={{ opacity: 1, y: 0 }} 
@@ -371,7 +209,7 @@ export default function BuyersGuide() {
               transition={{ duration: 0.7 }} 
               className="bg-brand-white p-8 md:p-12 rounded-2xl border border-brand-sand shadow-sm space-y-10"
             >
-              {/* Intestazione Articolo */}
+              {/* Header */}
               <div className="border-b border-brand-sand/70 pb-8 space-y-4">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <span className="inline-flex items-center gap-1.5 text-[11px] font-bold tracking-[0.2em] uppercase text-brand-gold bg-brand-beige px-3 py-1 rounded-full border border-brand-sand">
@@ -391,7 +229,7 @@ export default function BuyersGuide() {
                 </p>
               </div>
 
-              {/* Paragrafi Introduttivi */}
+              {/* Intro paragraphs */}
               <div className="space-y-4 text-sm md:text-base text-brand-taupe font-light leading-relaxed">
                 {Array.isArray(introParagraphs) && introParagraphs.map((para, i) => (
                   <p key={i} className={i === 4 ? "text-lg font-serif font-bold text-brand-black pt-2" : ""}>
@@ -400,7 +238,7 @@ export default function BuyersGuide() {
                 ))}
               </div>
 
-              {/* Box Caso Studio: Castrignano del Capo */}
+              {/* Case Study Callout Box */}
               <div className="bg-brand-beige/80 border-l-4 border-brand-gold rounded-r-xl p-6 md:p-8 space-y-4">
                 <div className="flex items-center gap-2 text-brand-black font-serif text-xl font-medium">
                   <AlertTriangle className="w-5 h-5 text-brand-gold flex-shrink-0" />
@@ -422,7 +260,7 @@ export default function BuyersGuide() {
                 <p className="text-sm text-brand-taupe font-light leading-relaxed">{t('buyersGuidePage.article.caseStudy.p8')}</p>
               </div>
 
-              {/* Il Problema del Circuito Chiuso */}
+              {/* The Closed-Circle Problem */}
               <div className="space-y-4 text-sm md:text-base text-brand-taupe font-light leading-relaxed">
                 <h3 className="text-2xl font-serif text-brand-black pt-4">
                   {t('buyersGuidePage.article.closedCircle.title')}
@@ -444,7 +282,7 @@ export default function BuyersGuide() {
                 </blockquote>
               </div>
 
-              {/* Negoziazione */}
+              {/* Negotiation Section */}
               <div className="space-y-4 text-sm md:text-base text-brand-taupe font-light leading-relaxed">
                 <h3 className="text-2xl font-serif text-brand-black pt-4">
                   {t('buyersGuidePage.article.negotiation.title')}
@@ -457,7 +295,7 @@ export default function BuyersGuide() {
                 </div>
               </div>
 
-              {/* Griglia Comparativa: Immobile A vs Immobile B */}
+              {/* Property A vs Property B Comparison */}
               <div className="space-y-6 pt-4">
                 <h3 className="text-2xl font-serif text-brand-black">
                   {t('buyersGuidePage.article.comparison.title')}
@@ -496,7 +334,7 @@ export default function BuyersGuide() {
                 </p>
               </div>
 
-              {/* 8 Ambiti di Verifica */}
+              {/* What should be investigated checklist */}
               <div className="space-y-6 pt-4">
                 <h3 className="text-2xl font-serif text-brand-black">
                   {t('buyersGuidePage.article.investigation.title')}
@@ -518,7 +356,7 @@ export default function BuyersGuide() {
                 </div>
               </div>
 
-              {/* Strategia & Processo in 8 Step */}
+              {/* Strategy and Framework (8 Steps) */}
               <div className="space-y-6 pt-4">
                 <h3 className="text-2xl font-serif text-brand-black">
                   {t('buyersGuidePage.article.strategy.title')}
@@ -548,7 +386,7 @@ export default function BuyersGuide() {
                 </div>
               </div>
 
-              {/* Se hai già acquistato */}
+              {/* What if you have already bought? */}
               <div className="bg-brand-beige p-6 md:p-8 rounded-xl border border-brand-sand space-y-3">
                 <h3 className="text-xl font-serif text-brand-black font-medium">
                   {t('buyersGuidePage.article.lateSection.title')}
@@ -567,7 +405,7 @@ export default function BuyersGuide() {
                 </p>
               </div>
 
-              {/* Le 5 Domande Chiave */}
+              {/* 5 Questions Box */}
               <div className="bg-brand-black text-brand-white p-8 rounded-2xl space-y-6">
                 <div className="flex items-center gap-2">
                   <HelpCircle className="w-6 h-6 text-brand-gold flex-shrink-0" />
@@ -584,7 +422,7 @@ export default function BuyersGuide() {
                 </div>
               </div>
 
-              {/* Conclusione & CTA */}
+              {/* Conclusion & CTA */}
               <div className="pt-6 border-t border-brand-sand/80 space-y-5 text-center max-w-2xl mx-auto">
                 <h3 className="text-2xl font-serif text-brand-black">
                   {t('buyersGuidePage.article.conclusion.title')}
@@ -611,12 +449,17 @@ export default function BuyersGuide() {
                 </div>
               </div>
             </motion.article>
-
           </main>
 
           {/* SIDEBAR */}
           <aside className="lg:col-span-4 space-y-8">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="bg-brand-sand/20 p-6 rounded-xl border border-brand-sand shadow-xs text-center space-y-4 sticky top-28">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.6 }} 
+              className="bg-brand-sand/20 p-6 rounded-xl border border-brand-sand shadow-xs text-center space-y-4 sticky top-28"
+            >
               <h3 className="font-serif text-lg text-brand-black">{t('buyersGuidePage.sidebar.guidanceTitle')}</h3>
               <p className="text-xs text-brand-taupe font-light leading-relaxed">{t('buyersGuidePage.sidebar.guidanceDesc')}</p>
               <a href="https://wa.me/447465207494" target="_blank" rel="noreferrer" className="bg-brand-gold text-brand-black block px-4 py-3 rounded-md font-bold text-xs tracking-wider uppercase hover:bg-brand-black hover:text-brand-white transition-all shadow-xs">
