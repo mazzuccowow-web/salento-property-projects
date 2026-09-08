@@ -9,7 +9,8 @@ import { motion, AnimatePresence } from 'motion/react';
 import { 
   Search, ClipboardList, ShieldCheck, Handshake, Key, 
   Landmark, Phone, Mail, ArrowRight, Layers, MapPin, 
-  Hammer, ChevronDown 
+  Hammer, ChevronDown, BookOpen, Clock, AlertTriangle, 
+  CheckCircle2, HelpCircle
 } from 'lucide-react';
 
 import copImg from "../photo/cop.png";
@@ -23,20 +24,10 @@ export default function BuyersGuide() {
   const [activeTopic, setActiveTopic] = useState<number | null>(null);
 
   useEffect(() => {
-    // Soro SEO Script
-    const script = document.createElement('script');
-    script.src = "https://app.trysoro.com/api/embed/bb2cb9bd-d6eb-475e-b4be-112bff94a8eb";
-    script.defer = true;
-    document.body.appendChild(script);
-
     // Meta Pixel PageView
     if (typeof window !== 'undefined' && (window as any).fbq) {
       (window as any).fbq('track', 'PageView');
     }
-
-    return () => {
-      document.body.removeChild(script);
-    };
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -76,7 +67,7 @@ export default function BuyersGuide() {
       .catch(() => setFormStatus('error'));
   };
 
-  // 5 STEP DEL PROCESSO TRADOTTI
+  // 5 STEP DEL PROCESSO
   const buyingSteps = [
     { step: '1', name: t('buyersGuidePage.steps.s1.name'), desc: t('buyersGuidePage.steps.s1.desc'), icon: Search },
     { step: '2', name: t('buyersGuidePage.steps.s2.name'), desc: t('buyersGuidePage.steps.s2.desc'), icon: ClipboardList },
@@ -85,7 +76,7 @@ export default function BuyersGuide() {
     { step: '5', name: t('buyersGuidePage.steps.s5.name'), desc: t('buyersGuidePage.steps.s5.desc'), icon: Key },
   ];
 
-  // 6 ARGOMENTI TRADOTTI
+  // 6 ARGOMENTI ACCORDION
   const topicsData = [
     {
       title: t('buyersGuidePage.topics.t1.title'),
@@ -153,9 +144,14 @@ export default function BuyersGuide() {
     }
   ];
 
+  const introParagraphs = t('buyersGuidePage.article.intro', { returnObjects: true }) as string[];
+  const investigationItems = t('buyersGuidePage.article.investigation.items', { returnObjects: true }) as Array<{ label: string; desc: string }>;
+  const frameworkSteps = t('buyersGuidePage.article.framework.steps', { returnObjects: true }) as string[];
+
   return (
     <div className="pt-32 pb-24 bg-brand-beige min-h-screen" id="buyers-guide-page">
       <div className="max-w-7xl mx-auto px-6">
+        
         {/* BANNER COVER */}
         <motion.section 
           initial={{ opacity: 0, y: -20 }}
@@ -284,6 +280,7 @@ export default function BuyersGuide() {
         {/* TWO COLUMNS LAYOUT */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <main className="lg:col-span-8 space-y-16">
+            
             {/* OVERVIEW */}
             <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="bg-brand-white p-8 rounded-xl border border-brand-sand shadow-sm space-y-8">
               <h2 className="text-2xl font-serif text-brand-black border-b border-brand-sand pb-4">
@@ -366,46 +363,286 @@ export default function BuyersGuide() {
               </div>
             </motion.section>
 
-            {/* BLOG SECTION */}
-            <motion.section initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="space-y-6 pt-6 border-t border-brand-sand">
-              <div>
-                <h2 className="text-3xl font-serif text-brand-black">{t('buyersGuidePage.blog.title')}</h2>
-                <p className="text-brand-taupe font-light mt-1">{t('buyersGuidePage.blog.subtitle')}</p>
+            {/* EDITORIAL ARTICLE (SOSTITUISCE IL CONTAINER SORO) */}
+            <motion.article 
+              initial={{ opacity: 0, y: 30 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.7 }} 
+              className="bg-brand-white p-8 md:p-12 rounded-2xl border border-brand-sand shadow-sm space-y-10"
+            >
+              {/* Intestazione Articolo */}
+              <div className="border-b border-brand-sand/70 pb-8 space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <span className="inline-flex items-center gap-1.5 text-[11px] font-bold tracking-[0.2em] uppercase text-brand-gold bg-brand-beige px-3 py-1 rounded-full border border-brand-sand">
+                    <BookOpen className="w-3.5 h-3.5" />
+                    {t('buyersGuidePage.article.tag')}
+                  </span>
+                  <span className="flex items-center gap-1.5 text-xs text-brand-taupe font-light">
+                    <Clock className="w-3.5 h-3.5 text-brand-gold" />
+                    {t('buyersGuidePage.article.readTime')}
+                  </span>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-serif text-brand-black leading-tight font-normal">
+                  {t('buyersGuidePage.article.title')}
+                </h2>
+                <p className="text-base md:text-lg text-brand-taupe font-serif italic leading-relaxed">
+                  {t('buyersGuidePage.article.subtitle')}
+                </p>
               </div>
-              <div className="bg-brand-white p-4 rounded-xl border border-brand-sand shadow-sm min-h-[400px]">
-                <div id="soro-blog"></div>
+
+              {/* Paragrafi Introduttivi */}
+              <div className="space-y-4 text-sm md:text-base text-brand-taupe font-light leading-relaxed">
+                {Array.isArray(introParagraphs) && introParagraphs.map((para, i) => (
+                  <p key={i} className={i === 4 ? "text-lg font-serif font-bold text-brand-black pt-2" : ""}>
+                    {para}
+                  </p>
+                ))}
               </div>
-            </motion.section>
+
+              {/* Box Caso Studio: Castrignano del Capo */}
+              <div className="bg-brand-beige/80 border-l-4 border-brand-gold rounded-r-xl p-6 md:p-8 space-y-4">
+                <div className="flex items-center gap-2 text-brand-black font-serif text-xl font-medium">
+                  <AlertTriangle className="w-5 h-5 text-brand-gold flex-shrink-0" />
+                  <h3>{t('buyersGuidePage.article.caseStudy.title')}</h3>
+                </div>
+                <p className="text-sm text-brand-taupe font-light leading-relaxed">{t('buyersGuidePage.article.caseStudy.p1')}</p>
+                <p className="text-xs text-brand-taupe/80 italic">{t('buyersGuidePage.article.caseStudy.p2')}</p>
+                <p className="text-sm text-brand-taupe font-light leading-relaxed">{t('buyersGuidePage.article.caseStudy.p3')}</p>
+                <p className="text-sm text-brand-taupe font-light leading-relaxed">{t('buyersGuidePage.article.caseStudy.p4')}</p>
+                
+                <div className="my-4 bg-brand-white p-4 rounded-lg border border-brand-sand">
+                  <p className="text-sm font-semibold text-brand-black">{t('buyersGuidePage.article.caseStudy.p5')}</p>
+                  <p className="text-xs text-brand-taupe mt-1">{t('buyersGuidePage.article.caseStudy.p6')}</p>
+                  <p className="text-sm text-brand-taupe mt-3">{t('buyersGuidePage.article.caseStudy.p7')}</p>
+                  <div className="mt-3 p-3 bg-red-50 border border-red-200 rounded text-red-900 font-serif font-bold text-sm md:text-base">
+                    {t('buyersGuidePage.article.caseStudy.highlight')}
+                  </div>
+                </div>
+                <p className="text-sm text-brand-taupe font-light leading-relaxed">{t('buyersGuidePage.article.caseStudy.p8')}</p>
+              </div>
+
+              {/* Il Problema del Circuito Chiuso */}
+              <div className="space-y-4 text-sm md:text-base text-brand-taupe font-light leading-relaxed">
+                <h3 className="text-2xl font-serif text-brand-black pt-4">
+                  {t('buyersGuidePage.article.closedCircle.title')}
+                </h3>
+                <p>{t('buyersGuidePage.article.closedCircle.p1')}</p>
+                <p>{t('buyersGuidePage.article.closedCircle.p2')}</p>
+                <p>{t('buyersGuidePage.article.closedCircle.p3')}</p>
+                <p>{t('buyersGuidePage.article.closedCircle.p4')}</p>
+                <p>{t('buyersGuidePage.article.closedCircle.p5')}</p>
+
+                <h4 className="text-xl font-serif text-brand-black pt-4 font-medium">
+                  {t('buyersGuidePage.article.closedCircle.subTitle')}
+                </h4>
+                <p>{t('buyersGuidePage.article.closedCircle.p6')}</p>
+                <p>{t('buyersGuidePage.article.closedCircle.p7')}</p>
+                
+                <blockquote className="my-6 border-l-2 border-brand-gold pl-6 py-2 italic font-serif text-base md:text-lg text-brand-black">
+                  {t('buyersGuidePage.article.closedCircle.quote')}
+                </blockquote>
+              </div>
+
+              {/* Negoziazione */}
+              <div className="space-y-4 text-sm md:text-base text-brand-taupe font-light leading-relaxed">
+                <h3 className="text-2xl font-serif text-brand-black pt-4">
+                  {t('buyersGuidePage.article.negotiation.title')}
+                </h3>
+                <p>{t('buyersGuidePage.article.negotiation.p1')}</p>
+                <p>{t('buyersGuidePage.article.negotiation.p2')}</p>
+                <p>{t('buyersGuidePage.article.negotiation.p3')}</p>
+                <div className="bg-brand-sand/20 p-5 rounded-lg border border-brand-sand text-brand-black text-sm italic font-serif">
+                  {t('buyersGuidePage.article.negotiation.p4')}
+                </div>
+              </div>
+
+              {/* Griglia Comparativa: Immobile A vs Immobile B */}
+              <div className="space-y-6 pt-4">
+                <h3 className="text-2xl font-serif text-brand-black">
+                  {t('buyersGuidePage.article.comparison.title')}
+                </h3>
+                <p className="text-sm md:text-base text-brand-taupe font-light leading-relaxed">
+                  {t('buyersGuidePage.article.comparison.intro')}
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                  <div className="bg-brand-beige p-6 rounded-xl border border-brand-sand space-y-2">
+                    <span className="text-xs uppercase tracking-widest text-brand-taupe font-bold">Comparison</span>
+                    <h4 className="text-lg font-serif text-brand-black font-semibold">
+                      {t('buyersGuidePage.article.comparison.propA.title')}
+                    </h4>
+                    <p className="text-sm text-brand-taupe">{t('buyersGuidePage.article.comparison.propA.price')}</p>
+                    <p className="text-sm text-brand-taupe">{t('buyersGuidePage.article.comparison.propA.reno')}</p>
+                    <p className="text-base font-bold text-brand-black pt-2 border-t border-brand-sand/60">
+                      {t('buyersGuidePage.article.comparison.propA.total')}
+                    </p>
+                  </div>
+
+                  <div className="bg-brand-white p-6 rounded-xl border-2 border-brand-gold shadow-sm space-y-2 relative">
+                    <span className="text-xs uppercase tracking-widest text-brand-gold font-bold">More Rational</span>
+                    <h4 className="text-lg font-serif text-brand-black font-semibold">
+                      {t('buyersGuidePage.article.comparison.propB.title')}
+                    </h4>
+                    <p className="text-sm text-brand-taupe">{t('buyersGuidePage.article.comparison.propB.price')}</p>
+                    <p className="text-sm text-brand-taupe">{t('buyersGuidePage.article.comparison.propB.reno')}</p>
+                    <p className="text-base font-bold text-brand-black pt-2 border-t border-brand-sand/60">
+                      {t('buyersGuidePage.article.comparison.propB.total')}
+                    </p>
+                  </div>
+                </div>
+                <p className="text-xs md:text-sm text-brand-taupe italic">
+                  {t('buyersGuidePage.article.comparison.note')}
+                </p>
+              </div>
+
+              {/* 8 Ambiti di Verifica */}
+              <div className="space-y-6 pt-4">
+                <h3 className="text-2xl font-serif text-brand-black">
+                  {t('buyersGuidePage.article.investigation.title')}
+                </h3>
+                <p className="text-sm text-brand-taupe font-light">
+                  {t('buyersGuidePage.article.investigation.intro')}
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {Array.isArray(investigationItems) && investigationItems.map((item, idx) => (
+                    <div key={idx} className="p-4 bg-brand-beige/50 rounded-lg border border-brand-sand/70 space-y-1">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-brand-gold flex-shrink-0" />
+                        <h4 className="text-sm font-semibold text-brand-black">{item.label}</h4>
+                      </div>
+                      <p className="text-xs text-brand-taupe font-light pl-6 leading-relaxed">{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Strategia & Processo in 8 Step */}
+              <div className="space-y-6 pt-4">
+                <h3 className="text-2xl font-serif text-brand-black">
+                  {t('buyersGuidePage.article.strategy.title')}
+                </h3>
+                <p className="text-sm md:text-base text-brand-taupe font-light leading-relaxed">
+                  {t('buyersGuidePage.article.strategy.p1')}
+                </p>
+                <p className="text-sm md:text-base text-brand-taupe font-light leading-relaxed">
+                  {t('buyersGuidePage.article.strategy.p2')}
+                </p>
+
+                <div className="bg-brand-white p-6 rounded-xl border border-brand-sand space-y-4 mt-6">
+                  <h4 className="text-lg font-serif text-brand-black font-semibold">
+                    {t('buyersGuidePage.article.framework.title')}
+                  </h4>
+                  <p className="text-xs text-brand-taupe">{t('buyersGuidePage.article.framework.intro')}</p>
+                  <ol className="space-y-2.5 pt-2">
+                    {Array.isArray(frameworkSteps) && frameworkSteps.map((step, idx) => (
+                      <li key={idx} className="text-xs md:text-sm text-brand-taupe font-light flex items-start gap-2.5">
+                        <span className="w-5 h-5 rounded-full bg-brand-beige text-brand-gold font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">
+                          {idx + 1}
+                        </span>
+                        <span className="leading-snug">{step}</span>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              </div>
+
+              {/* Se hai già acquistato */}
+              <div className="bg-brand-beige p-6 md:p-8 rounded-xl border border-brand-sand space-y-3">
+                <h3 className="text-xl font-serif text-brand-black font-medium">
+                  {t('buyersGuidePage.article.lateSection.title')}
+                </h3>
+                <p className="text-base font-serif italic text-brand-gold font-semibold">
+                  {t('buyersGuidePage.article.lateSection.quote')}
+                </p>
+                <p className="text-sm text-brand-taupe font-light leading-relaxed">
+                  {t('buyersGuidePage.article.lateSection.p1')}
+                </p>
+                <p className="text-sm text-brand-taupe font-light leading-relaxed">
+                  {t('buyersGuidePage.article.lateSection.p2')}
+                </p>
+                <p className="text-sm text-brand-black font-medium pt-1">
+                  {t('buyersGuidePage.article.lateSection.p3')}
+                </p>
+              </div>
+
+              {/* Le 5 Domande Chiave */}
+              <div className="bg-brand-black text-brand-white p-8 rounded-2xl space-y-6">
+                <div className="flex items-center gap-2">
+                  <HelpCircle className="w-6 h-6 text-brand-gold flex-shrink-0" />
+                  <h3 className="text-xl md:text-2xl font-serif text-brand-white">
+                    {t('buyersGuidePage.article.fiveQuestions.title')}
+                  </h3>
+                </div>
+                <div className="space-y-3 text-xs md:text-sm font-light text-brand-sand">
+                  <p className="p-3 bg-brand-white/5 rounded border border-brand-white/10">{t('buyersGuidePage.article.fiveQuestions.q1')}</p>
+                  <p className="p-3 bg-brand-white/5 rounded border border-brand-white/10">{t('buyersGuidePage.article.fiveQuestions.q2')}</p>
+                  <p className="p-3 bg-brand-white/5 rounded border border-brand-white/10">{t('buyersGuidePage.article.fiveQuestions.q3')}</p>
+                  <p className="p-3 bg-brand-white/5 rounded border border-brand-white/10">{t('buyersGuidePage.article.fiveQuestions.q4')}</p>
+                  <p className="p-3 bg-brand-white/5 rounded border border-brand-white/10">{t('buyersGuidePage.article.fiveQuestions.q5')}</p>
+                </div>
+              </div>
+
+              {/* Conclusione & CTA */}
+              <div className="pt-6 border-t border-brand-sand/80 space-y-5 text-center max-w-2xl mx-auto">
+                <h3 className="text-2xl font-serif text-brand-black">
+                  {t('buyersGuidePage.article.conclusion.title')}
+                </h3>
+                <p className="text-lg font-serif italic text-brand-gold font-medium">
+                  {t('buyersGuidePage.article.conclusion.highlight')}
+                </p>
+                <p className="text-sm text-brand-taupe font-light leading-relaxed">
+                  {t('buyersGuidePage.article.conclusion.p1')}
+                </p>
+                <p className="text-sm text-brand-taupe font-light leading-relaxed">
+                  {t('buyersGuidePage.article.conclusion.p2')}
+                </p>
+                <div className="pt-4">
+                  <a
+                    href="https://wa.me/447465207494"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 bg-brand-gold text-brand-black px-8 py-4 rounded-md font-bold text-xs tracking-wider uppercase hover:bg-brand-black hover:text-brand-white transition-all shadow-md"
+                  >
+                    <span>{t('buyersGuidePage.sidebar.guidanceBtn')}</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+            </motion.article>
+
           </main>
 
           {/* SIDEBAR */}
           <aside className="lg:col-span-4 space-y-8">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="bg-brand-sand/20 p-6 rounded-xl border border-brand-sand shadow-xs text-center space-y-4">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="bg-brand-sand/20 p-6 rounded-xl border border-brand-sand shadow-xs text-center space-y-4 sticky top-28">
               <h3 className="font-serif text-lg text-brand-black">{t('buyersGuidePage.sidebar.guidanceTitle')}</h3>
               <p className="text-xs text-brand-taupe font-light leading-relaxed">{t('buyersGuidePage.sidebar.guidanceDesc')}</p>
               <a href="https://wa.me/447465207494" target="_blank" rel="noreferrer" className="bg-brand-gold text-brand-black block px-4 py-3 rounded-md font-bold text-xs tracking-wider uppercase hover:bg-brand-black hover:text-brand-white transition-all shadow-xs">
                 {t('buyersGuidePage.sidebar.guidanceBtn')}
               </a>
-            </motion.div>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="bg-brand-white p-6 rounded-xl border border-brand-sand shadow-xs space-y-4">
-              <h3 className="font-serif text-lg text-brand-black border-b border-brand-sand pb-3">{t('buyersGuidePage.sidebar.questionsTitle')}</h3>
-              <p className="text-xs text-brand-taupe font-light leading-relaxed">{t('buyersGuidePage.sidebar.questionsDesc')}</p>
-              <div className="space-y-3 text-xs text-brand-taupe font-light">
-                <a href="mailto:office@salentopropertyprojects.co.uk" className="flex items-center space-x-2 hover:text-brand-gold transition-colors">
-                  <Mail className="w-4 h-4 text-brand-gold" />
-                  <span>office@salentopropertyprojects.co.uk</span>
-                </a>
-                <a href="tel:+447465207494" className="flex items-center space-x-2 hover:text-brand-gold transition-colors">
-                  <Phone className="w-4 h-4 text-brand-gold" />
-                  <span>+44 7465 207494 (UK)</span>
+              <div className="pt-6 border-t border-brand-sand/60 space-y-4 text-left">
+                <h3 className="font-serif text-lg text-brand-black border-b border-brand-sand pb-3">{t('buyersGuidePage.sidebar.questionsTitle')}</h3>
+                <p className="text-xs text-brand-taupe font-light leading-relaxed">{t('buyersGuidePage.sidebar.questionsDesc')}</p>
+                <div className="space-y-3 text-xs text-brand-taupe font-light">
+                  <a href="mailto:office@salentopropertyprojects.co.uk" className="flex items-center space-x-2 hover:text-brand-gold transition-colors">
+                    <Mail className="w-4 h-4 text-brand-gold" />
+                    <span>office@salentopropertyprojects.co.uk</span>
+                  </a>
+                  <a href="tel:+447465207494" className="flex items-center space-x-2 hover:text-brand-gold transition-colors">
+                    <Phone className="w-4 h-4 text-brand-gold" />
+                    <span>+44 7465 207494 (UK)</span>
+                  </a>
+                </div>
+                <a href="/contact" className="border border-brand-gold text-brand-black block text-center py-2.5 rounded-md font-bold text-xs tracking-wider uppercase hover:bg-brand-gold transition-all">
+                  {t('buyersGuidePage.sidebar.questionsBtn')}
                 </a>
               </div>
-              <a href="/contact" className="border border-brand-gold text-brand-black block text-center py-2.5 rounded-md font-bold text-xs tracking-wider uppercase hover:bg-brand-gold transition-all">
-                {t('buyersGuidePage.sidebar.questionsBtn')}
-              </a>
             </motion.div>
           </aside>
+
         </div>
       </div>
     </div>
